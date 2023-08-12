@@ -31,8 +31,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["pbi_project.herokuapp.com",
-                 "8000-gazamcnulty-pp4-plant-ba-wo8nj9ioty.us2.codeanyapp.com"]
+ALLOWED_HOSTS = ['pbi_project.herokuapp.com',
+                 '8000-gazamcnulty-pp4-plant-ba-wo8nj9ioty.us2.codeanyapp.com',
+                 'pp4-plant-based-ireland-e840f182e648.herokuapp.com']
 
 
 # Application definition
