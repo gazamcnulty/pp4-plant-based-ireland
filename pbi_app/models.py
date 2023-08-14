@@ -12,7 +12,10 @@ class Content(models.Model):
     photo = CloudinaryField('image', default='placeholder')
     extra_info = models.TextField(null=True, blank=True)
     slug = models.SlugField(unique=True, null=True)
+    status = models.IntegerField(choices=STATUS, default=0)
     date_of_post = models.DateTimeField(auto_now_add=True)
+    hearts = models.ManyToManyField(User, related_name='heart', blank=True)
+    takeaway_available = models.BooleanField(default=False, null=True)
 
     def __str__(self):
         return self.title_of_post
