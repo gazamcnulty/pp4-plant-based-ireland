@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Content
+from .models import Post
 
 
 # Create your views here.
 
 
 def home_page(request):
-    return render(request, 'index.html')
+    posts = Post.objects.all()
+    return render(request, 'index.html', {'posts': posts})
 
 
 def about_us(request):
