@@ -8,7 +8,10 @@ from .models import Post
 
 def home_page(request):
     posts = Post.objects.all()
-    return render(request, 'index.html', {'posts': posts})
+    context = {
+        'posts': posts
+    }
+    return render(request, 'index.html', context)
 
 
 def about_us(request):
