@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Post
 
@@ -16,3 +16,13 @@ def home_page(request):
 
 def about_us(request):
     return render(request, 'about_us.html')
+
+
+def add_post(request):
+    if request.method == 'POST':
+        title = request.POST.get('form_title')
+        content = request.POST.get('form_content')
+        Post.objects.create(title=title, content=content)
+        return redirect('')
+
+    return render(request, 'add_post.html')
