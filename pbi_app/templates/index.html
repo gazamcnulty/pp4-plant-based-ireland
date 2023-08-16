@@ -13,8 +13,8 @@
     <td>
       <h3>{{ post.title }}</h3>
     </td>
-    <td>{{ post.created_on }}</td>
     <td>{{ post.content }}</td>
+    <td><a href="/edit/{{ post.id }}">Edit</a></td>
   </tr>
   {% endfor %}
 </table>
