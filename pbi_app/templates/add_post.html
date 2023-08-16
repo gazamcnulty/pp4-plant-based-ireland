@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 <!--this is the block content section-->
-<form method="POST" action="" id="add_post_form">
+<form method="POST" action="add" id="add_post_form">
   {% csrf_token %}
   <div>
     <label for="form_title">Title</label>

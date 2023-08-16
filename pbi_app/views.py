@@ -23,6 +23,6 @@ def add_post(request):
         title = request.POST.get('form_title')
         content = request.POST.get('form_content')
         Post.objects.create(title=title, content=content)
-        return redirect('')
+        return redirect('home_page')
 
     return render(request, 'add_post.html')
