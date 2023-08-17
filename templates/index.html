@@ -11,12 +11,10 @@
   {% for post in posts %}
   <tr>
     <td>
-      <h3>{{ post.title }}</h3>
+      <a href="">{{post.title}}</a>
     </td>
-    <td>{{ post.content }}</td>
     <td><a href="/edit/{{ post.id }}">Edit</a></td>
     <td><a href="/delete/{{ post.id }}">Delete</a></td>
-    <td><a href="/post_detail/{{ post.id }}">Comment</a></td>
   </tr>
   {% endfor %}
 </table>
