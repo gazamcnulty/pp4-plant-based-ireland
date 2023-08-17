@@ -17,8 +17,8 @@ class PostAdmin(SummernoteModelAdmin):
         queryset.update(approved=True)
 
 
-#@admin.register(Comment)
-#class CommentAdmin(admin.ModelAdmin):
+# @admin.register(Comment)
+# class CommentAdmin(admin.ModelAdmin):
 #    list_display = ('name', 'body', 'post', 'created_on', 'approved')
 #    list_filter = ('approved', 'created_on')
 #    search_fields = ('name', 'email', 'body')

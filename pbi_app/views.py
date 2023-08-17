@@ -52,6 +52,9 @@ def delete_post(request, post_id):
     return redirect('home_page')
 
 
-#def post_detail(request, post):
-#    post = get_object_or_404(Post, slug=post)
-#    return render(request, 'post_detail.html')
+def post_detail(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    context = {
+        'post': post
+    }
+    return render(request, 'post_detail.html', context)
