@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<!--this is the block content section-->
+<h1>Submit a comment</h1>
+<form method="POST" id="add_comment_form">
+  {% csrf_token %}
+  <div>
+    {{ form.as_p }}
+  <div>
+    <button type="submit" id="add_comment_form" value="Submit">Submit comment</button>
+  </div>
+</form>
+
+{% endblock %}
