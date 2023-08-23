@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 <!--below here is the block content-->
-{% block content %}
+{% block content %} {% include 'navbar.html' %}
 <!--this is the block content section-->
 <h1>Home page</h1>
 <a href="{% url 'about_us' %}">click here to go to about_us</a>

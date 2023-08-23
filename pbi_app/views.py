@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Post, Comment
-from .forms import PostForm, CommentForm
+from .forms import PostForm  # ,CommentForm
 
 
 # Create your views here.
@@ -46,21 +46,29 @@ def edit_post(request, post_id):
     return render(request, 'edit_post.html', context)
 
 
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    post.delete()
+    return redirect('home_page')
+
+
 def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
-    new_comment = None
-
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            new_comment = form.save(commit=False)
-            new_comment.post = post
-            new_comment.save()
-            return redirect('home_page')
-        else:
-            form = CommentForm()
-    form = CommentForm()
+#   ----------------------
+#
+#    new_comment = None
+#
+#    if request.method == 'POST':
+#        form = CommentForm(request.POST)
+#        if form.is_valid():
+#            new_comment = form.save(commit=False)
+#            new_comment.post = post
+#            new_comment.save()
+#            return redirect('home_page')
+#        else:
+#            form = CommentForm()
+#    form = CommentForm()
 #
 #
 #   ---------------------
@@ -84,15 +92,9 @@ def post_detail(request, post_id):
 #   ---------------
     context = {
         'post': post,
-        'form': form
+        #        'form': form
         #        'comments': comments,
         #        'new_comment': new_comment,
         #        'comment_form': comment_form
     }
     return render(request, 'post_detail.html', context)
-
-
-def delete_post(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    post.delete()
-    return redirect('home_page')
