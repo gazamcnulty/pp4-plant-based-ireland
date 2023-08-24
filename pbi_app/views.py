@@ -16,14 +16,25 @@ def home_page(request):
     return render(request, 'index.html', context)
 
 
-def search(request):
-    q = request.GET.get('q') if request.GET.get('q') != None else ''
-    posts = Post.objects.filter(
-        title__icontains=q, content__icontains=q)
-    context = {
-        'posts': posts
-    }
-    return render(request, 'search.html')
+def search_results(request):
+    if request.method == "POST":
+        search_response = request.POST['search_response']
+        posts = Post.objects.filter(
+            title__icontains=search_response)
+        contents = Post.objects.filter(
+            content__icontains=search_response)
+        return render(request, 'search_results.html',
+                      {'search_response': search_response, 'posts': posts, 'contents': contents})
+    else:
+        return render(request, 'search_results.html',
+                      {'search_response': search_response})
+
+    #    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    #    posts = Post.objects.filter(
+    #        title__icontains=q, content__icontains=q)
+    #    context = {
+    #        'posts': posts
+    #    }
 
 
 def about_us(request):

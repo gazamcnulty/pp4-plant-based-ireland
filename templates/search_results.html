@@ -1,0 +1,16 @@
+{%extends "base.html" %} {% block content %}
+
+<h2>This is the search results page</h2>
+<p>the results should be just below here</p>
+<hr />
+{% if search_response %}
+<h3>You have searched for:</h3>
+{{search_response}}
+<h3>We found the following results</h3>
+{% for post in posts %}
+<a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
+{% for content in contents %} {{post.title}}{{post.content}} {% endfor %}
+<br />
+{% endfor %} {% else %}
+<h3>No search info provided, please try again</h3>
+{% endif %} {% endblock %}
