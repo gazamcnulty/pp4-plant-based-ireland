@@ -6,7 +6,8 @@
   <div>
     {{ form.as_p }}
   <div>
-    <button type="submit">Edit post</button>
+    <a href="{{request.META.HTTP_REFERER}}">Click here to go back</a>
+    <button type="submit">Confirm changes</button>
   </div>
 </form>
 

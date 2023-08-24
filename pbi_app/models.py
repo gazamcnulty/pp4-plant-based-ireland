@@ -14,8 +14,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts", null=True
     )
-    featured_image = CloudinaryField('image', default='placeholder')
-    excerpt = models.TextField(blank=True, null=True)
+    featured_image = CloudinaryField('image', default='placeholder_image')
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField(null=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -37,15 +36,14 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                             related_name="comments")
-    name = models.CharField(max_length=80, null=True)
-    body = models.TextField(null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments")
+    body = models.TextField(max_length=80, null=True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
-    approved = models.BooleanField(default=False, null=True)
 
     class Meta:
         ordering = ["created_on"]
 
     def __str__(self):
-        return self.name
+        return self.body

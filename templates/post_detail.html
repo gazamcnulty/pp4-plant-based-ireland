@@ -1,7 +1,9 @@
 <h3>Post detail page</h3>
 
-{{post.title}} {{post.content}}{% for comment in comments %} {{comment.name}}
-{{comment.body}} {% endfor %}
+<h4>{{post.title}}</h4>
+<p>{{post.content}}</p>
+<div>{{post.featured_image}}</div>
+<div>{{comment.body}}</div>
 <!--<h1>Submit a comment</h1>
 <form method="POST" id="add_comment_form">
     {% csrf_token %}
