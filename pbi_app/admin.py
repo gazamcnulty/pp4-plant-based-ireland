@@ -20,7 +20,7 @@ class PostAdmin(SummernoteModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('body', 'post', 'created_on',)
     list_filter = ('created_on',)
-    search_fields = ('email', 'body')
+    search_fields = ('body',)
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)

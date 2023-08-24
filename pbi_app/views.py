@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Q
 from django.http import HttpResponse
 from .models import Post, Comment
 from .forms import PostForm  # CommentForm
@@ -13,6 +14,16 @@ def home_page(request):
         'posts': posts
     }
     return render(request, 'index.html', context)
+
+
+def search(request):
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    posts = Post.objects.filter(
+        title__icontains=q, content__icontains=q)
+    context = {
+        'posts': posts
+    }
+    return render(request, 'search.html')
 
 
 def about_us(request):

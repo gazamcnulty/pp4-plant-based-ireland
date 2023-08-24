@@ -8,6 +8,7 @@ from pbi_app import views
 urlpatterns = [
     path('', views.home_page, name='home_page'),
     path('about_us/', views.about_us, name='about_us'),
+    path('search/', views.search, name='search'),
     path('add', views.add_post, name='add_post'),
     path('edit/<post_id>', views.edit_post, name='edit_post'),
     path('delete/<post_id>', views.delete_post, name='delete_post'),
