@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import Q
@@ -32,6 +34,12 @@ def login_base(request):
             messages.error(request, "User credentials not recognised. Please check and try again")
     context = {}
     return render(request, 'login_base.html', context)
+#    messages.add_message(request, messages.INFO, "You have successfully logged out")
+
+
+def logout_base(request):
+    logout(request)
+    return redirect('home_page')
 
 
 def home_page(request):
@@ -66,21 +74,26 @@ def search_results(request):
 def about_us(request):
     return render(request, 'about_us.html')
 
-
+@login_required(login_url='login_base')
 def add_post(request):
     form = PostForm()
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
+#            form.instance.user = request.user
             form.save()
             return redirect('home_page')
     context = {'form': form}
     return render(request, 'add_post.html', context)
 
 
+@login_required(login_url='login_base')
 def edit_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     form = PostForm(instance=post)
+
+    if request.user != post.author:
+        return HttpResponse('You cannot edit posts submitted by other users')
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
@@ -97,8 +110,12 @@ def edit_post(request, post_id):
 #    post.delete()
 #    return redirect('home_page')
 
+@login_required(login_url='login_base')
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
+
+    if request.user != post.author:
+        return HttpResponse('You cannot delete posts submitted by other users')
     if request.method == 'POST':
         post.delete()
         return redirect('home_page')
