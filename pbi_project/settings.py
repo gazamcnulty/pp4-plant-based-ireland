@@ -35,7 +35,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['pbi_project.herokuapp.com',
                  '8000-gazamcnulty-pp4-plant-ba-wo8nj9ioty.us2.codeanyapp.com', '8003-gazamcnulty-pp4-plant-ba-wo8nj9ioty.us2.codeanyapp.com',
-                 'pp4-plant-based-ireland-e840f182e648.herokuapp.com']
+                 '8000-gazamcnulty-pp4plantbas-dx80oauu8k9.ws-eu104.gitpod.io', 'pp4-plant-based-ireland-e840f182e648.herokuapp.com']
 
 
 # Application definition
