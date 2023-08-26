@@ -4,13 +4,13 @@
 <p>the results should be just below here</p>
 <hr />
 {% if search_response %}
-<h3>You have searched for:</h3>
-{{search_response}}
-<h3>We found the following results</h3>
+<h3>You have searched for: " {{search_response}} " </h3>
+<h3>We found the following {{posts.count}} results</h3>
 {% for post in posts %}
 <a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
 {% for content in contents %} {{post.title}}{{post.content}} {% endfor %}
 <br />
+<hr>
 {% endfor %} {% else %}
 <h3>No search info provided, please try again</h3>
 {% endif %} {% endblock %}
