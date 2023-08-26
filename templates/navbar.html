@@ -6,6 +6,7 @@
   <a href="{% url 'about_us' %}">
     <h3>About us</h3>
   </a>
+  <a href="{% url 'login_base' %}">Click here to login</a>
   <form method="POST" action="{%url 'search_results'%}">
     {% csrf_token %}
     <input type="search" placeholder="Search" name="search_response" />

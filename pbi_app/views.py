@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib import messages
 from django.db.models import Q
 from django.http import HttpResponse
 from .models import Post, Comment
@@ -6,6 +9,29 @@ from .forms import PostForm  # CommentForm
 
 
 # Create your views here.
+
+
+def login_base(request):
+
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, "User credentials not recognised. Please check and try again")
+
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home_page')
+        else:
+            messages.error(request, "User credentials not recognised. Please check and try again")
+    context = {}
+    return render(request, 'login_base.html', context)
 
 
 def home_page(request):

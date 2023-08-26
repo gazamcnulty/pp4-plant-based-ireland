@@ -6,6 +6,7 @@ from pbi_app import views
 
 
 urlpatterns = [
+    path('login_base/', views.login_base, name='login_base'),
     path('', views.home_page, name='home_page'),
     path('about_us/', views.about_us, name='about_us'),
     path('search_results/', views.search_results, name='search_results'),
