@@ -11,17 +11,21 @@
     {% for comment in comments %}
         <b>{{comment.user}}</b>
         <em>{{comment.body}}</em>
-        <p>Posted {{ post.created_on|timesince }} ago</p>
+        <p>Posted {{ comment.created_on|timesince }} ago</p>
+        <p>-----------------</p>
     {% endfor %}
     <hr>
 </div>
-<!--<h1>Submit a comment</h1>
-<form method="POST" id="add_comment_form">
+
+{% if request.user.is_authenticated %}
+<div>
+<h3>Submit a comment</h3>
+<form method="POST" action="">
     {% csrf_token %}
-    <div>
-        {{ form.as_p }}
-        <div>
-            <button type="submit" id="add_comment_form" value="Submit">Submit comment</button>
-        </div>
-</form>-->
+    <input type="text" name="body" placeholder="post a comment"/>
+</form>
+</div>
+{% else %}
+    <h3>Login if you want to submit a comment!</h3>
+{% endif %}
 {% endblock %}

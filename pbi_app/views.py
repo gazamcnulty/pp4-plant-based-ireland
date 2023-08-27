@@ -146,6 +146,13 @@ def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = post.comment_set.all()
 
+    if request.method == 'POST':
+        comment = Comment.objects.create(
+            user=request.user,
+            post=post,
+            body=request.POST.get('body')
+        )
+        return redirect('post_detail', post_id)
 #   ----------------------
 #
 #    new_comment = None
