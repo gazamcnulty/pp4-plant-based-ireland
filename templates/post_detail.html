@@ -12,6 +12,7 @@
         <b>{{comment.user}}</b>
         <em>{{comment.body}}</em>
         <p>Posted {{ comment.created_on|timesince }} ago</p>
+        <a href="{% url 'delete_comment' comment.id %}">Delete comment</a>
         <p>-----------------</p>
     {% endfor %}
     <hr>

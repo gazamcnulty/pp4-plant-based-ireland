@@ -196,3 +196,17 @@ def post_detail(request, post_id):
         #        'comment_form': comment_form
     }
     return render(request, 'post_detail.html', context)
+
+
+
+@login_required(login_url='login_base')
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    if request.user != comment.user:
+        return HttpResponse('You cannot delete comments submitted by other users')
+    if request.method == 'POST':
+        comment.delete()
+        return redirect('home_page')
+    context = {'obj': comment}
+    return render(request, 'delete.html', context)
