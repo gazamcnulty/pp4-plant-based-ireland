@@ -144,6 +144,7 @@ def delete_post(request, post_id):
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
+    comments = post.comment_set.all()
 
 #   ----------------------
 #
@@ -183,7 +184,7 @@ def post_detail(request, post_id):
     context = {
         'post': post,
         #        'form': form
-        #        'comments': comments,
+       'comments': comments,
         #        'new_comment': new_comment,
         #        'comment_form': comment_form
     }

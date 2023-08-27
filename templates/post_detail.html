@@ -1,9 +1,20 @@
-<h3>Post detail page</h3>
-
-<h4>{{post.title}}</h4>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Post detail page</h1>
+<div>
+<h3>{{post.title}}</h3>
 <p>{{post.content}}</p>
-<div>{{post.featured_image}}</div>
-<div>{{comment.body}}</div>
+<hr>
+</div>
+<div>
+    <h3>comments</h3>
+    {% for comment in comments %}
+        <b>{{comment.user}}</b>
+        <em>{{comment.body}}</em>
+        <p>Posted {{ post.created_on|timesince }} ago</p>
+    {% endfor %}
+    <hr>
+</div>
 <!--<h1>Submit a comment</h1>
 <form method="POST" id="add_comment_form">
     {% csrf_token %}
@@ -13,3 +24,4 @@
             <button type="submit" id="add_comment_form" value="Submit">Submit comment</button>
         </div>
 </form>-->
+{% endblock %}
