@@ -92,7 +92,7 @@ def edit_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     form = PostForm(instance=post)
 
-    if request.user != post.author:
+    if request.user != post.user:
         return HttpResponse('You cannot edit posts submitted by other users')
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
@@ -114,7 +114,7 @@ def edit_post(request, post_id):
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
-    if request.user != post.author:
+    if request.user != post.user:
         return HttpResponse('You cannot delete posts submitted by other users')
     if request.method == 'POST':
         post.delete()
