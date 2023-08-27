@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Login page</h1>
-<h3>Please login first, so that you can submit posts, comments, likes and edit your posts</h3>
+<h3>Please login first, so that you can submit posts, comments, likes and amend your content</h3>
 <div>
     <form method="POST" action="">
         {% csrf_token %}
@@ -23,5 +23,6 @@
   {% endfor %}
 </ul>
 {% endif %}
+<a href="{% url 'register' %}">Not a registered user ? Sign up here!</a>
 
 {% endblock %}

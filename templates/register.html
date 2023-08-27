@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Sign up page</h1>
+<h3>Please sign up, so you can login and post content</h3>
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <input type="submit" value="Register"/>
+    > </form>
+</div>
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+    <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+<a href="{% url 'login_base' %}">Already registered? Click here to login!</a>
+{% endblock %}
