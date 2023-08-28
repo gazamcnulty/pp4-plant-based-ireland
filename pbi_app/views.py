@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.db.models import Q
-from django.http import HttpResponse
 from .models import Post, Comment
 from .forms import PostForm  # CommentForm
 
@@ -145,6 +144,7 @@ def delete_post(request, post_id):
 def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = post.comment_set.all()
+    number_of_likes = post.number_of_likes()
 
     if request.method == 'POST':
         comment = Comment.objects.create(
@@ -192,7 +192,7 @@ def post_detail(request, post_id):
         'post': post,
         #        'form': form
        'comments': comments,
-        #        'new_comment': new_comment,
+        'number_of_likes': number_of_likes,
         #        'comment_form': comment_form
     }
     return render(request, 'post_detail.html', context)
@@ -210,3 +210,10 @@ def delete_comment(request, comment_id):
         return redirect('home_page')
     context = {'obj': comment}
     return render(request, 'delete.html', context)
+
+
+
+def post_like(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    post.likes.add(request.user)
+    return redirect('post_detail', post_id)
