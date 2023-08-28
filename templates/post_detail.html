@@ -10,7 +10,7 @@
     {% if request.user.is_authenticated %}
     <form action="{% url 'post_like' post.id %}" method="POST">
         {% csrf_token %}
-        <button type="submit" name="post_id" value="{{ post.id }}">Like</button>
+        <button type="submit" name="post_id" value="{{ post.id }}">Like / Dislike</button>
     </form>
     {% endif %}
 </div>
@@ -38,6 +38,6 @@
 </form>
 </div>
 {% else %}
-    <h3>Login if you want to submit a comment!</h3>
+    <h3>Login if you want to like this post or submit a comment!</h3>
 {% endif %}
 {% endblock %}

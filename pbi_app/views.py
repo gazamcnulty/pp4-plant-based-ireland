@@ -193,6 +193,7 @@ def post_detail(request, post_id):
         #        'form': form
        'comments': comments,
         'number_of_likes': number_of_likes,
+        #'liked': liked,
         #        'comment_form': comment_form
     }
     return render(request, 'post_detail.html', context)
@@ -215,5 +216,8 @@ def delete_comment(request, comment_id):
 
 def post_like(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    post.likes.add(request.user)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
     return redirect('post_detail', post_id)
