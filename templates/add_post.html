@@ -1,12 +1,12 @@
 {% extends "base.html" %} {% block content %}
 <!--this is the block content section-->
 <h1>Submit a post</h1>
-<form method="POST" action="add" id="add_post_form">
+<form method="POST" action="{% url 'add_post' %}" id="add_post_form" enctype="multipart/form-data">
   {% csrf_token %}
   <div>
     {{ form.as_p }}
   <div>
-    <button type="submit" id="add_post_form" value="Submit">Submit post</button>
+    <input type="submit" value="Submit Post" />
   </div>
 </form>
 

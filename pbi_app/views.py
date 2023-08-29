@@ -94,13 +94,15 @@ def about_us(request):
 
 @login_required(login_url='login_base')
 def add_post(request):
-    form = PostForm()
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
+        
         if form.is_valid():
-#            form.instance.user = request.user
-            form.save()
+            instance = form.save(commit=False)
+            instance.save()
             return redirect('home_page')
+    
+    form = PostForm()
     context = {'form': form}
     return render(request, 'add_post.html', context)
 
