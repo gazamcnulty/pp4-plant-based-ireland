@@ -6,6 +6,15 @@
 <p>{{post.content}}</p>
 <hr>
 </div>
+<div>
+    {% if "placeholder" in post.featured_image.url %}
+    <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" height="100px" width="100px">
+    <p>This is the placeholder image, not the user submitted image</p>
+    {% else %}
+    <img src="{{ post.featured_image.url }}" height="100px" width="100px"/>
+    <p>This is the user submitted image</p>
+    {% endif %}
+</div>
 <div><p>{{ number_of_likes }} users like this post!</p>
     {% if request.user.is_authenticated %}
     <form action="{% url 'post_like' post.id %}" method="POST">

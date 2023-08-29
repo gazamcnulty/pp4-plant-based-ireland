@@ -6,11 +6,15 @@
   <a href="{% url 'about_us' %}">
     <h3>About us</h3>
   </a>
+  <div>
   {% if request.user.is_authenticated %}
     <a href="{% url 'logout' %}">Click here to logout</a>
   {% else %}
     <a href="{% url 'login_base' %}">Click here to login</a>
   {% endif %}
+  <hr>
+</div>
+<div>
   <form method="POST" action="{%url 'search_results'%}">
     {% csrf_token %}
     <input type="search" placeholder="Search" name="search_response" />
@@ -21,4 +25,5 @@
     <li>{{ message }}</li>
   </ul>
   {% endif %}-->
+</div>
 </nav>

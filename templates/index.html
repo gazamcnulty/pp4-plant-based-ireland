@@ -4,9 +4,10 @@
 <!--this is the block content section-->
 <h1>Home page</h1>
 <hr />
+<h3>User submitted posts</h3>
 <a href="{% url 'add_post' %}">click here to submit a post</a>
-
 <table>
+
   {% for post in posts %}
   <tr>
     <td>
