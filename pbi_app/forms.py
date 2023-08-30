@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post  # , Comment
+from .models import Post , Gallery # , Comment
 
 
 class PostForm(forms.ModelForm):
@@ -12,3 +12,9 @@ class PostForm(forms.ModelForm):
 #    class Meta:
 #        model = Comment
 #        fields = ['name', 'body']
+
+
+class GalleryForm(forms.ModelForm):
+    class Meta:
+        model = Gallery
+        fields = ['user','title', 'featured_image']

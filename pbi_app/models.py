@@ -49,3 +49,22 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
+
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=75, unique=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_on = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(
+        User, related_name='gallery_like', blank=True)
+    featured_image = models.ImageField(
+        upload_to='images/', default='placeholder_image', blank=True)
+
+    class Meta:
+        ordering = ["-created_on"]        
+
+    def __str__(self):
+        return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()

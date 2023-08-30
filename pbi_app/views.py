@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.db.models import Q
-from .models import Post, Comment
-from .forms import PostForm  # CommentForm
+from .models import Post, Comment, Gallery
+from .forms import PostForm, GalleryForm  # CommentForm
 
 
 # Create your views here.
@@ -223,3 +223,23 @@ def post_like(request, post_id):
     else:
         post.likes.add(request.user)
     return redirect('post_detail', post_id)
+
+
+def gallery(request):
+    context = {}
+    return render(request, 'gallery.html', context)
+
+
+@login_required(login_url='login_base')
+def add_gallery(request):
+    if request.method == 'POST':
+        form = GalleryForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('gallery')
+    
+    form = GalleryForm()
+    context = {'form': form}
+    return render(request, 'add_gallery.html', context)

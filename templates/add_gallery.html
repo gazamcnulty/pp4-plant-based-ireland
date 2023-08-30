@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<!--this is the block content section-->
+<h1>Submit a an image to the Gallery</h1>
+<form method="POST" action="{% url 'add_gallery' %}" id="add_gallery_form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+      {{ form.as_p }}
+    <div>
+      <input type="submit" value="Submit Image" />
+    </div>
+  </form>
+
+{% endblock %}

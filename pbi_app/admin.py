@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Gallery
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -21,6 +21,15 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('body', 'post', 'created_on',)
     list_filter = ('created_on',)
     search_fields = ('body',)
+
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
+
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'featured_image', 'created_on',)
+    search_fields = ['title', 'content']
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)

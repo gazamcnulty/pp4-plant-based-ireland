@@ -18,6 +18,8 @@ urlpatterns = [
     path('delete_comment/<comment_id>', views.delete_comment, name='delete_comment'),
     path('post_detail<int:post_id>', views.post_detail, name='post_detail'),
     path('post_like<int:post_id>', views.post_like, name='post_like'),
+    path('gallery/', views.gallery, name='gallery'),
+    path('add_gallery/', views.add_gallery, name='add_gallery'),
     #   path('test_comments/', views.test_comments, name='test_comments'),
 ]
 
