@@ -2,48 +2,22 @@
 {% block content %}
 <h1>Image Gallery</h1>
 <p>Want to share a quick pic, without a detailed diatribe of text and info? Pop an image here to share !</p>
-{{ gallery.featured_image }}
+<div>
+    <a href="{% url 'add_gallery' %}">Click here to submit an image!</a>
+</div>
+<hr>
 <div>
     {% for gallery in gallerys %}
-  <table><tr>
-    <td>
-        <p>here is a gallery image</p>
-        <img src="{{ gallery.featured_image.url}} height="100px" width="100px"/>
-    </td>
-    <td>
-        <p>Submitted by {{ gallery.user }} </p>
-      </td>
-    <td>
-      <p>Posted {{ gallery.created_on|timesince }} ago</p>
-    </td>
-  </tr>
-  </table>
+        {% if "placeholder" in gallery.featured_image.url %}
+            <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" height="100px" width="100px">
+            <p>This is the placeholder image, not the user submitted image</p>
+        {% else %}
+            <img src="{{ gallery.featured_image.url }}" height="100px" width="100px"/>
+            <p>This is the user submitted image by  {{ gallery.user }}, {{ gallery.created_on|timesince}} ago</p>
+    {% endif %}
+    <hr>
   {% endfor %}
 </div>
-
-<div>
-    {% for post in posts %}
-        {{post.title }}
-    {% endfor %}
-</div>
-
-<table>
-
-    {% for post in posts %}
-    <tr>
-      <td>
-        <a href="{% url 'post_detail' post.id %}">{{post.title}}</a> 
-      </td>
-      <td>
-        <p>Posted {{ post.created_on|timesince }} ago</p>
-      </td>
-  
-      <td><a href="{% url 'edit_post' post.id %}">Edit</a></td>
-      <td><a href="{% url 'delete_post' post.id %}">Delete</a></td>
-  
-    </tr>
-    {% endfor %}
-  </table>
 
 <div>
     <!--{% if "placeholder" in post.featured_image.url %}
@@ -62,7 +36,5 @@
     </form>
     {% endif %}-->
 </div>
-<div>
-    <a href="{% url 'add_gallery' %}">Click here to submit an image!</a>
-</div>
+
 {% endblock %}

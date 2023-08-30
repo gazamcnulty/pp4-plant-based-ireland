@@ -20,6 +20,7 @@ urlpatterns = [
     path('post_like<int:post_id>', views.post_like, name='post_like'),
     path('gallery/', views.gallery, name='gallery'),
     path('add_gallery/', views.add_gallery, name='add_gallery'),
+    path('test_template/', views.test_template, name='test_template'),
     #   path('test_comments/', views.test_comments, name='test_comments'),
 ]
 

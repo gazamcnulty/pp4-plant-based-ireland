@@ -68,6 +68,12 @@ def home_page(request):
     return render(request, 'index.html', context)
 
 
+def test_template(request):
+    posts = Post.objects.all()
+    context = {'posts':posts}
+    return render(request, 'test_template.html', context)
+
+
 def search_results(request):
     if request.method == "POST":
         search_response = request.POST['search_response']
@@ -91,6 +97,9 @@ def search_results(request):
 
 def about_us(request):
     return render(request, 'about_us.html')
+
+
+
 
 @login_required(login_url='login_base')
 def add_post(request):
@@ -226,7 +235,8 @@ def post_like(request, post_id):
 
 
 def gallery(request):
-    context = {}
+    gallerys = Gallery.objects.all()
+    context = {'gallerys':gallerys}
     return render(request, 'gallery.html', context)
 
 
