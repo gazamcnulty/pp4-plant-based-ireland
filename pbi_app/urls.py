@@ -14,7 +14,6 @@ urlpatterns = [
     path('search_results/', views.search_results, name='search_results'),
     path('add/', views.add_post, name='add_post'),
     path('edit/<post_id>', views.edit_post, name='edit_post'),
-    #path('edit_comment/<comment_id>', views.edit_comment, name='edit_comment'),
     path('delete/<post_id>', views.delete_post, name='delete_post'),
     path('delete_comment/<comment_id>', views.delete_comment, name='delete_comment'),
     path('post_detail<int:post_id>', views.post_detail, name='post_detail'),

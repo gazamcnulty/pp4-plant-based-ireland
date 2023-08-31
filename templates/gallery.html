@@ -3,7 +3,11 @@
 <h1>Image Gallery</h1>
 <p>Want to share a quick pic, without a detailed diatribe of text and info? Pop an image here to share !</p>
 <div>
+    {% if request.user.is_authenticated %}
     <a href="{% url 'add_gallery' %}">Click here to submit an image!</a>
+    {% else %}
+    <p>Login if you want to submit photos!</p>
+    {% endif %}
 </div>
 <hr>
 <div>
