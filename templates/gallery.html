@@ -10,17 +10,20 @@
     {% endif %}
 </div>
 <hr>
-<div>
-    {% for gallery in gallerys %}
-        {% if "placeholder" in gallery.featured_image.url %}
-            <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" height="100px" width="100px">
-            <p>This is the placeholder image, not the user submitted image</p>
-        {% else %}
-            <img src="{{ gallery.featured_image.url }}" height="100px" width="100px"/>
-            <p>This is the user submitted image by  {{ gallery.user }}, {{ gallery.created_on|timesince}} ago</p>
-    {% endif %}
-    <hr>
-  {% endfor %}
+<div class="container">
+    <div class="row">
+        {% for gallery in gallerys %}
+            <div class=" col gallery_col" >
+                {% if "placeholder" in gallery.featured_image.url %}
+                    <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" class="gallery_img"/>
+                    <p class="gallery_p">placeholder image</p>
+                {% else %}
+                    <img src="{{ gallery.featured_image.url }}" class="gallery_img" />
+                    <p class="gallery_p">submitted image by  {{ gallery.user }}, {{ gallery.created_on|timesince}} ago</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+  </div>
 </div>
 
 <div>
