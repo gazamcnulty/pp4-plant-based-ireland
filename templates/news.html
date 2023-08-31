@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<h1>News and articles from around the web!</h1>
+<hr />
+      <h3>User submitted news articles</h3>
+      <a href="{% url 'add_news' %}">Click here to share a link to an article</a>
+      <hr>
+      <table class="table">
+        {% for report in reports %}
+        <tr>
+          <td>
+            <p>The link to the article should be here</p>
+            <a href="{{ report.external_link }}"><p>{{ report.title }}</p></a>
+            <p>Shared {{ report.created_on|timesince }} ago by {{ report.user }} from website : {{ report.website }}</p>
+            
+          </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {{ news.external_link}}
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<h1>Submit a link to an external website article</h1>
+<hr />
+<div id="news_form_div" class="container-fluid"">
+  <div class="row">
+    <div id="news_div" class="col ">
+        <form method="POST" action="{% url 'add_news' %}" id="add_news_form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+              {{ form.as_p }}
+            <div>
+              <input type="submit" value="Submit News" />
+            </div>
+          </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+

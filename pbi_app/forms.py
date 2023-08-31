@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post , Gallery # , Comment
+from .models import Post , Gallery, News # , Comment
 
 
 class PostForm(forms.ModelForm):
@@ -18,3 +18,9 @@ class GalleryForm(forms.ModelForm):
     class Meta:
         model = Gallery
         fields = ['user','title', 'featured_image']
+
+
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields = ['user','title', 'website', 'external_link']

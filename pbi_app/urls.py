@@ -21,6 +21,8 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('add_gallery/', views.add_gallery, name='add_gallery'),
     path('test_template/', views.test_template, name='test_template'),
+    path('news/', views.news, name='news'),
+    path('add_news/', views.add_news, name='add_news'),
     #   path('test_comments/', views.test_comments, name='test_comments'),
 ]
 

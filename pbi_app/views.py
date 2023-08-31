@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.db.models import Q
-from .models import Post, Comment, Gallery
-from .forms import PostForm, GalleryForm  # CommentForm
+from .models import Post, Comment, Gallery, News
+from .forms import PostForm, GalleryForm, NewsForm  # CommentForm
 
 
 # Create your views here.
@@ -164,41 +164,6 @@ def post_detail(request, post_id):
             body=request.POST.get('body')
         )
         return redirect('post_detail', post_id)
-#   ----------------------
-#
-#    new_comment = None
-#
-#    if request.method == 'POST':
-#        form = CommentForm(request.POST)
-#        if form.is_valid():
-#            new_comment = form.save(commit=False)
-#            new_comment.post = post
-#            new_comment.save()
-#            return redirect('home_page')
-#        else:
-#            form = CommentForm()
-#    form = CommentForm()
-#
-#
-#   ---------------------
-#    comments = post.comments.filter(approved=False)
-#    comment_form = CommentForm(data=request.POST)
-#    new_comment = None
-#    if request.method == 'POST':
-#        if comment_form.is_valid():
-#            new_comment = comment_form.save(commit=False)
-#            new_comment.post = post
-#            new_comment.save()
-#            return HttpResponseRedirect('/' + post.id)
-#        else:
-#            comment_form = CommentForm()
-#   --------------
-#    if request.method == 'POST':
-#        form = CommentForm(request.POST)
-#        if form.is_valid():
-#            form.save()
-#            return redirect('post_detail')
-#   ---------------
     context = {
         'post': post,
         #        'form': form
@@ -253,3 +218,24 @@ def add_gallery(request):
     form = GalleryForm()
     context = {'form': form}
     return render(request, 'add_gallery.html', context)
+
+
+def news(request):
+    reports = News.objects.all()
+    context = {'reports':reports}
+    return render(request, 'news.html', context)
+
+
+@login_required(login_url='login_base')
+def add_news(request):
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save()
+            return redirect('news')
+    
+    form = NewsForm()
+    context = {'form': form}
+    return render(request, 'add_news.html', context)
