@@ -2,9 +2,36 @@
 <!--below here is the block content-->
 {% block content %}
 <!--this is the block content section-->
-<h1>Home page</h1>
 <hr />
-<div id="home_div" class="container-fluid"">
+<section class="container">
+  <div class="row banner">
+    <div id="welcome" class="col-12">
+      <h1 >Welcome to Plant Based Ireland</h1>
+      <br>
+      <h2>Start your plant based adventure now! Click <span><a href="{% url 'register' %}">here</a></span> to register with us!</h2>
+      <br>
+        <h4 id="allows">Logging in as user allows you to :</h4>
+        <ul>
+          <div class="row ul_welcome">
+            <div class="col-4 list_subclass">
+              <li class="li_welcome">Submit posts, articles to the website</li>
+              <li class="li_welcome">Gain access to our exclusive members-only events page</li>
+            </div>
+            <div class="col-4 list_subclass">
+              <li class="li_welcome">Give 'likes' to your favourite content</li>
+              <li class="li_welcome">Post comments and join the conversation</li>
+            </div>
+            <div class="col-4 list_subclass">
+              <li class="li_welcome">Recevie emails with our monthly newsletter</li>
+              <li class="li_welcome">And more features to come soon!</li>
+            </div>
+          </div>
+        </ul>
+  </div>
+</div>
+</section>
+
+<section id="home_div" class="container"">
   <div class="row">
     <div id="posts_div" class="col-12 col-md-9">
       <h3>User submitted posts</h3>
@@ -34,8 +61,10 @@
         {% for report in reports %}
         <tr>
           <td>
+            <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}</span></p>
             <a href="{{ report.external_link }}"><p>{{ report.title }}</p></a>
-            <p>Shared {{ report.created_on|timesince }} ago by {{ report.user }} from website : {{ report.website }}</p>
+            <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="user">{{ report.user }}</span></p>
+            
           </td>
         </tr>
         {% endfor %}
@@ -43,6 +72,6 @@
     <a href="{% url 'news' %}">Click here to view more news </a>
     </div>
   </div>
-</div>
+</section>
 
 {% endblock %}

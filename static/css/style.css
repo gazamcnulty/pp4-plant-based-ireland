@@ -1,29 +1,83 @@
+h1 {
+
+}
+
+.banner {
+    background-image: url(/static/images/hero_pic_vegetable.jpg);
+    min-height: 500px;
+    padding: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#welcome {
+    padding-top: 20px;
+    text-align: center;
+    background-color: white;
+    font-weight: bold;
+    color: #000000;
+    opacity: 0.8;
+}
+
+#allows {
+    padding-top: 40px;
+    font-weight: bolder;
+}
+
+.ul_welcome {
+    padding-top: 30px;
+}
+
+
+.list_subclass {
+    text-align: left;
+    padding: 20px;
+}
+
+.li_welcome {
+    padding-top: 10px;
+}
+
+#home_div {
+    margin-top: 10px;
+}
+
+#posts_div {
+    margin-top: 10px;
+}
+
+#headlines_div {
+    margin-top: 10px;
+}
+
+.report_category {
+    font-size: larger;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: antiquewhite;
+    display: inline;
+}
+
+.report_website {
+    font-weight: bold;
+    text-decoration: solid;
+}
+
+
 .gallery_col {
     display: flexbox;
-    justify-content: center;
-    align-items: center;
-    height:100%;
 }
 
 .gallery_img {
-    background-color: aqua;
+    width: 300px;
 }
 
-body {
-    background-color: lightblue;
-  }
-
-h1 {
-    background-color: red;
+.shared {
+    font-style: italic;
 }
 
-p {
-    background-color: green;
+.user {
+    font-weight: bold;
+    text-decoration: solid;
 }
-
-#category {
-    font-size: large !important;
-    font-weight: bolder !important;
-    text-decoration:underline !important;
-}
-
