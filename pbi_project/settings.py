@@ -31,7 +31,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False@@
 
 ALLOWED_HOSTS = ['pbi_project.herokuapp.com',
                  '8000-gazamcnulty-pp4-plant-ba-wo8nj9ioty.us2.codeanyapp.com', '8003-gazamcnulty-pp4-plant-ba-wo8nj9ioty.us2.codeanyapp.com',

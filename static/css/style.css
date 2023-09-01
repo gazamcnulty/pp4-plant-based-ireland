@@ -9,7 +9,9 @@
     background-color: aqua;
 }
 
-
+body {
+    background-color: lightblue;
+  }
 
 h1 {
     background-color: red;
