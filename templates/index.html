@@ -29,24 +29,18 @@
     </table>
     </div>
     <div id="headlines_div" class="col-12 col-md-3">
-      <h3>Latest News</h3>
-        <table>
-          <tr>
-            <td>
-              <p>Here is a dummy news headline</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>2nd news headline</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>3rd news headline</p>
-            </td>
-          </tr>
-        </table>
+      <h3>Latest articles from around the web</h3>
+      <table class="table">
+        {% for report in reports %}
+        <tr>
+          <td>
+            <a href="{{ report.external_link }}"><p>{{ report.title }}</p></a>
+            <p>Shared {{ report.created_on|timesince }} ago by {{ report.user }} from website : {{ report.website }}</p>
+          </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'news' %}">Click here to view more news </a>
     </div>
   </div>
 </div>

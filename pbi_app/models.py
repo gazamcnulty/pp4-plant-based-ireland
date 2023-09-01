@@ -70,6 +70,14 @@ class Gallery(models.Model):
         return self.likes.count()
 
 
+class Article(models.Model):
+    category = models.CharField(max_length=25, null=True)
+
+    def __str__(self):
+        return self.category
+
+
+
 class News(models.Model):
     title = models.CharField(max_length=100, null=True)
     website = models.CharField(max_length=50, null=True)
@@ -78,6 +86,7 @@ class News(models.Model):
     likes = models.ManyToManyField(
         User, related_name='link_like', blank=True)
     external_link = models.URLField()
+    category = models.ForeignKey(Article, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["-created_on"]

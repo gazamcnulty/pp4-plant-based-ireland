@@ -15,6 +15,9 @@
         <li class="nav-item">
           <a {% if request.resolver_match.view_name == 'about_us' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'about_us' %}">About us</a>
         </li>
+        <li class="nav-item">
+          <a {% if request.resolver_match.view_name == 'news' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'news' %}">News</a>
+        </li>
         {% if request.user.is_authenticated %}
         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
         {% else %}

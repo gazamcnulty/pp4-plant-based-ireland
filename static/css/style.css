@@ -6,24 +6,22 @@
 }
 
 .gallery_img {
-
-    max-width: 400px;
+    background-color: aqua;
 }
 
-#home_div {
 
 
+h1 {
+    background-color: red;
 }
 
-.container {
-
+p {
+    background-color: green;
 }
 
-#posts_div {
-
-}
-
-#headlines_div {
-
+#category {
+    font-size: large !important;
+    font-weight: bolder !important;
+    text-decoration:underline !important;
 }
 

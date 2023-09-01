@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment, Gallery, News
+from .models import Post, Comment, Gallery, News, Article
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -36,3 +36,9 @@ class GalleryAdmin(admin.ModelAdmin):
 class NewsAdmin(SummernoteModelAdmin):
     list_display = ('title', 'user', 'website', 'external_link',)
     search_fields = ['title', 'website']
+
+
+@admin.register(Article)
+class ArticleAdmin(SummernoteModelAdmin):
+    list_display = ('category', )
+    search_fields = ['category']

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.db.models import Q
-from .models import Post, Comment, Gallery, News
+from .models import Post, Comment, Gallery, News, Article
 from .forms import PostForm, GalleryForm, NewsForm  # CommentForm
 
 
@@ -62,8 +62,10 @@ def logout_base(request):
 
 def home_page(request):
     posts = Post.objects.all()
+    reports = News.objects.all()
     context = {
         'posts': posts,
+        'reports':reports
     }
     return render(request, 'index.html', context)
 
@@ -134,10 +136,6 @@ def edit_post(request, post_id):
     return render(request, 'edit_post.html', context)
 
 
-# def delete_post(request, post_id):
-#    post = get_object_or_404(Post, id=post_id)
-#    post.delete()
-#    return redirect('home_page')
 
 @login_required(login_url='login_base')
 def delete_post(request, post_id):
@@ -156,6 +154,7 @@ def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = post.comment_set.all()
     number_of_likes = post.number_of_likes()
+    reports = News.objects.all()
 
     if request.method == 'POST':
         comment = Comment.objects.create(
@@ -169,6 +168,7 @@ def post_detail(request, post_id):
         #        'form': form
        'comments': comments,
         'number_of_likes': number_of_likes,
+        'reports':reports,
         #'liked': liked,
         #        'comment_form': comment_form
     }
@@ -222,7 +222,8 @@ def add_gallery(request):
 
 def news(request):
     reports = News.objects.all()
-    context = {'reports':reports}
+    categorys = Article.objects.all()
+    context = {'reports':reports, 'categorys':categorys}
     return render(request, 'news.html', context)
 
 
