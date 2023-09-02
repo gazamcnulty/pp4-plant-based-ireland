@@ -63,9 +63,21 @@ def logout_base(request):
 def home_page(request):
     posts = Post.objects.all()
     reports = News.objects.all()
+    form = UserCreationForm()
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            login(request, user)
+            return redirect('home_page')
+        else:
+            messages.error(request, "Error occurred , registration not completed")
     context = {
         'posts': posts,
-        'reports':reports
+        'reports':reports,
+        'form':form
     }
     return render(request, 'index.html', context)
 

@@ -2,6 +2,8 @@ h1 {
 
 }
 
+
+
 .banner {
     background-image: url(/static/images/hero_pic_vegetable.jpg);
     min-height: 500px;
@@ -17,7 +19,7 @@ h1 {
     background-color: white;
     font-weight: bold;
     color: #000000;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 #allows {
