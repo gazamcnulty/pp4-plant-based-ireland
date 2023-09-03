@@ -3,14 +3,14 @@
 {% block content %}
 <!--this is the block content section-->
 <hr />
-<section class="container">
-  <div class="row banner px-5">
+<section class="container mt-5">
+  <div class="row banner px-5 mt-5">
     <div id="welcome" class="col-12 mt-4 rounded">
       <h1 >Welcome to Plant Based Ireland</h1>
       <br>
       <h2 class="mt-4">Start your plant based adventure now! Click <!--<span><a href="{% url 'register' %}">here</a></span>--> below to sign up!</h2>
       <br>
-      <button type="button" class="btn btn-primary btn-success" data-bs-toggle="modal" data-bs-target="#signupModal">
+      <button type="button" class="btn btn-primary btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#signupModal">
         Create an account
       </button>
         <div class="d-none d-md-block">
@@ -36,20 +36,23 @@
   </div>
 </section>
 
-<section id="home_div" class="container"">
+<section id="home_div" class="container">
   <div class="row gx-2 mt-5">
     <div id="posts_div" class="col-12 col-md-9">
       <h3 class="user_posts"><i class="fa-solid fa-receipt posts_icon"></i>User submitted posts</h3>
+
+      <div class="mt-5">
+        <a href="{% url 'add_post' %}"><button type="button" class="btn btn-primary">Click here to submit a post</button></a>
+      </div>
       
-      <a href="{% url 'add_post' %}">click here to submit a post</a>
-      <table class="table">
+      <table class="table mt-5">
         {% for post in posts %}
         <tr>
           <td>
             <a href="{% url 'post_detail' post.id %}">{{post.title}}</a> 
           </td>
           <td>
-            <p>Posted {{ post.created_on|timesince }} ago</p>
+            <p class="p-2">Posted {{ post.created_on|timesince }} ago by <span class="user">{{ post.user }}</span></p>
           </td>
           <td>
             <a href="{% url 'edit_post' post.id %}">Edit</a>
@@ -61,10 +64,11 @@
         {% endfor %}
     </table>
     </div>
+
     <div id="headlines_div" class="col-12 col-md-3">
       <h3>Latest articles from around the web <i class="fa-regular fa-newspaper"></i></h3>
       <table class="table">
-        {% for report in reports %}
+        {% for report in reports|slice:":4" %}
         <tr>
           <td>
             <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}</span></p>
@@ -74,9 +78,10 @@
           </td>
         </tr>
         {% endfor %}
-    </table>
-    <a href="{% url 'news' %}">Click here to view more news </a>
+      </table>
+      <a href="{% url 'news' %}">Click here to view more news </a>
     </div>
+
   </div>
 </section>
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

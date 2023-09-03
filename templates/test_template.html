@@ -1,34 +1,24 @@
 {% extends "base.html" %}
 
 <!--below here is the block content-->
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
 {% block content %}
-<!--this is the block content section-->
-<h1>Home page</h1>
-<hr />
-<h3>User submitted posts</h3>
-<a href="{% url 'add_post' %}">click here to submit a post</a>
-<table>
 
-  {% for post in posts %}
-  <tr>
-    <td>
-      <a href="{% url 'post_detail' post.id %}">{{post.title}}</a> 
-    </td>
-    <td>
-      <p>Posted {{ post.created_on|timesince }} ago</p>
-    </td>
-
-    <td><a href="{% url 'edit_post' post.id %}">Edit</a></td>
-    <td><a href="{% url 'delete_post' post.id %}">Delete</a></td>
-
-  </tr>
-  {% endfor %}
-</table>
+<div>
+{% for report in reports %}
+        <tr>
+          <td>
+            <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}</span></p>
+            <a href="{{ report.external_link }}"><p>{{ report.title }}</p></a>
+            <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="user">{{ report.user }}</span></p>
+            
+          </td>
+        </tr>
+        {% endfor %}
 
 
 {% endblock %}
-
+</div>
 
 <div class="container ">
   <h1 id="aboutid" class="mt-5 pt-5"></h1>

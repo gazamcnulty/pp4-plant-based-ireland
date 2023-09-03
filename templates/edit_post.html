@@ -1,14 +1,25 @@
 {% extends "base.html" %} {% block content %}
 <!--this is the block content section-->
-<h1>Edit a post</h1>
-<form method="POST">
-  {% csrf_token %}
-  <div>
-    {{ form.as_p }}
-  <div>
-    <a href="{{request.META.HTTP_REFERER}}">Click here to go back</a>
-    <button type="submit">Confirm changes</button>
-  </div>
-</form>
 
+
+
+<div class="container mt=5 p-2">
+  <h2 id="aboutid" class="mt-5 pt-5">Edit post</h2>
+  <div class="row mt-5 g-5">
+      <div class="col-sm-12 col-md-6 mt-2">
+        <form method="POST">
+          {% csrf_token %}
+          <div>
+            {{ form.as_p }}
+          <div>
+            <button type="submit" class="btn btn-primary">Confirm changes</button>
+          </div>
+        </form>
+        <br>
+        <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-2">Click here to go back</a>
+        
+      </div>
+
+  </div>
+</div>
 {% endblock %}
