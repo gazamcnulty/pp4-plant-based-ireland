@@ -233,12 +233,12 @@ def add_gallery(request):
 
 
 def news(request):
+    article= Article.objects.all()
     reports = News.objects.all()
-    #users = News.objects.filter(user='admin')
-    #blogs = News.objects.filter(category='blog')
+    blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
     categorys = Article.objects.all()
 
-    context = {'reports':reports, 'categorys':categorys}
+    context = {'reports':reports, 'blog_news':blog_news, 'categorys':categorys}
     return render(request, 'news.html', context)
 
 

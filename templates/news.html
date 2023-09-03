@@ -1,56 +1,43 @@
 {% extends 'base.html' %}
 {% block content%}
 
-<h1>News and articles from around the web!</h1>
-<hr />
+<div class="container">
+  <h1 class="mt-5 pt-5">News, blogs, recipes, reviews. Articles from around the web!</h1>
+  <hr/>
+  <div class="row">
 
-<div>
-
-  <table class="table">
-        {% for user in users %}
-        <tr>
-          <td>
-            <p><span class="report_category">{{ users.category }}</span> from <span class="report_website">{{ users.website }}</span></p>
-            <a href="{{ users.external_link }}"><p>{{ users.title }}</p></a>
-            <p class="shared">Shared {{ users.created_on|timesince }} ago by <span class="user">{{ users.user }}</span></p>
-          </td>
-        </tr>
-        {% endfor %}
-    </table>
-
-</div>
-
-<div>
-
-  <table class="table">
-        {% for blog in blogs %}
-        <tr>
-          <td>
-            <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}</span></p>
-            <a href="{{ report.external_link }}"><p>{{ report.title }}</p></a>
-            <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="user">{{ report.user }}</span></p>
-          </td>
-        </tr>
-        {% endfor %}
-    </table>
-
-</div>
-      <h3>User submitted news articles</h3>
-      <br>
-      <a href="{% url 'add_news' %}">Click here to share a link to an article</a>
+    <div class="col-12 col-md-9">
       <hr>
-      <table class="table">
-        {% for report in reports %}
-        <tr>
-          <td>
-            <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}</span></p>
-            <a href="{{ report.external_link }}"><p>{{ report.title }}</p></a>
-            <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="user">{{ report.user }}</span></p>
-            
-          </td>
-        </tr>
-        {% endfor %}
-    </table>
-    {{ news.external_link}}
+          <h3>User submitted news articles</h3>
+          <br>
+          <a href="{% url 'add_news' %}">Click here to share a link to an article</a>
+          <hr>
+          <table class="table">
+            {% for report in reports %}
+            <tr>
+              <td>
+                <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}</span></p>
+                <a href="{{ report.external_link }}"><p>{{ report.title }}</p></a>
+                <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="user">{{ report.user }}</span></p>
+              </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="col-12 col-md-3">
+      <h3>Latest Blogs</h3>
+      {% for news in blog_news %}
+
+        <p><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
+        <a href="{{ news.external_link }}"><p>{{ news.title }}</p></a>
+        <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="user">{{ news.user }}</span></p>
+
+      {% endfor %}
+      <hr>
+    </div>
+
+  </div>
+</div>
 {% endblock %}
 
