@@ -76,7 +76,7 @@ def home_page(request):
             messages.error(request, "Error occurred , registration not completed")
     context = {
         'posts': posts,
-        'reports':reports,
+        'reports':range(4),
         'form':form
     }
     return render(request, 'index.html', context)

@@ -1,54 +1,64 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Post detail page</h1>
-<div>
-<h3>{{post.title}}</h3>
-<p>{{post.content}}</p>
-<hr>
-</div>
-<div>
-    {% if "placeholder" in post.featured_image.url %}
-    <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" height="100px" width="100px">
-    <p>This is the placeholder image, not the user submitted image</p>
-    {% else %}
-    <img src="{{ post.featured_image.url }}" height="100px" width="100px"/>
-    <p>This is the user submitted image</p>
-    {% endif %}
-</div>
-<div><p>{{ number_of_likes }} users like this post!</p>
-    {% if request.user.is_authenticated %}
-    <form action="{% url 'post_like' post.id %}" method="POST">
-        {% csrf_token %}
-        <button class="btn btn-secondary" type="submit" name="post_id" value="{{ post.id }}">Like / Dislike</button>
-    </form>
-    {% endif %}
-</div>
-<div>
-    <h3>comments</h3>
-    {% for comment in comments %}
-        <b>{{comment.user}}</b>
-        <p class="blockquote">"{{comment.body}}"</p>
-        <p>Posted {{ comment.created_on|timesince }} ago</p>
-        {% if request.user.is_authenticated %}
-        <a href="{% url 'delete_comment' comment.id %}">Delete comment</a>
-        {% endif %}
-        <p>-----------------</p>
-    {% endfor %}
-    <hr>
-</div>
 
-{% if request.user.is_authenticated %}
-<div>
-    
-</div>
-<div>
-<h3>Submit a comment</h3>
-<form method="POST" action="">
-    {% csrf_token %}
-    <input type="text" name="body" placeholder="post a comment"/>
-</form>
-</div>
-{% else %}
-    <h3>Login if you want to like this post or submit a comment!</h3>
-{% endif %}
+
+<div class="container mt-5">
+    <div class="row mt-5 g-5">
+        <div class="col-sm-12 col-md-8 mt-5">
+            <div class="p-2">
+                <h3 class="p-2">{{post.title}}</h3>
+                <p class="p-2">Shared {{ post.created_on|timesince }} ago by <span class="user">{{ post.user }}</span></p>
+                <p class="p-2">{{post.content}}</p>
+                <hr>
+                </div>
+                <div>
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" height="100px" width="100px">
+                    {% else %}
+                    <img src="{{ post.featured_image.url }}" height="200px" width="300px" class="mt-2"/>
+
+                    {% endif %}
+                </div>
+                <div class="mt-2"><p><b>{{ number_of_likes }} user(s) </b> like this post!</p>
+                    {% if request.user.is_authenticated %}
+                    <form action="{% url 'post_like' post.id %}" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-secondary m-4" type="submit" name="post_id" value="{{ post.id }}">Like / Dislike</button>
+                    </form>
+                    {% endif %}
+                </div>
+        </div>
+        <div class="col-sm-12 col-md-4 mt-5">
+            <div>
+                <h3>comments</h3>
+                {% for comment in comments %}
+                    <b>{{comment.user}}</b>
+                    <p class="blockquote">"{{comment.body}}"</p>
+                    <p>Posted {{ comment.created_on|timesince }} ago</p>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'delete_comment' comment.id %}">Delete comment</a>
+                    {% endif %}
+                    <p>-----------------</p>
+                {% endfor %}
+                <hr>
+            </div>
+            
+            {% if request.user.is_authenticated %}
+            <div>
+                
+            </div>
+            <div>
+            <h3>Submit a comment</h3>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="text" name="body" placeholder="post a comment"/>
+            </form>
+            </div>
+            {% else %}
+                <h3>Login if you want to like this post or submit a comment!</h3>
+            {% endif %}
+        </div>
+    </div>
+  </div>
+
 {% endblock %}

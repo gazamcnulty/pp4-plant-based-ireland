@@ -4,7 +4,7 @@
 <!--this is the block content section-->
 <hr />
 <section class="container">
-  <div class="row banner">
+  <div class="row banner px-5">
     <div id="welcome" class="col-12 mt-4 rounded">
       <h1 >Welcome to Plant Based Ireland</h1>
       <br>
@@ -37,7 +37,7 @@
 </section>
 
 <section id="home_div" class="container"">
-  <div class="row">
+  <div class="row gx-2 mt-5">
     <div id="posts_div" class="col-12 col-md-9">
       <h3 class="user_posts"><i class="fa-solid fa-receipt posts_icon"></i>User submitted posts</h3>
       
@@ -101,6 +101,21 @@
       </div>
     </div>
   </div>
+
+
+  {% if is_paginated %}
+  <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+          {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+          {% endif %}
+          {% if page_obj.has_next %}
+          <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+          {% endif %}
+      </ul>
+  </nav>
+  {% endif %}
 </div>
 
 {% endblock %}

@@ -1,26 +1,39 @@
 h1 {
+    
+}
 
+body {
+    background-image: url(/static/images/eat_veg_horizontal.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 
+#gallery_container {
+    opacity:1 !important ;
+}
+
+.rowbanner {
+    background-color: rgba(255, 255, 255, 0.9);
+}
 
 .banner {
-    background-image: url(/static/images/hero_pic_vegetable.jpg);
-    min-height: 500px;
-    padding: 40px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
 }
 
 #welcome {
     padding-top: 20px;
     text-align: center;
-    background-color: white;
     font-weight: bold;
-    color: #000000;
-    opacity: 0.9;
 }
+
+
 
 #allows {
     padding-top: 40px;
