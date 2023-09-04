@@ -23,9 +23,9 @@
         {% else %}
         <li class="nav-item"><a {% if request.resolver_match.view_name == 'login_base' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login_base' %}">LOGOUT</a></li>
         {% endif %}
-        <li class="w-75"><form class="text-end method="POST" action="{%url 'search_results'%}" id="searchform">
+        <li class="w-75"><form method="POST" action="{%url 'search_results'%}" class="text-end searchbar ">
           {% csrf_token %}
-          <input class="nav-item search_box mt-1" type="search" placeholder="Search" name="search_response" id="searchbar"/>
+          <input type="search" placeholder="Search" name="search_response" id="searchbar"/>
         </form>
         </li>
       </ul>
