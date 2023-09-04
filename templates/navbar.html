@@ -4,7 +4,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse w-100 p-3"id="navbarNav"> 
+    <div class="collapse navbar-collapse w-100 p-4 "id="navbarNav"> 
       <ul class="navbar-nav w-100">
         <li class="nav-item">
           <a  {% if request.resolver_match.view_name == 'home_page' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'home_page' %}">HOME</a>

@@ -39,7 +39,7 @@ button:hover {
 }
 
 .searchbar {
-    font-size:x-large;
+    font-size:larger;
 }
 
 .active {
@@ -86,7 +86,7 @@ button:hover {
 }
 
 .home_section {
-    margin-top: 100px !important;
+    margin-top: 150px !important;
 }
 
 
