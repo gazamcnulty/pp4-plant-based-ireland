@@ -1,5 +1,5 @@
 h1 {
-    background-color: aqua;
+    
 }
 
 body {
@@ -14,14 +14,69 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
+button:hover {
+    color:black !important;
+    background-color: white !important;
+}
+
+/*----navbar---*/
+
+
+
+
+.navbar {
+
+}
+
+.nav-item {
+    font-size: larger;
+}
+
+.nav-item:hover, .nav-link:hover {
+    background-color: green !important;
+    color: white !important;
+}
+
+.active {
+    text-decoration: underline !important;
+}
+
+
+/*---gallery---*/
 
 #gallery_container {
+    margin-top: 100px !important;
     opacity:1 !important ;
 }
 
-.banner {
-    background-color: rgba(255, 255, 255, 0.9);
-    margin-top: 200px !important;
+/*---home_posts---*/
+
+.posted_by {
+    font-style: italic;
+}
+
+.post_title {
+    font-size: larger;
+    color: black;
+}
+
+.post_title:hover {
+    text-decoration: solid;
+    text-decoration: underline;
+}
+
+.article_title {
+    font-size: larger;
+    color: black;
+}
+
+.article_title:hover {
+    text-decoration: solid;
+    text-decoration: underline;
+}
+
+.more_news {
+    color: white;
 }
 
 .home_section {
@@ -77,7 +132,6 @@ body {
 
 #posts_div {
     margin-top: 10px;
-    font-size: larger;
 }
 
 #headlines_div {

@@ -4,14 +4,14 @@
 <div id="gallery_container" class="container mt-5 rounded">
     <div class="row mt-5 text-center">
         <h2 class="mt-5">Image Gallery</h2>
-        <p class="mt-5">Want to share a quick pic, without a detailed diatribe of text and info? Pop an image here to share !</p>
+        <p class="my-5">Want to share a quick pic, without a detailed diatribe of text and info? Pop an image here to share !</p>
         <div class="text-center">
             {% if request.user.is_authenticated %}
             <div class="m-5">
                 <a href="{% url 'add_gallery' %}"><button type="button" class="btn btn-primary m-5">Click here to submit an image</button></a>
               </div>
             {% else %}
-                <p>Login if you want to submit photos!</p>
+                <p class="mb-5"><a href="{% url 'login_base' %}">Login</a> if you want to submit photos!</p>
             {% endif %}
         </div>
         {% for gallery in gallerys %}

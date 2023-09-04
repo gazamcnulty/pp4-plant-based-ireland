@@ -10,7 +10,7 @@
       <br>
       <h2 class="mt-4">Start your plant based adventure now! Click <!--<span><a href="{% url 'register' %}">here</a></span>--> below to sign up!</h2>
       <br>
-      <button type="button" class="btn btn-primary btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#signupModal">
+      <button type="button" class="btn btn-primary btn-success btn-lg home_button mb-5" data-bs-toggle="modal" data-bs-target="#signupModal">
         Create an account
       </button>
         <div class="d-none d-md-block">
@@ -49,10 +49,10 @@
         {% for post in posts %}
         <tr>
           <td>
-            <a href="{% url 'post_detail' post.id %}">{{post.title}}</a> 
+            <a href="{% url 'post_detail' post.id %}" class="post_title text-decoration-none">{{post.title}}</a> 
           </td>
           <td>
-            <p class="p-2">Posted {{ post.created_on|timesince }} ago by <span class="user">{{ post.user }}</span></p>
+            <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="user">{{ post.user }}</span></p>
           </td>
           <td>
             <a href="{% url 'edit_post' post.id %}">Edit</a>
@@ -66,20 +66,20 @@
     </div>
 
     <div id="headlines_div" class="col-12 col-md-3">
-      <h3>Latest articles from around the web <i class="fa-regular fa-newspaper"></i></h3>
+      <a href="{% url 'news' %}" class="text-muted text-decoration-none"><h3>Latest articles from around the web <i class="fa-regular fa-newspaper"></i></h3></a>
       <table class="table">
         {% for report in reports|slice:":4" %}
         <tr>
           <td>
             <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}</span></p>
-            <a href="{{ report.external_link }}"><p>{{ report.title }}</p></a>
+            <a href="{{ report.external_link }}" class="text-decoration-none"><p class="article_title">{{ report.title }}</p></a>
             <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="user">{{ report.user }}</span></p>
             
           </td>
         </tr>
         {% endfor %}
       </table>
-      <a href="{% url 'news' %}">Click here to view more news </a>
+      <a href="{% url 'news' %}"> <button type="button" class="btn btn-info more_news"> Click here to view more news </button></a>
     </div>
 
   </div>
