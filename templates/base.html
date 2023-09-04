@@ -22,7 +22,48 @@
       <!--this is the block content section-->
       {% endblock %}
     </main>
-    <footer></footer>
+
+    <footer class="container-fluid mb-0 mt-5 p-4">
+      <div class="container">
+        <div class="row mb-0">
+          <div class="col-sm-4 mb-0">
+            <h6 class="text-center">Useful website links</h6>
+            <ul class="ul_footer text-center">
+              <li class="">
+                <a  {% if request.resolver_match.view_name == 'home_page' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'home_page' %}">HOME</a>
+              </li>
+              <li class="">
+                <a {% if request.resolver_match.view_name == 'gallery' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'gallery' %}">GALLERY</a>
+              </li>
+              <li class="">
+                <a {% if request.resolver_match.view_name == 'about_us' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'about_us' %}">ABOUT</a>
+              </li>
+              <li class="">
+                <a {% if request.resolver_match.view_name == 'news' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'news' %}">NEWS</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4 mb-0 text-center">
+            <h6 class="mb-0 text-center">Find us on social media</h6>
+            <ul class="ul_footer text-center">
+              <li class="text-center"><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+              <li class="text-center"><a href="https://www.twitter.com/" target="_blank">Twitter</a></li>
+              <li class="text-center"><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+              <li class="text-center"><a href="https://www.youtube.com/" target="_blank">Youtube</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-4 mb-0 text-center">
+            <h6 class="mb-0">Contact us</h6>
+            <p>Plant Based Ireland, 67 Oak View Drive<br>
+            Ballinacurra, Limerick<br>
+            V94 H9CT<br>
+            Telephone 061 229021<br>
+            plantbased@gmail.com<br>
+          </div>
+        </div>
+    
+    
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

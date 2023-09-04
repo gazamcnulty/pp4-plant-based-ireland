@@ -1,5 +1,4 @@
 h1 {
-    
 }
 
 body {
@@ -13,6 +12,11 @@ body {
 .container {
     background-color: rgba(255, 255, 255, 0.9);
 }
+
+
+/*.container-fluid {
+    background-color: rgba(255, 255, 255, 0.9);
+}*/
 
 button:hover {
     color:black !important;
@@ -68,6 +72,7 @@ button:hover {
 
 .post_title:hover {
     text-decoration: underline;
+    color: black;
 }
 
 .article_title {
@@ -158,6 +163,17 @@ button:hover {
 }
 
 
+/*-------news---------*/
+
+
+.news_h2 {
+    margin-top: 180px !important;
+}
+
+
+/*---------gallery--------------*/
+
+
 .gallery_col {
     display: flexbox;
 }
@@ -173,4 +189,28 @@ button:hover {
 .user {
     font-weight: bold;
     text-decoration: solid;
+}
+
+
+/*---------------aboutus---------------*/
+
+.aboutus_h {
+    margin-top: 180px !important;
+}
+
+.about_us {
+    margin-top: 150px !important;
+}
+
+
+/*------------footer------------*/
+
+
+footer {
+    background-color: rgba(255, 255, 255) !important;
+    font-size: large;
+}
+
+.ul_footer {
+    list-style-type: none;
 }
