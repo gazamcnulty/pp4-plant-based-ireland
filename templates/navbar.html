@@ -5,30 +5,31 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse w-100 p-3"id="navbarNav"> 
-      <ul class="navbar-nav">
+      <ul class="navbar-nav w-100">
         <li class="nav-item">
-          <a  {% if request.resolver_match.view_name == 'home_page' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'home_page' %}">Home</a>
+          <a  {% if request.resolver_match.view_name == 'home_page' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'home_page' %}">HOME</a>
         </li>
         <li class="nav-item">
-          <a {% if request.resolver_match.view_name == 'gallery' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'gallery' %}">Gallery</a>
+          <a {% if request.resolver_match.view_name == 'gallery' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'gallery' %}">GALLERY</a>
         </li>
         <li class="nav-item">
-          <a {% if request.resolver_match.view_name == 'about_us' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'about_us' %}">About</a>
+          <a {% if request.resolver_match.view_name == 'about_us' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'about_us' %}">ABOUT</a>
         </li>
         <li class="nav-item">
-          <a {% if request.resolver_match.view_name == 'news' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'news' %}">News</a>
+          <a {% if request.resolver_match.view_name == 'news' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'news' %}">NEWS</a>
         </li>
         {% if request.user.is_authenticated %}
-        <li class="nav-item"><a {% if request.resolver_match.view_name == 'logout' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'logout' %}">Logout</a></li>
+        <li class="nav-item"><a {% if request.resolver_match.view_name == 'logout' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'logout' %}">LOGOUT</a></li>
         {% else %}
-        <li class="nav-item"><a {% if request.resolver_match.view_name == 'login_base' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login_base' %}">Login</a></li>
+        <li class="nav-item"><a {% if request.resolver_match.view_name == 'login_base' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login_base' %}">LOGOUT</a></li>
         {% endif %}
+        <li class="w-75"><form class="text-end method="POST" action="{%url 'search_results'%}" id="searchform">
+          {% csrf_token %}
+          <input class="nav-item search_box mt-1" type="search" placeholder="Search" name="search_response" id="searchbar"/>
+        </form>
+        </li>
       </ul>
-      <form method="POST" action="{%url 'search_results'%}" id="searchform">
-        {% csrf_token %}
-        <input type="search" placeholder="Search" name="search_response" id="searchbar"/>
-        <!--<button type="submit">Click here to search!</button>-->
-      </form>
+
     </div>
   </div>
 </nav>

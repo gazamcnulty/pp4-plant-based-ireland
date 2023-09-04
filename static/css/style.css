@@ -25,7 +25,7 @@ button:hover {
 
 
 .navbar {
-
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .nav-item {
@@ -34,6 +34,11 @@ button:hover {
 
 .nav-item:hover, .nav-link:hover {
     background-color: green !important;
+    color: white !important;
+}
+
+.search_box:hover {
+    background-color: white !important;
     color: white !important;
 }
 
@@ -58,10 +63,10 @@ button:hover {
 .post_title {
     font-size: larger;
     color: black;
+    text-decoration: none;
 }
 
 .post_title:hover {
-    text-decoration: solid;
     text-decoration: underline;
 }
 
@@ -73,6 +78,7 @@ button:hover {
 .article_title:hover {
     text-decoration: solid;
     text-decoration: underline;
+    color: black;
 }
 
 .more_news {
