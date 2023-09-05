@@ -23,42 +23,42 @@
       {% endblock %}
     </main>
 
-    <footer class="container-fluid mb-0 mt-5 p-4">
+    <footer class="container-fluid mb-0 mt-5 p-1">
       <div class="container">
         <div class="row mb-0">
           <div class="col-sm-4 mb-0">
-            <h6 class="text-center">Useful website links</h6>
-            <ul class="ul_footer text-center">
-              <li class="">
-                <a  {% if request.resolver_match.view_name == 'home_page' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'home_page' %}">HOME</a>
+            <h4 class="text-center p-3">Useful website links</h4>
+            <ul class="list-unstlyed ul_footer text-center">
+              <li class="p-1">
+                <a  {% if request.resolver_match.view_name == 'home_page' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'home_page' %}">Home</a>
               </li>
-              <li class="">
-                <a {% if request.resolver_match.view_name == 'gallery' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'gallery' %}">GALLERY</a>
+              <li class="p-1">
+                <a {% if request.resolver_match.view_name == 'gallery' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'gallery' %}">Gallery</a>
               </li>
-              <li class="">
-                <a {% if request.resolver_match.view_name == 'about_us' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'about_us' %}">ABOUT</a>
+              <li class="p-1">
+                <a {% if request.resolver_match.view_name == 'about_us' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'about_us' %}">About</a>
               </li>
-              <li class="">
-                <a {% if request.resolver_match.view_name == 'news' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'news' %}">NEWS</a>
+              <li class="p-1">
+                <a {% if request.resolver_match.view_name == 'news' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'news' %}">News</a>
               </li>
             </ul>
           </div>
           <div class="col-sm-4 mb-0 text-center">
-            <h6 class="mb-0 text-center">Find us on social media</h6>
-            <ul class="ul_footer text-center">
-              <li class="text-center"><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
-              <li class="text-center"><a href="https://www.twitter.com/" target="_blank">Twitter</a></li>
-              <li class="text-center"><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
-              <li class="text-center"><a href="https://www.youtube.com/" target="_blank">Youtube</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 mb-0 text-center">
-            <h6 class="mb-0">Contact us</h6>
-            <p>Plant Based Ireland, 67 Oak View Drive<br>
+            <h4 class="mb-0 p-3">Contact us</h4>
+            <p class="">Plant Based Ireland, 67 Oak View Drive<br>
             Ballinacurra, Limerick<br>
             V94 H9CT<br>
-            Telephone 061 229021<br>
+            061 229021<br>
             plantbased@gmail.com<br>
+          </div>
+          <div class="col-sm-4 mb-0 text-center">
+            <h4 class="mb-0 text-center p-3">Find us on social media</h4>
+            <ul class="list-unstlyed ul_footer text-center p-2">
+              <li class=" text-center p-1"><a href="https://www.facebook.com/" target="_blank" class="footer_link">Facebook</a></li>
+              <li class=" text-center p-1"><a href="https://www.twitter.com/" target="_blank" class="footer_link">Twitter</a></li>
+              <li class=" text-center p-1"><a href="https://www.instagram.com/" target="_blank" class="footer_link">Instagram</a></li>
+              <li class=" text-center p-1"><a href="https://www.youtube.com/" target="_blank" class="footer_link">Youtube</a></li>
+            </ul>
           </div>
         </div>
     

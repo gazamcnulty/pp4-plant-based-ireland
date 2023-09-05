@@ -1,4 +1,9 @@
+/*---- site wide element styles -----*/
+
+
+
 h1 {
+    
 }
 
 body {
@@ -54,11 +59,20 @@ button:hover {
 /*---gallery---*/
 
 #gallery_container {
-    margin-top: 100px !important;
+    margin-top: 180px !important;
     opacity:1 !important ;
 }
 
 /*---home_posts---*/
+
+
+.home_container {
+    margin-top: 180px !important;
+}
+
+.h1_home {
+    
+}
 
 .posted_by {
     font-style: italic;
@@ -88,10 +102,6 @@ button:hover {
 
 .more_news {
     color: white;
-}
-
-.home_section {
-    margin-top: 150px !important;
 }
 
 
@@ -153,7 +163,7 @@ button:hover {
     font-size: larger;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: antiquewhite;
+    text-shadow: 2px 2px 3px rgb(184, 182, 182);
     display: inline;
 }
 
@@ -165,9 +175,28 @@ button:hover {
 
 /*-------news---------*/
 
+.news_container {
+    margin-top: 195px !important;
+}
 
 .news_h2 {
-    margin-top: 180px !important;
+    /*margin-top: 180px !important;*/
+}
+
+.article_link {
+    text-decoration: none !important;
+    font-size: larger;
+    color: black;
+}
+
+.article_link:hover {
+    text-decoration: solid !important;
+    text-decoration: underline !important;
+    color: black;
+}
+
+.shared {
+    font-style: italic;
 }
 
 
@@ -182,10 +211,6 @@ button:hover {
     width: 300px;
 }
 
-.shared {
-    font-style: italic;
-}
-
 .user {
     font-weight: bold;
     text-decoration: solid;
@@ -194,13 +219,20 @@ button:hover {
 
 /*---------------aboutus---------------*/
 
-.aboutus_h {
-    margin-top: 180px !important;
+.about_container {
+    margin-top: 195px !important;
 }
 
-.about_us {
-    margin-top: 150px !important;
+
+.about_h2 {
+    
 }
+
+/*---------login------------*/
+.login_container {
+    margin-bottom: 250px !important;
+}
+
 
 
 /*------------footer------------*/
@@ -208,9 +240,15 @@ button:hover {
 
 footer {
     background-color: rgba(255, 255, 255) !important;
-    font-size: large;
 }
 
 .ul_footer {
     list-style-type: none;
+    text-decoration: none;
+
+}
+
+.footer_link {
+    text-decoration: none;
+    color: black;
 }
