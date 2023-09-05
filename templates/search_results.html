@@ -1,24 +1,33 @@
 {%extends "base.html" %} {% block content %}
 
 
-<div class="container rounded">
-    <h1 id="aboutid" class="mt-5 pt-5"></h1>
-    <div class="row mt-5 g-5">
-        <div class="col-sm-12 col-md-6 mt-2">
-            <h2>Search Results Page</h2>
-<hr />
-<hr />
-{% if search_response %}
-<h3>You have searched for: " {{search_response}} " </h3>
-<h3>We found the following {{posts.count}} results</h3>
-{% for post in posts %}
-<a href="{% url 'post_detail' post.id %}">{{post.title}}</a>
-{% for content in contents %} {{post.title}}{{post.content}} {% endfor %}
-<br />
-<hr>
-{% endfor %} {% else %}
-<h3>No search info provided, please try again</h3>
-{% endif %}
+<div class="container search_container rounded text-center">
+    <h1 class="p-5">Search results</h1>
+    <div class="row">
+        <div class="col m-4 search_div">
+            {% if search_response %}
+              <h3 class="m-2 p-4">You searched for: " {{search_response}} " </h3>
+              <h3 class="m-2 p-4">We found the following {{posts.count}} results</h3>
+              <table class="table mt-5">
+                {% for post in posts %}
+                <tr>
+                  <td>
+                    <a href="{% url 'post_detail' post.id %}" class="post_title">{{post.title}}</a> 
+                  </td>
+                  <td>
+                    <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="user">{{ post.user }}</span></p>
+                  </td>
+                  <td>
+                    <a href="{% url 'edit_post' post.id %}">Edit</a>
+                  </td>
+                  <td>
+                    <a href="{% url 'delete_post' post.id %}">Delete</a>
+                  </td>
+                </tr>
+                {% endfor %}
+            </table> {% else %}
+              <h3>No search info provided, please try again</h3>
+            {% endif %}
         </div>
     </div>
   </div>

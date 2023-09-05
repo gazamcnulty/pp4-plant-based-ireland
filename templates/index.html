@@ -38,11 +38,11 @@
 
 <section id="home_div" class="container rounded">
   <div class="row gx-2 mt-5 rounded">
-    <div id="posts_div" class="col-12 col-md-9">
-      <h3 class="user_posts"><i class="fa-solid fa-receipt posts_icon"></i>User submitted posts</h3>
+    <div id="posts_div" class="col-12 col-md-9 my-4">
+      <h2 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>User submitted posts</h2>
 
-      <div class="mt-5">
-        <a href="{% url 'add_post' %}"><button type="button" class="btn btn-primary">Click here to submit a post</button></a>
+      <div class="text-center">
+        <a href="{% url 'add_post' %}"><button type="button" class="btn btn-primary text-center">Click here to submit a post</button></a>
       </div>
       
       <table class="table mt-5">
@@ -65,16 +65,15 @@
     </table>
     </div>
 
-    <div id="headlines_div" class="col-12 col-md-3">
-      <a href="{% url 'news' %}" class="text-muted text-decoration-none"><h3>Latest articles from around the web <i class="fa-regular fa-newspaper"></i></h3></a>
+    <div id="headlines_div" class="col-12 col-md-3 my-5">
+      <a href="{% url 'news' %}" class="text-decoration-none h4_headlines"><h4>Latest articles from around the web <i class="fa-regular fa-newspaper"></i></h4></a>
+      <hr>
       <table class="table">
         {% for report in reports|slice:":4" %}
         <tr>
           <td>
-            <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}</span></p>
-            <a href="{{ report.external_link }}" class="text-decoration-none"><p class="article_title">{{ report.title }}</p></a>
-            <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="user">{{ report.user }}</span></p>
-            
+            <a href="{{ report.external_link }}" class="text-decoration-none side_headlines"><p class="article_title">{{ report.title }}</p></a>
+            <p class="shared"><span class="report_category">{{ report.category }}</span> shared {{ report.created_on|timesince }} ago by <span class="user">{{ report.user }}</span> from <span class="report_website">{{ report.website }}</span></p>
           </td>
         </tr>
         {% endfor %}
