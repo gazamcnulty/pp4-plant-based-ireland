@@ -3,20 +3,24 @@
 
 <h1>Submit a link to an external website article</h1>
 <hr />
-<div id="news_form_div" class="container-fluid"">
-  <div class="row">
-    <div id="news_div" class="col ">
-        <form method="POST" action="{% url 'add_news' %}" id="add_news_form" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div>
-              {{ form.as_p }}
-            <div>
-              <input type="submit" value="Submit Article Link" />
-            </div>
-          </form>
+<div  class="container add_news_container p-5 rounded">
+    <div class="row mt-2 g-5">
+      <div class="col-sm-12 col-md-6 mt-2 p-4  text-left">
+        <p class="preface_add_news">Submit a link to another site on the web. Please only post articles or news relating to plant based nutrition, vegetarianism/veganism, animal rights, restaurant reviews, food recipes, scientific information, blogs / thoughtpieces</p>
+      </div>
+        <div class="col  p-4 add_news_div">
+              <form method="POST" action="{% url 'add_news' %}" enctype="multipart/form-data" class="add_news_form" >
+                  {% csrf_token %}
+                  <div class="news_form_subclass">
+                      {{ form.as_p }}
+                  <div>
+                      <button type="submit" class="btn btn-success">Click here to submit a post</button>
+                  </div>
+              </form>
+          </div>
     </div>
   </div>
-</div>
+
 
 {% endblock %}
 

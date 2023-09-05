@@ -19,9 +19,6 @@ body {
 }
 
 
-/*.container-fluid {
-    background-color: rgba(255, 255, 255, 0.9);
-}*/
 
 button:hover {
     color:black !important;
@@ -115,9 +112,6 @@ button:hover {
     font-weight: bold;
 }
 
-#login_div {
-    margin-top: 150px !important;
-}
 
 #post_submit {
     margin-top: 120px !important;
@@ -173,6 +167,14 @@ button:hover {
 }
 
 
+/*------post_detail-----*/
+
+.post_container {
+    margin-bottom: 250px !important;
+    margin-top: 197px !important;
+}
+
+
 /*-------news---------*/
 
 .news_container {
@@ -199,6 +201,33 @@ button:hover {
     font-style: italic;
 }
 
+/*-------add_news---------*/
+
+.add_news_container {
+    margin-top: 180px !important;
+    margin-bottom: 150px !important;
+}
+
+.preface_add_news {
+    max-width: 60%;
+    padding-left: 40px;
+    padding-top: 40px;
+    font-size: larger;
+}
+
+.add_news_form {
+    font-size: larger;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.add_news_div {
+    text-align: center;
+}
+
+.news_form_subclass {
+}
+
 
 /*---------gallery--------------*/
 
@@ -221,6 +250,7 @@ button:hover {
 
 .about_container {
     margin-top: 195px !important;
+    margin-bottom: 100px !important;
 }
 
 
@@ -231,8 +261,8 @@ button:hover {
 /*---------login------------*/
 .login_container {
     margin-bottom: 250px !important;
+    margin-top: 200px !important;
 }
-
 
 
 /*------------footer------------*/
