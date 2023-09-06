@@ -1,3 +1,10 @@
+/*-------regmodal----------*/
+
+.reg_close {
+    background-color: grey !important;
+}
+
+
 /*---- site wide element styles -----*/
 
 
@@ -18,7 +25,9 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-
+button {
+    background-color: rgb(64, 170, 60) !important;
+}
 
 button:hover {
     color:black !important;
@@ -31,7 +40,7 @@ button:hover {
 
 
 .navbar {
-    background-color: rgba(255, 255, 255) !important;
+    background-color: rgb(64, 170, 60) !important;
     
 }
 
@@ -179,6 +188,8 @@ button:hover {
 }
 
 
+
+
 /*------post_detail-----*/
 
 .post_container {
@@ -198,9 +209,10 @@ button:hover {
 }
 
 .article_link {
-    text-decoration: none !important;
-    font-size: larger;
+    font-size: 25px;
+    font-weight: bold;
     color: black;
+    text-decoration: none;
 }
 
 .article_link:hover {
@@ -293,7 +305,11 @@ button:hover {
 
 
 footer {
-    background-color: rgba(255, 255, 255) !important;
+    background-color: rgb(64, 170, 60) !important;
+}
+
+.footer_container {
+    background-color: rgb(64, 170, 60) !important;
 }
 
 .ul_footer {
