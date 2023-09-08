@@ -39,6 +39,9 @@
                 <a {% if request.resolver_match.view_name == 'about_us' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'about_us' %}">About</a>
               </li>
               <li class="p-1">
+                <a {% if request.resolver_match.view_name == 'events' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'events' %}">Events</a>
+              </li>
+              <li class="p-1">
                 <a {% if request.resolver_match.view_name == 'news' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'news' %}">News</a>
               </li>
             </ul>

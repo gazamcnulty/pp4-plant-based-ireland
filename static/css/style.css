@@ -306,6 +306,12 @@ button:hover {
     
 }
 
+/*---------events----------*/
+.events_container {
+    margin-top: 195px !important;
+    margin-bottom: 100px !important;
+}
+
 /*---------login------------*/
 .login_container {
     margin-bottom: 250px !important;
@@ -345,4 +351,9 @@ footer {
 .footer_link {
     text-decoration: none;
     color: black;
+}
+
+.footer_link:hover {
+    background-color: green !important;
+    color: white !important;
 }

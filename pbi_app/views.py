@@ -318,3 +318,13 @@ def add_news(request):
     form = NewsForm()
     context = {'form': form}
     return render(request, 'add_news.html', context)
+
+
+@login_required(login_url='login_base')
+def events(request):
+    posts = Post.objects.all()
+    context = {
+        'posts': posts,
+    }
+    return render(request, 'events.html', context)
+
