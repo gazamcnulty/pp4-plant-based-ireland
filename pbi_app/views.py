@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.db.models import Q
+from django.core.paginator import Paginator
+from django.views.generic import ListView
 from .models import Post, Comment, Gallery, News, Article
 from .forms import PostForm, GalleryForm, NewsForm  # CommentForm
 
@@ -64,6 +66,9 @@ def home_page(request):
     posts = Post.objects.all()
     reports = News.objects.all()
     form = UserCreationForm()
+    #paginator = Paginator(posts, 5)
+    #page_number = request.GET.get("page")
+    #page_obj = paginator.get_page(page_number)
 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -78,6 +83,7 @@ def home_page(request):
         'posts': posts,
         'reports':reports,
         'form':form,
+       # 'page_obj':page_obj,
     }
     return render(request, 'index.html', context)
 

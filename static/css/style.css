@@ -212,12 +212,19 @@ button:hover {
 
 /*-------news---------*/
 
-.news_container {
+.news_welcome {
     margin-top: 195px !important;
+}
+
+.news_container {
 }
 
 .news_h2 {
     /*margin-top: 180px !important;*/
+}
+
+.category_h2 {
+
 }
 
 .article_link {

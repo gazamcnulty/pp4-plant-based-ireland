@@ -1,17 +1,38 @@
 {% extends 'base.html' %}
 {% block content%}
 
-<div class="container news_container rounded">
+
+<section>
+  <div class="container news_welcome rounded">
+    <div class="row">
+      <div class="col">
+        <h2 class=" pt-5 m-5 text-center news_h2">News, blogs, recipes, reviews. Articles from around the web!</h2>
+        <div class="m-2 p-2 text-center">
+          <p class="fs-4 text">Share the most interesting posts from other websites that related to plant based . Scientific articles, tantilising recipes, personal blogs or hard hitting news - we've got em all!</p>
+          <a href="{% url 'add_news' %}" class=""><button type="button" class="btn btn-success m-4 fs-5 text">Submit an article</button></a>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section>
+<div class="container news_container rounded mt-5">
   <hr/>
   <div class="row">
 
+    <div class="col-12 m-2">
+      <div class="m-2 p-2 text-center">
+        <h2 class="category_h2 m-2 text">User Submitted Articles : Food Reviews</h2>
+        <p class="mt-2 p-2 fs-5 text">Click below to change articles category</p>
+        <a href="{% url 'news' %}" class=""><button type="button" class="btn btn-outline-success m-2 fs-5 text">All</button></a>
+        <a href="{% url 'breaking_news' %}" class=""><button type="button" class="btn btn-outline-success m-2 fs-5 text">News</button></a>
+        <button type="button" class="btn btn-secondary btn m-2 fs-5 text" disabled>Reviews</button>
+        <a href="{% url 'blogs' %}" class=""><button type="button" class="btn btn-outline-success m-2 fs-5 text">Blogs</button></a>
+        <a href="{% url 'recipes' %}" class=""><button type="button" class="btn btn-outline-success m-2 fs-5 text">Recipes</button></a>
+      </div>
+    </div>
+
     <div class="col-12 col-md-9">
-        <h2 class=" pt-5 text-center news_h2">Reviews</h2>
-          <br>
-          <div class="m-2 p-2 text-center">
-            <a href="{% url 'add_news' %}" class=""><button type="button" class="btn btn-success m-2 fs-5 text">Submit an article</button></a>
-          </div>
-          <h3>Latest Reviews</h3>
           {% for news in review_news %}
     
             <p><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
@@ -38,4 +59,5 @@
 
   </div>
 </div>
+</section>
 {% endblock %}
