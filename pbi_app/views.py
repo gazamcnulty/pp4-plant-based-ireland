@@ -235,12 +235,69 @@ def add_gallery(request):
 def news(request):
     article= Article.objects.all()
     reports = News.objects.all()
+    posts = Post.objects.all()
     blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
+    recipe_news = News.objects.filter(category__category='RECIPE').filter(category__category='RECIPE')
+    review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
+    breaking_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
     categorys = Article.objects.all()
 
-    context = {'reports':reports, 'blog_news':blog_news, 'categorys':categorys}
+    context = {'reports':reports, 'blog_news':blog_news, 'recipe_news':recipe_news, 'posts':posts, 'categorys':categorys}
     return render(request, 'news.html', context)
 
+def recipes(request):
+    article= Article.objects.all()
+    reports = News.objects.all()
+    posts = Post.objects.all()
+    blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
+    recipe_news = News.objects.filter(category__category='RECIPE').filter(category__category='RECIPE')
+    review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
+    new_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
+    categorys = Article.objects.all()
+
+    context = {'reports':reports, 'posts':posts, 'blog_news':blog_news, 'recipe_news':recipe_news, 'categorys':categorys}
+    return render(request, 'recipes.html', context)
+
+def blogs(request):
+    article= Article.objects.all()
+    reports = News.objects.all()
+    posts = Post.objects.all()
+    blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
+    recipe_news = News.objects.filter(category__category='RECIPE').filter(category__category='RECIPE')
+    review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
+    new_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
+    categorys = Article.objects.all()
+
+    context = {'reports':reports, 'posts':posts, 'blog_news':blog_news, 'recipe_news':recipe_news, 'categorys':categorys}
+    return render(request, 'blogs.html', context)
+
+
+def reviews(request):
+    article= Article.objects.all()
+    reports = News.objects.all()
+    posts = Post.objects.all()
+    blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
+    recipe_news = News.objects.filter(category__category='RECIPE').filter(category__category='RECIPE')
+    review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
+    new_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
+    categorys = Article.objects.all()
+
+    context = {'reports':reports, 'posts':posts, 'blog_news':blog_news, 'recipe_news':recipe_news, 'review_news':review_news, 'categorys':categorys}
+    return render(request, 'reviews.html', context)
+
+
+def breaking_news(request):
+    article= Article.objects.all()
+    reports = News.objects.all()
+    posts = Post.objects.all()
+    blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
+    recipe_news = News.objects.filter(category__category='RECIPE').filter(category__category='RECIPE')
+    review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
+    breaking_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
+    categorys = Article.objects.all()
+
+    context = {'reports':reports, 'posts':posts, 'blog_news':blog_news, 'recipe_news':recipe_news, 'breaking_news':breaking_news, 'categorys':categorys}
+    return render(request, 'breaking_news.html', context)
 
 @login_required(login_url='login_base')
 def add_news(request):

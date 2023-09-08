@@ -26,7 +26,7 @@ body {
 }
 
 button {
-    background-color: rgb(64, 170, 60) !important;
+    
 }
 
 button:hover {
@@ -92,6 +92,18 @@ button:hover {
 }
 
 .post_title:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.post_title_mini {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+.post_title_mini:hover {
     text-decoration: underline;
     color: black;
 }

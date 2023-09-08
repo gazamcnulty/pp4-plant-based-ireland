@@ -32,3 +32,14 @@
       </div>
   </div>
 </div>
+
+<div id="recipe_list">
+<h3>Latest Recipes</h3>
+    {% for news in recipe_news %}
+      <p><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
+      <a href="{{ news.external_link }} " class="article_link"><p>{{ news.title }}</p></a>
+      <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="user">{{ news.user }}</span></p>
+      <hr>
+    {% endfor %}
+    <hr>
+</div>

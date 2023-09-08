@@ -23,6 +23,10 @@ urlpatterns = [
     path('test_template/', views.test_template, name='test_template'),
     path('news/', views.news, name='news'),
     path('add_news/', views.add_news, name='add_news'),
+    path('recipes/', views.recipes, name='recipes'),
+    path('blogs/', views.blogs, name='blogs'),
+    path('reviews/', views.reviews, name='reviews'),
+    path('breaking_news', views.breaking_news, name='breaking_news'),
     #   path('test_comments/', views.test_comments, name='test_comments'),
 ]
 

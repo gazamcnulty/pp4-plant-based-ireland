@@ -39,7 +39,7 @@
 <section id="home_div" class="container rounded">
   <div class="row gx-2 mt-5 rounded">
     <div id="posts_div" class="col-12 col-md-9 my-4">
-      <h2 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>User submitted posts</h2>
+      <h2 class="text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>User submitted posts</h2>
 
       <div class="text-center">
         <a href="{% url 'add_post' %}"><button type="button" class="btn btn-success m-2 fs-5 text">Submit a post</button></a>
@@ -69,7 +69,7 @@
       <a href="{% url 'news' %}" class="text-decoration-none h4_headlines"><h4>Latest articles from around the web <i class="fa-regular fa-newspaper"></i></h4></a>
       <hr>
       <table class="table">
-        {% for report in reports|slice:":4" %}
+        {% for report in reports|slice:":6" %}
         <tr>
           <td>
             <a href="{{ report.external_link }}" class="text-decoration-none side_headlines"><p class="article_title">{{ report.title }}</p></a>
@@ -112,11 +112,14 @@
   <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
           {% if page_obj.has_previous %}
-          <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+          <li>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a>
+          </li>
           {% endif %}
           {% if page_obj.has_next %}
-          <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
+          <li>
+            <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a>
+          </li>
           {% endif %}
       </ul>
   </nav>

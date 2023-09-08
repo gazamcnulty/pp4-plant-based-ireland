@@ -6,7 +6,13 @@
   <hr/>
   <div class="row">
 
-    <div class="col-12 col-md-9">
+    <div class="col-12">
+      <div class="m-2 p-2 text-center">
+        <a href="{% url 'breaking_news' %}" class=""><button type="button" class="btn btn-outline-warning m-2 fs-5 text">News</button></a>
+        <a href="{% url 'reviews' %}" class=""><button type="button" class="btn btn-outline-primary m-2 fs-5 text">Reviews</button></a>
+        <a href="{% url 'blogs' %}" class=""><button type="button" class="btn btn-outline-secondary m-2 fs-5 text">Blogs</button></a>
+        <a href="{% url 'recipes' %}" class=""><button type="button" class="btn btn-outline-info m-2 fs-5 text">Recipes</button></a>
+      </div>
       <hr>
           <h3 class="text-center">User submitted articles</h3>
           <br>
@@ -32,17 +38,6 @@
         </table>
     </div>
 
-    <div class="col-12 col-md-3">
-      <h3>Latest Blogs</h3>
-      {% for news in blog_news %}
-
-        <p><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
-        <a href="{{ news.external_link }} " class="article_link"><p>{{ news.title }}</p></a>
-        <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="user">{{ news.user }}</span></p>
-        <hr>
-      {% endfor %}
-      <hr>
-    </div>
 
   </div>
 </div>
