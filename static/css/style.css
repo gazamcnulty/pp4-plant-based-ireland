@@ -227,6 +227,11 @@ button:hover {
 
 }
 
+.category_span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 .article_link {
     font-size: 25px;
     font-weight: bold;
