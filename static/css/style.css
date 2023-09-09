@@ -320,9 +320,13 @@ button:hover {
 
 
 /*---------events----------*/
-.events_container {
+.parent_container {
     margin-top: 195px !important;
     margin-bottom: 100px !important;
+}
+
+.events_h3 {
+    font-weight: bold;
 }
 
 .events_list {
@@ -513,7 +517,13 @@ footer {
         margin: 8px;
     }
 
+    .events_div {
+        padding: 0 !important;
+    }
 
+    .li_event {
+        padding: 0 !important;
+    }
 }
 
 
