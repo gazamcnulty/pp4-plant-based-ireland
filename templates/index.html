@@ -2,8 +2,7 @@
 <!--below here is the block content-->
 {% block content %}
 <!--this is the block content section-->
-<hr />
-<section class="container rounded home_container">
+<section class="container rounded parent_container text-center">
   <div class="row banner px-5 rounded">
     <div id="welcome" class="col-12 rounded">
       <h1 class="h1_home">Welcome to Plant Based Ireland</h1>
@@ -36,30 +35,22 @@
   </div>
 </section>
 
-<section id="home_div" class="container rounded">
-  <div class="row gx-2 mt-5 rounded">
-    <div id="posts_div" class="col-12 col-md-9 my-4">
+<section id="home_div" class="container lower_container rounded">
+  <div class="row mt-5 rounded">
+    <div id="posts_div" class="col-12 col-md-9 ">
       <h2 class="text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>User submitted posts</h2>
 
       <div class="text-center">
         <a href="{% url 'add_post' %}"><button type="button" class="btn btn-success m-2 fs-5 text">Submit a post</button></a>
       </div>
-      
-      <table class="table mt-5">
         {% for post in posts %}
-        <tr>
-          <td>
-            <a href="{% url 'post_detail' post.id %}" class="post_title">{{post.title}}</a> 
-          </td>
-          <td>
-            <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
-          </td>
-        </tr>
+            <hr>
+            <a href="{% url 'post_detail' post.id %}" class="post_title"><p class="post_p">{{post.title}}</p></a> 
+            <p class="posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
         {% endfor %}
-    </table>
     </div>
 
-    <div id="headlines_div" class="col-12 col-md-3 my-5">
+    <div id="headlines_div" class="col d-none d-md-block my-5">
       <a href="{% url 'news' %}" class="text-decoration-none h4_headlines"><h4>Latest articles from around the web <i class="fa-regular fa-newspaper"></i></h4></a>
       <hr>
       <table class="table">

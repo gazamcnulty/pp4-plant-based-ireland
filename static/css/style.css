@@ -34,19 +34,25 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-button {
-    
-}
+
 
 button:hover {
     color:black !important;
     background-color: white !important;
 }
 
+/*----main parent container used first on most pages ------ */
 
 .parent_container {
-    margin-bottom: 250px !important;
+    margin-bottom: 75px !important;
     margin-top: 197px !important;
+}
+
+/*---- container for pages with 1 small screen of info (login,acount, edit, delete, register ) ------ */
+
+.subscreen_container {
+    margin-bottom: 225px !important;
+    margin-top: 200px !important;
 }
 
 .confirmation_message {
@@ -98,13 +104,6 @@ button:hover {
 /*---index.html---*/
 
 
-.home_container {
-    margin-top: 180px !important;
-}
-
-.h1_home {
-    
-}
 
 .posted_by {
     font-style: italic;
@@ -242,16 +241,11 @@ button:hover {
     margin-top: 195px !important;
 }
 
-.news_container {
-}
 
 .news_h2 {
     /*margin-top: 180px !important;*/
 }
 
-.category_h2 {
-
-}
 
 .category_span {
     font-weight: bold;
@@ -299,9 +293,6 @@ button:hover {
     text-align: center;
 }
 
-.news_form_subclass {
-}
-
 
 /*---------gallery--------------*/
 
@@ -328,10 +319,6 @@ button:hover {
 }
 
 
-.about_h2 {
-    
-}
-
 /*---------events----------*/
 .events_container {
     margin-top: 195px !important;
@@ -339,10 +326,7 @@ button:hover {
 }
 
 /*---------login------------*/
-.login_container {
-    margin-bottom: 250px !important;
-    margin-top: 200px !important;
-}
+
 
 
 /*-------searchresults--------*/
@@ -368,6 +352,7 @@ button:hover {
 
 footer {
     background-color: rgb(64, 170, 60) !important;
+
 }
 
 .footer_container {
@@ -398,6 +383,34 @@ footer {
 
 /*------------media-queries-----------*/
 
+
+
+@media screen and (min-width: 2400px) {
+
+
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+
+    }
+}
+
+
+
+
+@media screen and (min-width: 1900px) {
+    .lower_container {
+        margin-bottom: 300px;
+    }
+
+}
+
+
+
+
+
 @media screen and (max-width: 1300px) {
 
 
@@ -410,23 +423,78 @@ footer {
         width: 120px;
     }
 
+
 }
 
 
 
 /*------------small screens such as smart phone*/
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 460px) {
     .logo {
         font-size:larger;
+        font-weight: 500;
     }
 
     .navbar {
-        padding: 5px !important;
+        padding: 2px !important;
+    }
+
+    .navbar-toggler {
+        padding: 0 !important;
+        width: 10%;
+    }
+
+    .parent_container {
+        margin-bottom: 50px !important;
+        margin-top: 75px !important;
+    }
+
+    .post_p {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .posted_by {
+        font-size: 14px;
+    }
+
+    .report_category {
+        font-size: 16px;
+    }
+
+    .site {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    .article_p {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .shared {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+
+    hr {
+        margin: 8px;
     }
 
 
-    .navbar-toggler {
-        padding: 0; !important;
+}
+
+
+@media screen and (max-width: 351px) {
+    .logo {
+        font-size:large;
+        font-weight: 500;
+
+    }
+
+    .navbar {
+        padding: 0px !important;
     }
 
 }
