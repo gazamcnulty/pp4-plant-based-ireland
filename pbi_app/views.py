@@ -153,6 +153,7 @@ def add_post(request):
         
         if form.is_valid():
             instance = form.save(commit=False)
+            instance.user = request.user
             instance.save()
             return redirect('home_page')
     
@@ -255,6 +256,7 @@ def add_gallery(request):
         
         if form.is_valid():
             instance = form.save(commit=False)
+            instance.user = request.user
             instance.save()
             return redirect('gallery')
     
@@ -337,6 +339,7 @@ def add_news(request):
 
         if form.is_valid():
             instance = form.save(commit=False)
+            instance.user = request.user
             instance.save()
             return redirect('news')
     

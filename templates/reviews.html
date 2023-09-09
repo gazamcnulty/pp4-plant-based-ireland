@@ -35,7 +35,7 @@
           {% for news in review_news %}
     
             <p><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
-            <a href="{{ news.external_link }} " class="article_link"><p>{{ news.title }}</p></a>
+            <a href="{{ news.external_link }}" target="_blank" class="article_link"><p>{{ news.title }}</p></a>
             <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="bold_span">{{ news.user }}</span></p>
             <hr>
           {% endfor %}

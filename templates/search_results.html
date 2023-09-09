@@ -15,7 +15,7 @@
                     <a href="{% url 'post_detail' post.id %}" class="post_title">{{post.title}}</a> 
                   </td>
                   <td>
-                    <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="user">{{ post.user }}</span></p>
+                    <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
                   </td>
                   <td>
                     <a href="{% url 'edit_post' post.id %}">Edit</a>

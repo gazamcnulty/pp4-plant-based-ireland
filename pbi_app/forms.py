@@ -9,7 +9,7 @@ from .models import Post , Gallery, News, Article # , Comment
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['user','title', 'content', 'featured_image']
+        fields = ['title', 'content', 'featured_image']
 
 
 class UserCreationForm(UserCreationForm):
@@ -20,19 +20,14 @@ class UserCreationForm(UserCreationForm):
         fields = ("username", "email", "password1", "password2")
 
 
-# class CommentForm(forms.ModelForm):
-#    class Meta:
-#        model = Comment
-#        fields = ['name', 'body']
-
 
 class GalleryForm(forms.ModelForm):
     class Meta:
         model = Gallery
-        fields = ['user','title', 'featured_image']
+        fields = ['title', 'featured_image']
 
 
 class NewsForm(forms.ModelForm):
     class Meta:
         model = News
-        fields = ['user', 'category', 'title', 'website', 'external_link']
+        fields = ['category', 'title', 'website', 'external_link']

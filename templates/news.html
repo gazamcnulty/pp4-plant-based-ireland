@@ -33,7 +33,7 @@
 
       {% for report in reports %}
         <p><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}		</span></p>
-        <a href="{{ report.external_link }}" class="article_link width-min"><p>{{ report.title }}</p></a>
+        <a href="{{ report.external_link }}" target="_blank" class="article_link width-min"><p>{{ report.title }}</p></a>
         <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="bold_span">{{ report.user }}</span></p>
         <hr>
       {% endfor %}
