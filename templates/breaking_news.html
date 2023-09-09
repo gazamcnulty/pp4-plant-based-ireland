@@ -25,19 +25,19 @@
       <div class="col-12 text-center mb-4">
         <a href="{% url 'news' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">All</button></a>
         <button type="button" class="category_button btn btn-secondary btn fs-5 text" disabled>News</button>
-        <a href="{% url 'reviews' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Reviews</button></a>
-        <a href="{% url 'blogs' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Blogs</button></a>
-        <a href="{% url 'recipes' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Recipes</button></a>
+        <a href="{% url 'reviews' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Review</button></a>
+        <a href="{% url 'blogs' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Blog</button></a>
+        <a href="{% url 'recipes' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Recipe</button></a>
       </div>
     </div>
 
     <div class="col-12 col-md-9">
 
           {% for news in breaking_news %}
-            <p><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
-            <a href="{{ news.external_link }}" target="_blank" class="article_link"><p>{{ news.title }}</p></a>
-            <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="bold_span">{{ news.user }}</span></p>
-            <hr>
+          <p class="site"><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
+          <a href="{{ news.external_link }}" target="_blank" class="article_link"><p class="article_p">{{ news.title }}</p></a>
+          <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="bold_span">{{ news.user }}</span></p>
+          <hr>
           {% endfor %}
           <hr>
     </div>
