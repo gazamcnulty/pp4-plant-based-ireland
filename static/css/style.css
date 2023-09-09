@@ -1,3 +1,8 @@
+/*-------google fonts link-------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito+Sans:opsz@6..12&display=swap');
+
+
 /*-------regmodal----------*/
 
 .reg_close {
@@ -7,6 +12,10 @@
 
 /*---- site wide element styles -----*/
 
+p {
+    font-family: 'Montserrat', 'Nunito', Geneva, sans-serif;
+    font-weight:600 !important;
+}
 
 
 h1 {
