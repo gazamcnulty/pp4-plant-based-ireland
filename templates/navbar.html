@@ -22,7 +22,6 @@
           <a {% if request.resolver_match.view_name == 'events' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'events' %}">EVENTS</a>
         </li>
         {% if request.user.is_authenticated %}
-        <li class="nav-item"><a {% if request.resolver_match.view_name == 'logout' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'logout' %}">LOGOUT</a></li>
         <li class="nav-item"><a {% if request.resolver_match.view_name == 'account' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'account' %}">ACCOUNT</a>
         </li>
         {% else %}
