@@ -1,6 +1,6 @@
 /*-------google fonts link-------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito+Sans:opsz@6..12&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito:wght@500&family=Prompt:wght@600&display=swap');
 
 
 /*-------regmodal----------*/
@@ -14,12 +14,12 @@
 
 p {
     font-family: 'Montserrat', 'Nunito', Geneva, sans-serif;
-    font-weight:600 !important;
 }
 
 
-h1 {
-    
+
+h1, h2, h3, h4, h5, h6 {
+    font-family:  'Montserrat', 'Nunito', Geneva, sans-serif;
 }
 
 body {
@@ -56,8 +56,14 @@ button:hover {
 
 /*----navbar---*/
 
+#searchbar {
+    width: 150px;
+}
 
 
+.logo {
+    font-family:'Nunito', Geneva, sans-serif;
+}
 
 .navbar {
     background-color: rgb(64, 170, 60) !important;
@@ -374,6 +380,10 @@ footer {
 
 }
 
+.contact {
+    line-height: 1.6;
+}
+
 .footer_link {
     text-decoration: none;
     color: black;
@@ -382,4 +392,41 @@ footer {
 .footer_link:hover {
     background-color: green !important;
     color: white !important;
+}
+
+
+
+/*------------media-queries-----------*/
+
+@media screen and (max-width: 1300px) {
+
+
+    .nav-link {
+        padding: 4px !important;
+        font-size: large;
+    }
+
+    #searchbar {
+        width: 120px;
+    }
+
+}
+
+
+
+/*------------small screens such as smart phone*/
+@media screen and (max-width: 450px) {
+    .logo {
+        font-size:larger;
+    }
+
+    .navbar {
+        padding: 5px !important;
+    }
+
+
+    .navbar-toggler {
+        padding: 0; !important;
+    }
+
 }
