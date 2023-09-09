@@ -449,6 +449,18 @@ footer {
         margin-top: 75px !important;
     }
 
+    .welcome_h2 {
+        margin-top: 0 !important;
+    }
+
+    .action_call {
+        font-size: 18px;
+    }
+
+    .signup_button {
+        margin-bottom: 15px !important;
+    }
+
     .post_p {
         font-size: 18px;
         font-weight: 700;
@@ -458,6 +470,17 @@ footer {
     .posted_by {
         font-size: 14px;
     }
+
+    .news_h2 {
+        margin: 10px;
+        padding-top: 15px !important;
+    }
+
+    .category_button {
+        padding: 4px;
+        height: min-content;
+        margin: ;
+    } 
 
     .report_category {
         font-size: 16px;
