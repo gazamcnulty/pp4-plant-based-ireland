@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.views.generic import ListView
@@ -15,8 +16,9 @@ from .forms import PostForm, GalleryForm, NewsForm  # CommentForm
 # Create your views here.
 
 
-def login_base(request):
 
+
+def login_base(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -60,6 +62,29 @@ def register(request):
 def logout_base(request):
     logout(request)
     return redirect('home_page')
+
+
+@login_required(login_url='login_base')
+def account(request):
+    return render(request, 'account.html')
+
+
+@login_required(login_url='login_base')
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('account')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'change_password.html', {
+        'form': form
+    })
 
 
 def home_page(request):

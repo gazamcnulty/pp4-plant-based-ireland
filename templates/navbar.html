@@ -23,8 +23,11 @@
         </li>
         {% if request.user.is_authenticated %}
         <li class="nav-item"><a {% if request.resolver_match.view_name == 'logout' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'logout' %}">LOGOUT</a></li>
+        <li class="nav-item"><a {% if request.resolver_match.view_name == 'account' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'account' %}">ACCOUNT</a>
+        </li>
         {% else %}
-        <li class="nav-item"><a {% if request.resolver_match.view_name == 'login_base' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login_base' %}">LOGIN</a></li>
+        <li class="nav-item"><a {% if request.resolver_match.view_name == 'login_base' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login_base' %}">LOGIN</a>
+        </li>
         {% endif %}
         <li class="w-75"><form method="POST" action="{%url 'search_results'%}" class="text-end searchbar ">
           {% csrf_token %}

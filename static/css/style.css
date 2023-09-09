@@ -34,6 +34,17 @@ button:hover {
     background-color: white !important;
 }
 
+
+.parent_container {
+    margin-bottom: 250px !important;
+    margin-top: 197px !important;
+}
+
+.confirmation_message {
+    font-size: larger;
+    font-weight: bold;
+}
+
 /*----navbar---*/
 
 
@@ -288,7 +299,7 @@ button:hover {
     width: 300px;
 }
 
-.user {
+.bold_span {
     font-weight: bold;
     text-decoration: solid;
 }
@@ -327,6 +338,12 @@ button:hover {
 
 .search_div {
     margin: auto;
+}
+
+
+/*----------account-----------*/
+.user_list {
+    list-style: none;
 }
 
 

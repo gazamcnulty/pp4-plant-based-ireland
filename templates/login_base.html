@@ -20,11 +20,9 @@
               </form>
           </div>
            {% if messages %}
-          <ul class="messages">
             {% for message in messages %}
-              <li>{{ message }}</li>
+              <p class="confirmation_message">{{ message }}</p>
             {% endfor %}
-          </ul>
           {% endif %}
       </div>
       <div id="not_registered" class="col-sm-12 col-md-6 mt-5 text-center">

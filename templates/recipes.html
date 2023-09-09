@@ -36,7 +36,7 @@
     
             <p><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
             <a href="{{ news.external_link }} " class="article_link"><p>{{ news.title }}</p></a>
-            <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="user">{{ news.user }}</span></p>
+            <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="bold_span">{{ news.user }}</span></p>
             <hr>
           {% endfor %}
           <hr>
@@ -49,7 +49,7 @@
         <tr>
           <td>
             <a href="{% url 'post_detail' post.id %}" class="post_title_mini">{{post.title}}</a> 
-            <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="user">{{ post.user }}</span></p>
+            <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
           </td>
         </tr>
         {% endfor %}

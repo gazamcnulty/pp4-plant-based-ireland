@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.static import static
 from pbi_app import views
 
@@ -28,7 +29,8 @@ urlpatterns = [
     path('reviews/', views.reviews, name='reviews'),
     path('breaking_news', views.breaking_news, name='breaking_news'),
     path('events/', views.events, name='events'),
-    #   path('test_comments/', views.test_comments, name='test_comments'),
+    path('account/', views.account, name='account'),
+    path('change_password/', views.change_password, name='change_password'),
 ]
 
 if settings.DEBUG:
