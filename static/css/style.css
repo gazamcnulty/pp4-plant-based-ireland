@@ -325,6 +325,14 @@ button:hover {
     margin-bottom: 100px !important;
 }
 
+.events_list {
+    list-style: none;
+}
+
+.events_span {
+    font-style: italic;
+}
+
 /*---------login------------*/
 
 
