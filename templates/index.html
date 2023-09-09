@@ -54,12 +54,6 @@
           <td>
             <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
           </td>
-          <td>
-            <a href="{% url 'edit_post' post.id %}">Edit</a>
-          </td>
-          <td>
-            <a href="{% url 'delete_post' post.id %}">Delete</a>
-          </td>
         </tr>
         {% endfor %}
     </table>

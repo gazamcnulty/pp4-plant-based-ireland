@@ -7,13 +7,17 @@
         <div class="col-sm-12 col-md-8 mt-5">
             <div class="p-2">
                 <h3 class="p-2">{{post.title}}</h3>
-                <p class="p-2">Shared {{ post.created_on|timesince }} ago by <span class="user">{{ post.user }}</span></p>
+                <p class="p-2 posted_by">Shared {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
+                {% if post.user == request.user %}
+                <a href="{% url 'edit_post' post.id %}">Edit</a>
+                <a href="{% url 'delete_post' post.id %}">Delete</a>
+                {% endif %}
                 <p class="p-2">{{post.content}}</p>
                 <hr>
                 </div>
                 <div>
                     {% if "placeholder" in post.featured_image.url %}
-                    <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" height="100px" width="100px">
+                        <div></div>
                     {% else %}
                     <img src="{{ post.featured_image.url }}" height="200px" width="300px" class="mt-2"/>
 
@@ -30,7 +34,7 @@
         </div>
         <div class="col-sm-12 col-md-4 mt-5">
             <div>
-                <h3>comments</h3>
+                <h3>Comments</h3>
                 {% for comment in comments %}
                     <b>{{comment.user}}</b>
                     <p class="blockquote">"{{comment.body}}"</p>

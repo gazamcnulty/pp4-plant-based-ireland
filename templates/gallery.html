@@ -8,7 +8,7 @@
         <div class="text-center">
             {% if request.user.is_authenticated %}
             <div class="m-5">
-                <a href="{% url 'add_gallery' %}"><button type="button" class="btn btn-primary m-5">Click here to submit an image</button></a>
+                <a href="{% url 'add_gallery' %}"><button type="button" class="btn btn-success fs-5 text m-5">Click here to submit an image</button></a>
               </div>
             {% else %}
                 <p class="mb-5"><a href="{% url 'login_base' %}">Login</a> if you want to submit photos!</p>

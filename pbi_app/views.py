@@ -209,12 +209,9 @@ def post_detail(request, post_id):
         return redirect('post_detail', post_id)
     context = {
         'post': post,
-        #        'form': form
        'comments': comments,
         'number_of_likes': number_of_likes,
         'reports':reports,
-        #'liked': liked,
-        #        'comment_form': comment_form
     }
     return render(request, 'post_detail.html', context)
 
