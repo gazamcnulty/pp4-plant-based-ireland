@@ -29,7 +29,7 @@
           <div class="col-sm-4 text-center mb-0 d-none d-sm-block">
             <h4 class="text-center p-3">Useful website links</h4>
             <ul class="list-unstlyed ul_footer text-center ">
-              <li class="p-1 text-center>
+              <li class="p-1 text-center">
                 <a  {% if request.resolver_match.view_name == 'home_page' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'home_page' %}">Home</a>
               </li>
               <li class="p-1 text-center">

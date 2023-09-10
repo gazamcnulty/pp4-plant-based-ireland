@@ -3,9 +3,9 @@
 {% block content %}
 
 <div class="container subscreen_container mt-5 rounded">
-  <div class="row align-items-center mt-5 g-5">
+  <div class="row mt-5">
       <div class="col-sm-12 col-md-6 text-center">
-        <h3 class ="mt-5 p-2">Please login first, so that you can submit posts, comments, likes and view our events page!</h3>
+        <h3 class ="mt-4 p-2">Please login first, so that you can submit posts, comments, likes and view our events page!</h3>
           <div>
               <form method="POST" action="" class ="my-5 p-2 text-center">
                   {% csrf_token %}
@@ -18,11 +18,11 @@
                     <label>Password:</label>
                     <input type="password" name="password" placeholder="Enter password"/>
                   </div>
-                  <button type="submit" class="btn btn-primary btn-success btn-lg m-5 p-2">Login</button>
+                  <button type="submit" class="btn btn-primary btn-success btn-lg mt-5 p-2">Login</button>
               </form>
           </div>
       </div>
-      <div id="not_registered" class="col-sm-12 col-md-6 mt-5 text-center">
+      <div id="not_registered" class="col-sm-12 col-md-6 m-2 text-center">
         {% if messages %}
           {% for message in messages %}
           <p class="confirmation_message">{{ message }}</p>

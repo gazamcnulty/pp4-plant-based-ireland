@@ -3,14 +3,14 @@
 
 
 <div class="container subscreen_container mt-5 rounded">
-    <div class="row mt-5 g-5">
+    <div class="row my-5">
         <div class="col-sm-12 col-md-8 mt-5">
             <div class="p-2">
                 <h3 class="p-2">{{post.title}}</h3>
                 <p class="p-2 posted_by">Shared {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
                 {% if post.user == request.user %}
-                <a href="{% url 'edit_post' post.id %}" class=""><button type="button" class="p-1 btn btn-outline-success fs-6 text">Edit</button></a>
-                <a href="{% url 'delete_post' post.id %}" class=""><button type="button" class="p-1 btn btn-outline-success  fs-6 text">Delete</button></a>
+                <a href="{% url 'edit_post' post.id %}" class=""><button type="button" class="text-center p-1 btn btn-outline-success fs-6 text">Edit</button></a>
+                <a href="{% url 'delete_post' post.id %}" class=""><button type="button" class="text-center p-1 btn btn-outline-success  fs-6 text">Delete</button></a>
                 {% endif %}
                 <p class="p-2">{{post.content}}</p>
                 <hr>
@@ -52,8 +52,8 @@
                 
             </div>
             <div>
-            <h3>Submit a comment</h3>
-            <form method="POST" action="">
+            <h4 class="my-5">Submit a comment</h4>
+            <form method="POST" action="" class="my-5">
                 {% csrf_token %}
                 <input type="text" name="body" placeholder="post a comment"/>
             </form>

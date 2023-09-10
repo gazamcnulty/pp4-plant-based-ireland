@@ -42,16 +42,16 @@ button:hover {
 }
  
 form {
-    min-width: 365px !important;
+    min-width: 300px !important;
 }
 
 form > p {
     text-align: start;
-    min-width: 365px !important;
+    min-width: 250px !important;
   }
 
 form > p > input {
-    min-width: 360px !important;
+    min-width: 250px !important;
     margin-top: 10px !important;
   }
 
@@ -62,14 +62,15 @@ form > p > input {
 
 /*----main parent container + lower container ------ */
 
+
 .parent_container {
     margin-bottom: 75px !important;
     margin-top: 197px !important;
-    min-width: 380px !important;
+    min-width: 280px !important;
 }
 
 .lower_container {
-    min-width: 380px !important;
+    min-width: 280px !important;
 }
 
 /*---- container for pages with 1 small screen of info (login,acount, edit, delete, register ) ------ */
@@ -77,7 +78,7 @@ form > p > input {
 .subscreen_container {
     margin-bottom: 225px !important;
     margin-top: 200px !important;
-    min-width: 375px !important;
+    min-width: 320px !important;
 }
 
 .confirmation_message {
@@ -272,7 +273,7 @@ form > p > input {
 }
 
 textarea {
-    column-span: 1px !important;
+    max-width: 280px !important;
 }
 
 /*-------delete------*/
@@ -396,7 +397,7 @@ textarea {
 
 footer {
     background-color: rgb(64, 170, 60) !important;
-    min-width: 380px !important;
+
 
 }
 
@@ -524,7 +525,6 @@ footer {
     .category_button {
         padding: 4px;
         height: min-content;
-        margin: ;
     } 
 
     .report_category {
@@ -562,13 +562,12 @@ footer {
 
 @media screen and (max-width: 351px) {
     .logo {
-        font-size:large;
+        font-size:medium;
         font-weight: 500;
 
     }
 
-    .navbar {
-        padding: 0px !important;
-    }
+    .foote
 
 }
+
