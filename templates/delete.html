@@ -1,13 +1,16 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container subscreen_container rounded">
-  <h1 id="aboutid" class="mt-5 pt-5"></h1>
-  <div class="row mt-5 g-5 p-4">
-      <div class="col-sm-12 col-md-6 mt-2">
+  <div class="row m-5 p-4">
+    <h2 class="mt-5 pt-5">Delete post</h2>
+      <div class="col-sm-12 col-md-6 p-4  text-center">
+        <h3>Are you sure you want to delete "{{obj}}"? It will be gone forever!</h3>
+        </div>
+        <div class="col-sm-12 col-md-6 p-4  text-center">
         <form method="POST" action="">
           {% csrf_token %}
-          <h3>Are you sure you want to delete "{{obj}}"? It will be gone forever!</h3>
-          <button type="submit" class="btn btn-danger">Confirm delete</button>
+          
+          <button type="submit" class="btn btn btn-danger">Confirm delete</button>
         </form>
         <br>
         <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-2"><button type="button" class="p-1 btn btn-outline-success fs-6 text">Go back</button></a>

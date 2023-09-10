@@ -40,12 +40,36 @@ button:hover {
     color:black !important;
     background-color: white !important;
 }
+ 
+form {
+    min-width: 365px !important;
+}
 
-/*----main parent container used first on most pages ------ */
+form > p {
+    text-align: start;
+    min-width: 365px !important;
+  }
+
+form > p > input {
+    min-width: 360px !important;
+    margin-top: 10px !important;
+  }
+
+
+  #featured_image-clear_id {
+    display: none !important;
+  }
+
+/*----main parent container + lower container ------ */
 
 .parent_container {
     margin-bottom: 75px !important;
     margin-top: 197px !important;
+    min-width: 380px !important;
+}
+
+.lower_container {
+    min-width: 380px !important;
 }
 
 /*---- container for pages with 1 small screen of info (login,acount, edit, delete, register ) ------ */
@@ -53,6 +77,7 @@ button:hover {
 .subscreen_container {
     margin-bottom: 225px !important;
     margin-top: 200px !important;
+    min-width: 375px !important;
 }
 
 .confirmation_message {
@@ -224,7 +249,12 @@ button:hover {
     text-decoration: solid;
 }
 
+/*------add_post-------*/
 
+.add_post_div {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 
 /*------post_detail-----*/
@@ -234,6 +264,19 @@ button:hover {
     margin-top: 197px !important;
 }
 
+/*-------edit--------*/
+
+.edit_post_div  {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+textarea {
+    column-span: 1px !important;
+}
+
+/*-------delete------*/
+
 
 /*-------news---------*/
 
@@ -241,10 +284,6 @@ button:hover {
     margin-top: 195px !important;
 }
 
-
-.news_h2 {
-    /*margin-top: 180px !important;*/
-}
 
 
 .category_span {
@@ -274,9 +313,6 @@ button:hover {
 .add_news_container {
     margin-top: 180px !important;
     margin-bottom: 150px !important;
-}
-
-.preface_add_news {
 }
 
 .add_news_form {
@@ -360,6 +396,7 @@ button:hover {
 
 footer {
     background-color: rgb(64, 170, 60) !important;
+    min-width: 380px !important;
 
 }
 

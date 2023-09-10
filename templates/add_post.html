@@ -3,21 +3,22 @@
 
 {% block content %}
 
-<div id="post_submit" class="container p-5 rounded">
-  <div class="row mt-2 g-5">
-    <div class="col-sm-12 col-md-4 mt-2 p-4  text-left">
-      <p>Share your thoughts on anything related to plant based foods. Submit a photo with the featured image button.</p> 
+<div id="post_submit" class="container subscreen_container rounded my-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-4  m-auto text-center">
+      <p class="my-5">Share your thoughts on anything related to plant based foods. Submit a photo with the featured image button.</p> 
       <p>Tell us about your favourite vegetarian restaurant or a killer vegan recipe. Tell us your hopes, dreams, existential terrors. Or just say hi.</p>
     </div>
-      <div class="col-sm-12 col-md-8 mt-2 text-center">
-        <h2 class="mb-2">Submit a post</h1>
-        <form method="POST" action="{% url 'add_post' %}" id="add_post_form" enctype="multipart/form-data" class="mt-5 w-auto">
+      <div class="col-sm-12 col-md-8 m-auto text-center add_post_div">
+        <h2 class=" my-5">Submit a post</h1>
+        <form method="POST" action="{% url 'add_post' %}" id="add_post_form" enctype="multipart/form-data" class="text-center">
           {% csrf_token %}
           <div>
             {{ form.as_p }}
           <div>
-            <button type="submit" class="btn btn-primary btn-success">Submit post</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-success my-4">Submit post</button>
           </div>
+          <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-4"><button type="button" class="p-2 my-4 btn btn-outline-success fs-6 text">Go back</button></a>
         </form>
       </div>
   </div>
