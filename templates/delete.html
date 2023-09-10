@@ -1,20 +1,20 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="container subscreen_container rounded">
-  <div class="row m-5 p-4">
-    <h2 class="mt-5 pt-5">Delete post</h2>
-      <div class="col-sm-12 col-md-6 p-4  text-center">
-        <h3>Are you sure you want to delete "{{obj}}"? It will be gone forever!</h3>
+  <div class="row">
+    <h2 class="my-5 text-center">Delete post</h2>
+      <div class="col-sm-12 col-md-6 text-center">
+        <p class="fs-6">Are you sure you want to delete <span class="fw-bold">"{{obj}}"</span>? It will be gone forever!</p>
         </div>
-        <div class="col-sm-12 col-md-6 p-4  text-center">
-        <form method="POST" action="">
-          {% csrf_token %}
-          
-          <button type="submit" class="btn btn btn-danger">Confirm delete</button>
-        </form>
-        <br>
-        <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-2"><button type="button" class="p-1 btn btn-outline-success fs-6 text">Go back</button></a>
-      </div>
+        <div class="col-sm-12 col-md-6">
+          <form method="POST" action="" class="text-center">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg btn-danger m-3">Confirm delete</button>
+          </form>
+          <div class="text-center">
+            <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-2"><button type="button" class="p-1 m-3 btn btn-outline-success fs-6 text">Go back</button></a>
+          </div>
+        </div>
   </div>
 </div>
 

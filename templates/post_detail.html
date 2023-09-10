@@ -38,8 +38,8 @@
                     <p><span class="comment_user fs-4">{{comment.user}}</span> commented :</p>
                     <p class="fs-4"> "{{comment.body}}"</p>
                     <p>{{ comment.created_on|timesince }} ago</p>
-                    {% if request.user.is_authenticated %}
-                    <a href="{% url 'delete_comment' comment.id %}">Delete comment</a>
+                    {% if comment.user == request.user %}
+                        <a href="{% url 'delete_comment' comment.id %}" class=""><button type="button" class="text-center p-1 btn btn-outline-danger  fs-6 text">Delete</button></a>
                     {% endif %}
                     <hr>
                 {% endfor %}
