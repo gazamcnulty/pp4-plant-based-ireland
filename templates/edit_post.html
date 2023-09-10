@@ -3,18 +3,17 @@
 
 
 
-<div class="container subscreen_container text-center rounded my-5">
+<div class="container subscreen_container rounded my-5">
   <h2 class=" text-center">Edit post</h2>
   <div class="row">
       <div class="col-8 text-center edit_post_div">
-          <form method="POST" class=" text-center m-auto w-fit edit_form">
+          <form method="POST" class=" text-center edit_form">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-success text-center">Confirm changes</button>
+            <button type="submit" class="my-5 btn btn-success text-center">Confirm changes</button>
+            <a href="{{request.META.HTTP_REFERER}}" ><button type="button" class="my-5 btn btn-outline-success text-center">Go back</button></a>
           </form>
           <br>
-          <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-4 text-center"><button type="button" class="p-1 btn btn-outline-success text-center fs-6 text">Go back</button></a>
-        
       </div>
 
   </div>
