@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <hr>
-<div id="gallery_container" class="container rounded">
+<div class="container rounded subscreen_container">
     <div class="row text-center">
         <h2 class="mt-5">Image Gallery</h2>
-        <p class="my-5">Want to share a quick pic, without a detailed diatribe of text and info? Pop an image here to share !</p>
+        <p class="my-2">Want to share a quick pic, without a detailed diatribe of text and info? Pop an image here to share !</p>
         <div class="text-center">
             {% if request.user.is_authenticated %}
             <div class="m-5">
-                <a href="{% url 'add_gallery' %}"><button type="button" class="btn btn-success fs-5 text m-5">Click here to submit an image</button></a>
+                <a href="{% url 'add_gallery' %}"><button type="button" class="btn btn-success fs-5 text">Submit image</button></a>
               </div>
             {% else %}
                 <p class="mb-5"><a href="{% url 'login_base' %}">Login</a> if you want to submit photos!</p>
@@ -21,7 +21,7 @@
                     <p class="gallery_p">placeholder image</p>
                 {% else %}
                     <img src="{{ gallery.featured_image.url }}" class="gallery_img" />
-                    <p class="gallery_p">submitted image by  {{ gallery.user }}, {{ gallery.created_on|timesince}} ago</p>
+                    <p class="gallery_p">submitted by  <span class="fw-bold">{{ gallery.user }}</span>, {{ gallery.created_on|timesince}} ago</p>
                 {% endif %}
             </div>
         {% endfor %}

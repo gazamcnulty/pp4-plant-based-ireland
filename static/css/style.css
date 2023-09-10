@@ -89,8 +89,8 @@ form > p > input {
 /*---- container for pages with 1 small screen of info (login,acount, edit, delete, register ) ------ */
 
 .subscreen_container {
-    margin-bottom: 225px !important;
-    margin-top: 200px !important;
+    margin-bottom: 180px !important;
+    margin-top: 125px !important;
     min-width: 280px !important;
 }
 
@@ -311,6 +311,8 @@ textarea {
 
 /*-------delete------*/
 
+/*------changepassword-----*/
+
 
 /*-------news---------*/
 
@@ -379,10 +381,6 @@ textarea {
 
 /*---------------aboutus---------------*/
 
-.about_container {
-    margin-top: 195px !important;
-    margin-bottom: 100px !important;
-}
 
 
 /*---------events----------*/
@@ -482,6 +480,11 @@ footer {
 @media screen and (min-width: 1900px) {
     .lower_container {
         margin-bottom: 300px;
+    }
+
+    .subscreen_container {
+        margin-bottom: 350px !important;
+        margin-top: 175px !important;
     }
 
 }
