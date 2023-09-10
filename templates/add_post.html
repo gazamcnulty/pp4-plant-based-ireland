@@ -5,12 +5,13 @@
 
 <div id="post_submit" class="container p-5 rounded">
   <div class="row mt-2 g-5">
-    <div class="col-sm-12 col-md-6 mt-2 p-4  text-left">
-      <p>Share your thoughts on anything related to plant based foods. Tell us about your favourite vegetarian restaurant or a killer vegan recipe. Tell us your hopes, dreams, existential terrors. Or just say hi.</p>
+    <div class="col-sm-12 col-md-4 mt-2 p-4  text-left">
+      <p>Share your thoughts on anything related to plant based foods. Submit a photo with the featured image button.</p> 
+      <p>Tell us about your favourite vegetarian restaurant or a killer vegan recipe. Tell us your hopes, dreams, existential terrors. Or just say hi.</p>
     </div>
-      <div class="col-sm-12 col-md-6 mt-2 text-center">
+      <div class="col-sm-12 col-md-8 mt-2 text-center">
         <h2 class="mb-2">Submit a post</h1>
-        <form method="POST" action="{% url 'add_post' %}" id="add_post_form" enctype="multipart/form-data" class="mt-5">
+        <form method="POST" action="{% url 'add_post' %}" id="add_post_form" enctype="multipart/form-data" class="mt-5 w-auto">
           {% csrf_token %}
           <div>
             {{ form.as_p }}

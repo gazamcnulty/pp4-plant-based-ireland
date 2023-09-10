@@ -23,12 +23,6 @@ def login_base(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        try:
-            user = User.objects.get(username=username)
-        except:
-            messages.error(request, "User credentials not recognised. Please check and try again")
-
-
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
