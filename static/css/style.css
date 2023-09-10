@@ -161,6 +161,7 @@ form > ul {
 
 .posted_by {
     font-style: italic;
+    font-size: 12px !important;
 }
 
 .post_title {
@@ -291,6 +292,10 @@ form > ul {
 .post_container {
     margin-bottom: 250px !important;
     margin-top: 197px !important;
+}
+
+.comment_user {
+    font-weight: bold;
 }
 
 /*-------edit--------*/
@@ -543,10 +548,6 @@ footer {
 
     .add_post_p {
         display: none;
-    }
-
-    .posted_by {
-        font-size: 14px;
     }
 
     .news_h2 {
