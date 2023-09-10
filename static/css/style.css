@@ -250,6 +250,30 @@ form > p > input {
     text-decoration: solid;
 }
 
+
+/*-------index-modal------*/
+
+
+
+.modal-body {
+    padding: 0;
+}
+
+.modal-dialogue {
+    margin: 0;
+}
+
+form > ul {
+    list-style: none;
+    padding: 0;
+    display: none;
+  }
+
+.helptext {
+    display: none;
+}
+
+
 /*------add_post-------*/
 
 .add_post_div {
