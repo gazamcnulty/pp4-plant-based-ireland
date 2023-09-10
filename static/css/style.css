@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito:wght@500&family=Prompt:wght@600&display=swap');
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+
+
 /*-------google fonts link-------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito:wght@500&family=Prompt:wght@600&display=swap');
@@ -127,6 +140,21 @@ form > p > input {
     opacity:1 !important ;
 }
 
+
+/*-----modal-----*/
+
+.modal-body {
+    padding: 0 !important;
+}
+
+form > ul {
+    display: none;
+}
+
+.helptext {
+    display: none;
+}
+
 /*---index.html---*/
 
 
@@ -249,30 +277,6 @@ form > p > input {
     font-weight: bold;
     text-decoration: solid;
 }
-
-
-/*-------index-modal------*/
-
-
-
-.modal-body {
-    padding: 0;
-}
-
-.modal-dialogue {
-    margin: 0;
-}
-
-form > ul {
-    list-style: none;
-    padding: 0;
-    display: none;
-  }
-
-.helptext {
-    display: none;
-}
-
 
 /*------add_post-------*/
 
