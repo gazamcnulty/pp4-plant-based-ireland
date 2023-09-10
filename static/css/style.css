@@ -502,7 +502,7 @@ footer {
 
 
 
-/*------------small screens such as smart phone*/
+/*------------small screens*/
 @media screen and (max-width: 460px) {
     .logo {
         font-size:larger;
@@ -539,6 +539,10 @@ footer {
         font-size: 18px;
         font-weight: 700;
         margin-bottom: 5px;
+    }
+
+    .add_post_p {
+        display: none;
     }
 
     .posted_by {
