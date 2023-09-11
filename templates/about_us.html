@@ -1,9 +1,12 @@
+<!--pulling head, header/navbar from base.html-->
 {% extends "base.html" %}
-<!--below here is the block content-->
+<!--main content rendered between header navbar and footer-->
 {% block content %}
-<!--this is the block content section-->
+
+<!--main container at top, containing page content-->
 <div class="container subscreen_container rounded">
     <h2 class="fs-1 text py-5 about_h2 m-5 text-center">About us</h2>
+    <!--bootstrap row containing cols for responsive layout-->
     <div class="row  g-5">
         <div class="col-sm-12 col-md-6  p-5">
             <h3 class="p-2 text-center">Who are we?<i class="fa-solid fa-circle-question"></i></h3>
@@ -14,6 +17,7 @@
 <p>Ireland has a surprisingly high amount of veggie and vegan options available when it comes to restaurant dining, fast food takeaways and snacks on the go. Although the number of true vegan restaurants is in the minority, most eateries will have a plant based option on the menu in some form or another. While some may be a boring salad, others can be inventive delicious meals that are worth highlighting. We wanted Plant Based Ireland to be a place where users can share their experiences about plant based dining in Ireland, discuss their favourites and make suggestions.If it provides some free marketing to our favourite restaurants with plant based meals on offer , all the better.</p>
         </div>
     </div>
+     <!--bootstrap row containing cols for responsive layout-->
     <div class="row">
         <div class="col-sm-12 col-md-6  p-5">
             <h3 class="p-2 text-center">Community<i class="fa-solid fa-people-group"></i></h3>
@@ -24,6 +28,7 @@
 <p>The plant based community is growing not just in Ireland but all around the world. Ours is not the only website providing a space for news and discussion on issues related to vegetarian and vegan diets. Other websites such as PlantBasedNews, VegNews, HappyCow, VeganFoundry , VeganHealth and so many others - all share valuable articles on important subjects. From breaking news stories to personal blogs, to easy recipes, we at Plant Based Ireland want to connect and share information from all over the world. Its important to us to allow our users to be involved in the sharing of news and information , so we have provided a platform for users to upload and share interesting articles of all kinds </p>
         </div>
     </div>
+     <!--bootstrap row containing cols for responsive layout-->
     <div class="row">
         <div class="col-12 p-5  text-center">
             <h3 class="text-center p-2 mb-4">Safe space<i class="fa-solid fa-people-roof"></i></h3>
@@ -32,5 +37,5 @@
     </div>
 </div>
 
-
+<!--end of content that will be rendered between header/navbar and footer-->
 {% endblock %}

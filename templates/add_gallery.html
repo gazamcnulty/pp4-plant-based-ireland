@@ -1,9 +1,13 @@
-{% extends "base.html" %} {% block content %}
-<!--this is the block content section-->
+<!--pulling head, header/navbar from base.html-->
+{% extends "base.html" %}
+<!--main content rendered between header navbar and footer-->
+{% block content %}
+
 <div class="container subscreen_container">
   <div class="row my-5 ">
       <div class="col-12 my-5 text-center">
         <h3 class="my-3">Submit an image to the Gallery</h3>
+        <!--django rendered form , from forms.py with csrf for security-->
         <form method="POST" action="{% url 'add_gallery' %}" id="add_gallery_form" enctype="multipart/form-data" class="text-start">
             {% csrf_token %}
             <div>
@@ -19,4 +23,5 @@
   </div>
 </div>
 
+<!--end of content that will be rendered between header/navbar and footer-->
 {% endblock %}

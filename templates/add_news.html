@@ -1,9 +1,12 @@
-{% extends 'base.html' %}
-{% block content%}
+<!--pulling head, header/navbar from base.html-->
+{% extends "base.html" %}
+<!--main content rendered between header navbar and footer-->
+{% block content %}
 
 <h1>Submit a link to an external website article</h1>
 <hr />
 <div  class="container add_news_container p-5 rounded">
+  <!--bootstrap row containing cols for responsive layout-->
     <div class="row mt-2">
       <div class="col-sm-12 col-md-6 mt-2 p-2 text-center">
         <p class="w-75 m-3 text-center">Submit a link to another site on the web. Please only post articles or news relating to plant based nutrition, vegetarianism/veganism, animal rights, restaurant reviews, food recipes, scientific information, blogs / thoughtpieces</p>
@@ -21,6 +24,6 @@
     </div>
   </div>
 
-
+<!--end of content that will be rendered between header/navbar and footer-->
 {% endblock %}
 
