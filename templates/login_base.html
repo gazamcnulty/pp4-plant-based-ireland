@@ -2,39 +2,43 @@
 {% extends "base.html" %}
 <!--main content rendered between header navbar and footer-->
 {% block content %}
-
-<div class="container subscreen_container mt-5 rounded">
-  <div class="row mt-5">
-      <div class="col-sm-12 col-md-6 text-center">
-        <h3 class ="mt-4 p-2">Please login first, so that you can submit posts, comments, likes and view our events page!</h3>
-          <div>
-              <form method="POST" action="" class ="my-5 p-2 text-center">
-                  {% csrf_token %}
-                  <div>
-                    <label>Username:</label>
-                    <input type="text" name="username" placeholder="Enter username"/>
-                  </div>
-                    
-                  <div>
-                    <label>Password:</label>
-                    <input type="password" name="password" placeholder="Enter password"/>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-success btn-lg mt-5 p-2">Login</button>
-              </form>
-          </div>
-      </div>
-      <div id="not_registered" class="col-sm-12 col-md-6 text-center">
-        {% if messages %}
-          {% for message in messages %}
-          <p class="confirmation_message">{{ message }}</p>
-          {% endfor %}
-        {% endif %}
-        </ul>
-
-        <h3 class ="mt-5 p-2">Not a registered user?</h3>
-        <a href="{% url 'register' %}" class="text-center" ><button type="button" class="btn btn-primary btn-success btn-lg m-5 p-2">Sign up here!</button></a>
-      </div>
+<section>
+  <div class="container subscreen_container mt-5 rounded">
+    <!--bootstrap row containing cols for responsive layout-->
+    <div class="row mt-5">
+        <!--display 2 equal columns horizontally on larger screens, change each to full on small screens-->
+        <div class="col-sm-12 col-md-6 text-center">
+          <h3 class ="mt-4 p-2">Please login first, so that you can submit posts, comments, likes and view our events page!</h3>
+            <div>
+                <!--form , csrf security. user login-->
+                <form method="POST" action="" class ="my-5 p-2 text-center">
+                    {% csrf_token %}
+                    <div>
+                      <label>Username:</label>
+                      <input type="text" name="username" placeholder="Enter username"/>
+                    </div>
+                    <div>
+                      <label>Password:</label>
+                      <input type="password" name="password" placeholder="Enter password"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-success btn-lg mt-5 p-2">Login</button>
+                </form>
+            </div>
+        </div>
+        <!--render message if login failed-->
+        <div id="not_registered" class="col-sm-12 col-md-6 text-center">
+          {% if messages %}
+            {% for message in messages %}
+            <p class="confirmation_message">{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+          </ul>
+          <!--button/link to registration page for new users-->
+          <h3 class ="mt-5 p-2">Not a registered user?</h3>
+          <a href="{% url 'register' %}" class="text-center" ><button type="button" class="btn btn-primary btn-success btn-lg m-5 p-2">Sign up here!</button></a>
+        </div>
+    </div>
   </div>
-</div>
+</section>
 <!--end of content that will be rendered between header/navbar and footer-->
 {% endblock %}
