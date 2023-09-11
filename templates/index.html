@@ -53,7 +53,7 @@
       <a href="{% url 'news' %}" class="text-decoration-none h4_headlines"><h4><i class="fa-regular fa-newspaper"></i>Latest articles from around the web </h4></a>
       <hr>
       <table class="table">
-        {% for report in reports|slice:":6" %}
+        {% for report in reports|slice:":5" %}
         <tr>
           <td>
             <a href="{{ report.external_link }}" class="text-decoration-none side_headlines"><p class="article_title">{{ report.title }}</p></a>
@@ -66,10 +66,10 @@
     </div>
 
     <div class="pagination">
-      <span class="step-links">
+      <span class="step-links text-center m-4">
           {% if page_obj.has_previous %}
-              <a href="?page=1">&laquo; first</a>
-              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+              <a href="?page=1" class="page_link">&laquo; First</a>
+              <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a>
           {% endif %}
   
           <span class="current">
@@ -77,8 +77,8 @@
           </span>
   
           {% if page_obj.has_next %}
-              <a href="?page={{ page_obj.next_page_number }}">next</a>
-              <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+              <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
+              <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a>
           {% endif %}
       </span>
     </div>
@@ -100,7 +100,6 @@
               <div class="text-center">
               <button type="submit" class="btn btn-primary btn-success">Confirm sign up</button>
               </div>
-              <!--<input type="submit" value="Register"/>-->
           </form>
       </div>
       </div>

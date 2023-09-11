@@ -68,10 +68,22 @@ form > p > input {
     margin-top: 10px !important;
   }
 
+.page_link {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+.page_link:hover {
+    text-decoration: underline;
+    color: black;
+}
 
   #featured_image-clear_id {
     display: none !important;
   }
+
+
 
 /*----main parent container + lower container ------ */
 
