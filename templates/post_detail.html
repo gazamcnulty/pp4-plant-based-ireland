@@ -22,7 +22,7 @@
                 {% endif %}
             </div>
             <div class="mt-2 text-center">
-                <p class="fs-6">{{ number_of_likes }} user(s) like this post!</p>
+                <p class="fs-5 text">{{ number_of_likes }} user(s) like this post!</p>
                 {% if request.user.is_authenticated %}
                 <form action="{% url 'post_like' post.id %}" method="POST">
                     {% csrf_token %}

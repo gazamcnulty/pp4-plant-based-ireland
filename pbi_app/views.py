@@ -118,10 +118,10 @@ def search_results(request):
         search_response = request.POST['search_response']
         posts = Post.objects.filter(
             title__icontains=search_response)
-        contents = Post.objects.filter(
-            content__icontains=search_response)
+        reports = News.objects.filter(
+            title__icontains=search_response)
         return render(request, 'search_results.html',
-                      {'search_response': search_response, 'posts': posts, 'contents': contents})
+                      {'search_response': search_response, 'posts': posts, 'reports': reports })
     else:
         return render(request, 'search_results.html',
                       {'search_response': search_response})

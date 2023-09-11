@@ -6,12 +6,19 @@
         <div class="col-12 search_div">
           <h2 class=" m-3 fs-1 text">Search results</h2>
             {% if search_response %}
-              <p class="m-2 p-4 fs-6 text">You searched for: <span class="fw-bold">"{{search_response}}"</span> We found the following <span class="fw-bold">{{posts.count}}</span> results </p>
-          
+              <p class="m-2 p-4 fs-5 text">You searched for: <span class="fw-bold">"{{search_response}}"</span> We found the following <span class="fw-bold">{{posts.count}}</span> results </p>
+              <p class="text-success m-3 fs-3 text">User Posts</p>
                 {% for post in posts %}
                     <a href="{% url 'post_detail' post.id %}" class="post_title">{{post.title}}</a> 
                     <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="fw-bold fs-6 text">{{ post.user }}</span></p>
                     <hr>
+                {% endfor %}
+              <p class="text-success m-3 fs-3 text">Articles from other websites</p>
+                {% for report in reports %}
+                  <p class="site"><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}		</span></p>
+                  <a href="{{ report.external_link }}" target="_blank" class="article_link "><p class="article_p">{{ report.title }}</p></a>
+                  <p class="shared">Shared {{ report.created_on|timesince }} ago by <span class="bold_span">{{ report.user }}</span></p>
+                  <hr>
                 {% endfor %}
             {% else %}
               <h3>No search info provided, please try again</h3>
