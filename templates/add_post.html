@@ -4,13 +4,17 @@
 {% block content %}
 
 <div id="post_submit" class="container subscreen_container rounded my-5">
+  <!--bootstrap row containing cols for responsive layout-->
   <div class="row">
+    <h2 class=" my-5 text-center">Submit a post</h1>
+      <!--display 2 equal columns horizontally on larger screens, change each to full on small screens-->
     <div class="col-sm-12 col-md-6 my-3 p-3 text-center">
       <p class="mt-5 fs-5 text">Share your thoughts on anything related to plant based foods.</p> 
+      <!--in style.css, add_post_p is display none on small screens for legibility-->
       <p class="add_post_p my-3 fs-5 text">Tell us about your favourite vegetarian restaurant or a killer vegan recipe. Tell us your hopes, dreams, existential terrors. Or just say hi.</p>
     </div>
       <div class="col-sm-12 col-md-6 m-auto text-center add_post_div">
-        <h2 class=" my-5">Submit a post</h1>
+        <!--django rendered form , from forms.py with csrf for security-->
         <form method="POST" action="{% url 'add_post' %}" id="add_post_form" enctype="multipart/form-data" class="text-center">
           {% csrf_token %}
           <div>
@@ -18,6 +22,7 @@
           <div>
             <button type="submit" class="btn btn-primary btn-lg btn-success my-4">Submit post</button>
           </div>
+          <!--button to refer user back to the previous page if they choose-->
           <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-4"><button type="button" class="p-2 my-4 btn btn-outline-success fs-6 text">Go back</button></a>
         </form>
       </div>

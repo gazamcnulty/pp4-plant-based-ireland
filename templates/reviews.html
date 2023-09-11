@@ -39,7 +39,7 @@
       <p class="shared">Shared {{ review_news.created_on|timesince }} ago by <span class="bold_span">{{ review_news }}</span></p>
       <hr>
     {% endfor %}
-
+    <!--pagination boilerplate from django documentation-->
     <div class="pagination">
       <span class="step-links text-center m-4">
           {% if page_obj.has_previous %}

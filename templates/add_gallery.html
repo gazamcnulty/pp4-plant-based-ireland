@@ -3,10 +3,12 @@
 <!--main content rendered between header navbar and footer-->
 {% block content %}
 
+<section>
 <div class="container subscreen_container">
   <!--bootstrap row containing cols for responsive layout-->
   <div class="row my-5 text-center">
     <h3 class="my-4 p-2">Submit image</h3>
+      <!--display 2 equal columns on larger screens, change each to full on small screens-->
       <div class="col-12-sm-12 col-md-6 my-2 p-1 text-center">
         <!--django rendered form , from forms.py with csrf for security-->
         <form method="POST" action="{% url 'add_gallery' %}" id="add_gallery_form" enctype="multipart/form-data" class="text-start">
@@ -25,6 +27,7 @@
       </div>
   </div>
 </div>
+</section>
 
 <!--end of content that will be rendered between header/navbar and footer-->
 {% endblock %}
