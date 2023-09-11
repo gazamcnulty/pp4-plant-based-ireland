@@ -14,7 +14,7 @@
       <p class="add_post_p my-3 fs-5 text">Tell us about your favourite vegetarian restaurant or a killer vegan recipe. Tell us your hopes, dreams, existential terrors. Or just say hi.</p>
     </div>
       <div class="col-sm-12 col-md-6 m-auto text-center add_post_div">
-        <!--django rendered form , from forms.py with csrf for security-->
+        <!--django form , from forms.py csrf for security. submit post on home_page-->
         <form method="POST" action="{% url 'add_post' %}" id="add_post_form" enctype="multipart/form-data" class="text-center">
           {% csrf_token %}
           <div>
