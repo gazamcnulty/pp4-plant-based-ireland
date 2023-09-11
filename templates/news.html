@@ -35,7 +35,7 @@
     </div>
     
     <div class="col-12 col-md-9">
-
+      <!--loop through user submitted content, based on model data / view logic. all article types-->
       {% for report in page_obj %}
         <p class="site"><span class="report_category">{{ report.category }}</span> from <span class="report_website">{{ report.website }}		</span></p>
         <a href="{{ report.external_link }}" target="_blank" class="article_link "><p class="article_p">{{ report.title }}</p></a>

@@ -312,10 +312,6 @@ form > ul {
 
 /*-------edit--------*/
 
-.edit_post_div  {
-    margin: 0 !important;
-    padding: 0 !important;
-}
 
 textarea {
     max-width: 280px !important;

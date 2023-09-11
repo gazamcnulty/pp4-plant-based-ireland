@@ -3,11 +3,13 @@
 
 <section>
   <div class="container parent_container rounded">
+    <!--bootstrap row containing cols for responsive layout-->
     <div class="row">
       <div class="col">
         <h2 class=" pt-5 m-2 text-center news_h2">News, blogs, recipes, reviews. Articles from around the web!</h2>
         <div class="m-2 p-2 text-center">
           <p class="fs-5 m-4 text d-none d-sm-block">Share articles from other websites that relate to the plantbased food. Scientific articles, tantilising recipes, personal blogs or hard hitting news - we've got em all!</p>
+          <!--link / button to add_news page, for article submission-->
           <a href="{% url 'add_news' %}" class=""><button type="button" class="btn btn-success m-4 fs-5 text">Submit an article</button></a>
         </div>
       </div>
@@ -16,24 +18,28 @@
 
 <section>
 <div class="container lower_container rounded mt-5">
+  <!--bootstrap row containing cols for responsive layout-->
   <div class="row">
     <div class="col-12">
       <div class="p-2 text-center">
         <h2 class="category_h2 m-2 text">User Submitted Articles</h2>
         <p class="mt-2 p-2 fs-5 text d-none d-sm-block">Click below to change articles category</p>
       </div>
+      <!--buttons for html templates that filter news articles by category-->
       <div class="col-12 text-center mb-4">
         <a href="{% url 'news' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">All</button></a>
         <a href="{% url 'breaking_news' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">News</button></a>
         <a href="{% url 'reviews' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">Review</button></a>
         <a href="{% url 'blogs' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">Blog</button></a>
+        <!--current page recipe, button is disabled as user is already here-->
         <button type="button" class="category_button btn btn-secondary btn fs-5 text" disabled>Recipe</button>
       </div>
     </div>
-
+    <!--display 2 columns horizontally 3/4 ratio on larger screens-->
     <div class="col-12 col-md-9">
 
           {% for recipe_news in page_obj %}
+          <!--loop through user submitted content, based on model data / view logic. specific to recipe category-->
           <p class="site"><span class="report_category">{{ recipe_news.category }}</span> from <span class="report_website">{{ recipe_news.website }}		</span></p>
           <a href="{{ recipe_news.external_link }}" target="_blank" class="article_link "><p class="article_p">{{ recipe_news.title }}</p></a>
           <p class="shared">Shared {{ recipe_news.created_on|timesince }} ago by <span class="bold_span">{{ recipe_news.user }}</span></p>
@@ -58,11 +64,12 @@
           </span>
         </div>
     </div>
-
-    <div id="posts_div" class="col-12 col-md-3 my-4">
+    <!--display 1/4 ratio on large screen, remove entirely on smaller screen-->
+    <div id="posts_div" class="col-3 d-none d-md-block my-4">
       <h2 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>Latest posts</h2>
       
       <table class="table mt-5">
+        <!--for loop, only show first 6 of loop-->
         {% for post in posts|slice:":6" %}
         <tr>
           <td>
