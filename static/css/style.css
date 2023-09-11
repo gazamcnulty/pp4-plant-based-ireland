@@ -513,7 +513,7 @@ footer {
 /*------------small screens*/
 @media screen and (max-width: 460px) {
     .logo {
-        font-size:larger;
+        font-size:large;
         font-weight: 500;
     }
 
