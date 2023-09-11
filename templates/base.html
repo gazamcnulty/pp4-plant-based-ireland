@@ -48,7 +48,7 @@
               <li class="p-1">
                 <a  {% if request.resolver_match.view_name == 'home_page' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'home_page' %}">Home</a>
               </li>
-              <li class="p-1">
+              <li class="p-1 m-auto">
                 <a {% if request.resolver_match.view_name == 'gallery' %} class=" active footer_link" aria-current="page" {% else %} class=" footer_link" {% endif %} href="{% url 'gallery' %}">Gallery</a>
               </li>
               <li class="p-1">

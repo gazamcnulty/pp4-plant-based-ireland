@@ -4,21 +4,24 @@
 {% block content %}
 
 <div class="container subscreen_container">
-  <div class="row my-5 ">
-      <div class="col-12 my-5 text-center">
-        <h3 class="my-3">Submit an image to the Gallery</h3>
+  <!--bootstrap row containing cols for responsive layout-->
+  <div class="row my-5 text-center">
+    <h3 class="my-4 p-2">Submit image</h3>
+      <div class="col-12-sm-12 col-md-6 my-2 p-1 text-center">
         <!--django rendered form , from forms.py with csrf for security-->
         <form method="POST" action="{% url 'add_gallery' %}" id="add_gallery_form" enctype="multipart/form-data" class="text-start">
             {% csrf_token %}
-            <div>
+            <div class="m-3 p-2">
               {{ form.as_p }}
-            <div>
-              <button type="submit" class="btn btn-success fs-5 text">Submit</button>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-success fs-5 text m-3">Submit</button>
             </div>
           </form>
       </div>
-      <div class="col-sm-12 col-md-6 mt-2">
-
+      <div class="col-sm-12 col-md-6 my-2 py-5">
+        <p class="my-4 p-1">Submit any photos you want , that speak to you and your relationship with plantbased foods. It can be a photo of your latest vegan dinner, a pile of freshly grown vegetables, a delicious smoothie or a cheeky selfie. Memes accepted and encouraged</p>
+        <p class="m-4 p-1">No nudity please, this is Plant Based Ireland not tinder.</p>
       </div>
   </div>
 </div>
