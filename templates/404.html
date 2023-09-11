@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container ">
+  <h1 class="mt-5 pt-5">404 error</h1>
+  <div class="row mt-5 g-5">
+      <div class="col-sm-12 col-md-6 mt-2">
+          <p>Unfortunately there is an error, we cannot find the page you are looking for</p>
+          <p>Click below to return to the hompage</p>
+          <a href="{% url 'home_page' %}"> <button type="button" class="btn btn-success more_news m-2 fs-5 text">Home</button></a>
+      </div>
+      <div class="col-sm-12 col-md-6 mt-2">
+
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}
