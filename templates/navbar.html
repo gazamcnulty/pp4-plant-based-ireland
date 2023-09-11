@@ -16,7 +16,7 @@
           <a {% if request.resolver_match.view_name == 'about_us' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'about_us' %}">ABOUT</a>
         </li>
         <li class="nav-item">
-          <a {% if request.resolver_match.view_name == 'news' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'news' %}">ARTICLES</a>
+          <a {% if request.resolver_match.view_name == 'news' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'news' %}">NEWS</a>
         </li>
         <li class="nav-item">
           <a {% if request.resolver_match.view_name == 'events' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'events' %}">EVENTS</a>
