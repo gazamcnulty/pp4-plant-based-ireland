@@ -260,13 +260,17 @@ def news(request):
     article= Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
+    paginator = Paginator(reports, 8)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
     recipe_news = News.objects.filter(category__category='RECIPE').filter(category__category='RECIPE')
     review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
     breaking_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
     categorys = Article.objects.all()
 
-    context = {'reports':reports, 'blog_news':blog_news, 'recipe_news':recipe_news, 'posts':posts, 'categorys':categorys}
+    context = {'reports':reports, 'blog_news':blog_news, 'recipe_news':recipe_news, 'posts':posts, 'page_obj':page_obj, 'categorys':categorys}
     return render(request, 'news.html', context)
 
 def recipes(request):
@@ -279,7 +283,13 @@ def recipes(request):
     new_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
     categorys = Article.objects.all()
 
-    context = {'reports':reports, 'posts':posts, 'blog_news':blog_news, 'recipe_news':recipe_news, 'categorys':categorys}
+    context = {
+        #'reports':reports, 
+        'posts':posts, 
+        'blog_news':blog_news, 
+        'recipe_news':recipe_news, 
+        'categorys':categorys
+    }
     return render(request, 'recipes.html', context)
 
 def blogs(request):
