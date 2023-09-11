@@ -33,14 +33,31 @@
 
     <div class="col-12 col-md-9">
 
-          {% for news in breaking_news %}
-          <p class="site"><span class="report_category">{{ news.category }}</span> from <span class="report_website">{{ news.website }}</span></p>
-          <a href="{{ news.external_link }}" target="_blank" class="article_link"><p class="article_p">{{ news.title }}</p></a>
-          <p class="shared">Shared {{ news.created_on|timesince }} ago by <span class="bold_span">{{ news.user }}</span></p>
-          <hr>
-          {% endfor %}
-          <hr>
+      {% for breaking_news in page_obj %}
+      <p class="site"><span class="report_category">{{ breaking_news.category }}</span> from <span class="report_website">{{ breaking_news.website }}		</span></p>
+      <a href="{{ breaking_news.external_link }}" target="_blank" class="article_link "><p class="article_p">{{ breaking_news.title }}</p></a>
+      <p class="shared">Shared {{ breaking_news.created_on|timesince }} ago by <span class="bold_span">{{ breaking_news }}</span></p>
+      <hr>
+    {% endfor %}
+
+    <div class="pagination">
+      <span class="step-links">
+          {% if page_obj.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          {% endif %}
+  
+          <span class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </span>
+  
+          {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">next</a>
+              <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
     </div>
+</div>
 
 
       <div id="posts_div" class="col-12 col-md-3 my-4">

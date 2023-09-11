@@ -260,15 +260,16 @@ def news(request):
     article = Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
-    paginator = Paginator(reports, 8)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
 
     blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
     recipe_news = News.objects.filter(category__category='RECIPE').filter(category__category='RECIPE')
     review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
     breaking_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
     categorys = Article.objects.all()
+
+    paginator = Paginator(reports, 8)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
         #'reports':reports,
@@ -308,15 +309,15 @@ def blogs(request):
     article= Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
-    paginator = Paginator(reports, 8)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-
     blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
     recipe_news = News.objects.filter(category__category='RECIPE').filter(category__category='RECIPE')
     review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
     new_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
     categorys = Article.objects.all()
+
+    paginator = Paginator(blog_news, 8)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
             #'reports':reports,
@@ -339,6 +340,10 @@ def reviews(request):
     new_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
     categorys = Article.objects.all()
 
+    paginator = Paginator(review_news, 8)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     context = {
         #'reports':reports, 
         'posts':posts, 
@@ -360,6 +365,10 @@ def breaking_news(request):
     review_news = News.objects.filter(category__category='REVIEW').filter(category__category='REVIEW')
     breaking_news = News.objects.filter(category__category='NEWS').filter(category__category='NEWS')
     categorys = Article.objects.all()
+
+    paginator = Paginator(breaking_news, 8)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     context = {
         #'reports':reports,
