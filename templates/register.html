@@ -6,20 +6,20 @@
 <div class="container subscreen_container">
   <h1 id="aboutid" class="mt-5 pt-5"></h1>
   <div class="row mt-5 g-5">
-      <div class="col-sm-12 col-md-6 mt-2 p-4">
+      <div class="col-sm-12 col-md-6 mt-2 p-4 text-center">
         <h3>Please sign up, so you can login and post content</h3>
         <div>
-            <form method="POST" action="" class="p-4">
+            <form method="POST" action="" class="p-4 text-center">
                 {% csrf_token %}
                 {{form.as_p}}
         
-                <button type="submit" class="btn btn-primary btn-success">Complete registration</button>
+                <button type="submit" class="btn btn-primary btn-success btn-lg">Complete registration</button>
             </form>
         </div>
       
 
       </div>
-      <div class="col-sm-12 col-md-6 mt-2">
+      <div class="col-sm-12 col-md-6 mt-2 p-4 text-center">
         {% if messages %}
         <ul class="messages">
           {% for message in messages %}
@@ -27,7 +27,8 @@
           {% endfor %}
         </ul>
         {% endif %}
-        <a href="{% url 'login_base' %}" class="text-center" ><button type="button" class="btn btn-primary btn-success btn-lg m-5 p-2">Already registered? Click here to login!</button></a>
+        <h3>Already registered? Click here to login!</h3>
+        <a href="{% url 'login_base' %}" class="text-center" ><button type="button" class="btn btn-primary btn-success btn-lg m-5">Login</button></a>
       </div>
   </div>
 </div>
