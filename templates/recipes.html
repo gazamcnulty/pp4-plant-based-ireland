@@ -37,9 +37,8 @@
     </div>
     <!--display 2 columns horizontally 3/4 ratio on larger screens-->
     <div class="col-12 col-md-9">
-
-          {% for recipe_news in page_obj %}
           <!--loop through user submitted content, based on model data / view logic. specific to recipe category-->
+          {% for recipe_news in page_obj %}
           <p class="site"><span class="report_category">{{ recipe_news.category }}</span> from <span class="report_website">{{ recipe_news.website }}		</span></p>
           <a href="{{ recipe_news.external_link }}" target="_blank" class="article_link "><p class="article_p">{{ recipe_news.title }}</p></a>
           <p class="shared">Shared {{ recipe_news.created_on|timesince }} ago by <span class="bold_span">{{ recipe_news.user }}</span></p>

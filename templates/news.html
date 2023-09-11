@@ -5,7 +5,9 @@
 
 
 <section>
+  <!--summary section at top of page-->
   <div class="container parent_container rounded">
+    <!--bootstrap row containing cols for responsive layout-->
     <div class="row">
       <div class="col">
         <h2 class=" pt-5 m-2 text-center news_h2">News, blogs, recipes, reviews. Articles from around the web!</h2>
@@ -16,7 +18,7 @@
       </div>
   </div>
 </section>
-
+<!--main lower content section of page-->
 <section>
 <div class="container lower_container rounded mt-5">
   <div class="row">
@@ -26,13 +28,14 @@
         <p class="mt-2 p-2 fs-5 text d-none d-sm-block">Click below to change articles category</p>
       </div>
       <div class="col-12 text-center mb-4">
+        <!--buttons for article categories. current category 'all' is disabled as already on that page-->
         <button type="button" class="category_button btn btn-secondary btn fs-5 text" disabled>All</button>
         <a href="{% url 'breaking_news' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">News</button></a>
         <a href="{% url 'reviews' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Review</button></a>
         <a href="{% url 'blogs' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Blog</button></a>
         <a href="{% url 'recipes' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Recipe</button></a>
       </div>
-    </div>
+      </div>
     
     <div class="col-12 col-md-9">
       <!--loop through user submitted content, based on model data / view logic. all article types-->
@@ -62,24 +65,24 @@
       </div>
 
     </div>
-    <div id="posts_div" class="col-3 d-none d-md-block my-4">
-      <h2 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>Latest posts</h2>
-      
-      <table class="table mt-5">
-        {% for post in posts|slice:":6" %}
-        <tr>
-          <td>
-            <a href="{% url 'post_detail' post.id %}" class="post_title_mini">{{post.title}}</a> 
-            <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
-          </td>
-        </tr>
-        {% endfor %}
-      </div>
-
-
+    <!--hide content on smaller screens-->
+        <div id="posts_div" class="col-3 d-none d-md-block my-4">
+            <h2 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>Latest posts</h2>
+            <table class="table mt-5">
+            <!--loop through posts only first 6-->
+            {% for post in posts|slice:":6" %}
+            <tr>
+              <td>
+                <a href="{% url 'post_detail' post.id %}" class="post_title_mini">{{post.title}}</a> 
+                <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
+              </td>
+            </tr>
+            {% endfor %}
+        </div>
       </div>
     </table>
     <div class="text-center">
+      <!--link back to home page for more user posts-->
       <a href="{% url 'home_page' %}"> <button type="button" class="btn btn-success more_news m-2 fs-5 text"> More user posts</button></a>
     </div>
   </div>
