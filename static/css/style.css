@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito:wght@500&family=Prompt:wght@600&display=swap');
+/*-------google fonts link-------*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Quicksand:wght@500&display=swap');
+
+
+
 
 html,body
 {
@@ -13,7 +17,7 @@ html,body
 
 /*-------google fonts link-------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito:wght@500&family=Prompt:wght@600&display=swap');
+
 
 
 /*-------regmodal----------*/
@@ -25,14 +29,15 @@ html,body
 
 /*---- site wide element styles -----*/
 
-p {
-    font-family: 'Montserrat', 'Nunito', Geneva, sans-serif;
+
+p { 
+    font-family: 'Quicksand', 'NunitoSans', Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
 
 
 h1, h2, h3, h4, h5, h6 {
-    font-family:  'Montserrat', 'Nunito', Geneva, sans-serif;
+    font-family: 'Quicksand', 'NunitoSans', Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
 body {
