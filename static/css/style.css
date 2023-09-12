@@ -315,6 +315,11 @@ form > ul {
     font-weight: bold;
 }
 
+
+.img_container {
+    display: flex;
+}
+
 /*-------edit--------*/
 
 

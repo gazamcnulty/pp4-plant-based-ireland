@@ -6,9 +6,9 @@
         <!--bootstrap row containing cols for responsive layout-->
         <div class="row my-5">
             <!--display columns horizontally in 2/3 ratio, change each to full on small screens-->
-            <div class="col-sm-12 col-md-8 mt-5">
-                <div class="p-2 border border-success">
-                    <h2 class="p-2 fw-bold">{{post.title}}</h2>
+            <div class="col-sm-12 col-md-8 mt-5 p-0">
+                <div class="p-1 border border-success">
+                    <h2 class="p-1 fw-bold">{{post.title}}</h2>
                     <p class="p-2 posted_by">Shared {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
                     {% if post.user == request.user %}
                     <!--edit and delete buttons, only available to user who created the post-->
@@ -22,7 +22,9 @@
                     {% if "placeholder" in post.featured_image.url %}
                         <div></div>
                     {% else %}
-                    <img src="{{ post.featured_image.url }}" height="200px" width="300px" class="mt-2"/>
+                    <div class="gallery_col">
+                        <img src="{{ post.featured_image.url }}" class="gallery_img ms-2"/>
+                    </div>
                     {% endif %}
                 </div>
                 <div class="mt-2 text-center">
