@@ -1,13 +1,13 @@
 {%extends "base.html" %} {% block content %}
 
 <section>
-<div class="container parent_container rounded text-center">
+<div class="container subscreen_container rounded text-center">
     <div class="row">
         <div class="col-12 search_div">
-          <h2 class=" m-3 fs-1 text">Search results</h2>
+          <h2 class=" my-5 p-1 fs-1 text">Search results</h2>
             <!--check if search result has been found, relay back to user what they searched for. count results found-->
             {% if search_response %}
-              <p class="m-2 p-4 fs-5 text">You searched for: <span class="fw-bold">"{{search_response}}"</span> We found the following <span class="fw-bold">{{posts.count}}</span> results </p>
+              <p class="my-4 p-4 fs-5 text">You searched for: <span class="fw-bold">"{{search_response}}"</span> We found the following <span class="fw-bold">{{posts.count}}</span> results </p>
               <!---section for user posts found, render in for loop-->
               <p class="text-success m-3 fs-3 text">User Posts</p>
                 {% for post in posts %}
@@ -25,7 +25,10 @@
                 {% endfor %}
             {% else %}
             <!--if no results found, advise user no results-->
-              <h3>No search info provided, please try again</h3>
+              <p class="fs-4 p-1 my-5">No search info provided, please try again</p>
+              <p class="my-5">if you are having trouble finding the content, try searching select keywords that would be found in the title of the post "vegan" , "fruit", "recipe" etc
+                Search results are limited to the words submitted by users in the title of user posts and news articles. Try using a different search term, you just might find what you're looking for !
+              </p>
             {% endif %}
         </div>
     </div>

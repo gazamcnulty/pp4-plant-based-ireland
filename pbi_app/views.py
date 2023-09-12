@@ -117,7 +117,7 @@ def home_page(request):
     reports = News.objects.all()
     form = UserCreationForm()
 
-    paginator = Paginator(posts, 8)
+    paginator = Paginator(posts, 10)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 

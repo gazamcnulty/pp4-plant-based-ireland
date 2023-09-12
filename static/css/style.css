@@ -45,6 +45,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    background-size:cover;
 
 }
 
@@ -106,10 +107,11 @@ form > p > input {
 /*---- container for pages with 1 small screen of info (login,acount, edit, delete, register ) ------ */
 
 .subscreen_container {
-    margin-bottom: 180px !important;
+    margin-bottom: 250px !important;
     margin-top: 125px !important;
     min-width: 280px !important;
 }
+
 
 .confirmation_message {
     font-size: larger;
@@ -644,9 +646,17 @@ footer {
 @media screen and (min-height: 1100px) {
 
     .subscreen_container {
-        margin-top: 250px !important;
-        margin-bottom: 400px !important;
+        margin-top: 300px !important;
+        margin-bottom: 375px !important;
     }
+
 }
 
+@media screen and (min-height: 1250px) {
 
+    .subscreen_container {
+        margin-top: 375px !important;
+        margin-bottom: 450px !important;
+    }
+
+}
