@@ -7,7 +7,7 @@
         <div class="row my-5">
             <!--display columns horizontally in 2/3 ratio, change each to full on small screens-->
             <div class="col-sm-12 col-md-8 mt-5 p-0">
-                <div class="p-1 border border-success">
+                <div class="p-1 ms-1 border border-success">
                     <h2 class="p-1 fw-bold">{{post.title}}</h2>
                     <p class="p-2 posted_by">Shared {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
                     {% if post.user == request.user %}
@@ -54,7 +54,6 @@
                         {% endif %}
                         <hr>
                     {% endfor %}
-                    <hr>
                 </div>
                 <!--check if user logged in, enable them to post comment if so-->
                 {% if request.user.is_authenticated %}
