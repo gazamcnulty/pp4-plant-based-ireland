@@ -8,7 +8,7 @@
             <!--display columns horizontally in 2/3 ratio, change each to full on small screens-->
             <div class="col-sm-12 col-md-8 mt-5">
                 <div class="p-2 border border-success">
-                    <h3 class="p-2 fw-bold">{{post.title}}</h3>
+                    <h2 class="p-2 fw-bold">{{post.title}}</h2>
                     <p class="p-2 posted_by">Shared {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
                     {% if post.user == request.user %}
                     <!--edit and delete buttons, only available to user who created the post-->
@@ -65,7 +65,12 @@
                 </div>
                 <!--if user not logged in, display message asking them to log in-->
                 {% else %}
-                    <h3>Login if you want to like this post or submit a comment!</h3>
+                <div>
+                    <p class="fs-4">Login if you want to like this post or submit a comment!</p>
+                </div>
+                <div class="text-center">
+                    <a href="{% url 'login_base' %}" class="text-center" ><button type="button" class="btn btn-primary btn-success btn-lg m-5">Login</button></a>
+                </div>
                 {% endif %}
             </div>
         </div>
