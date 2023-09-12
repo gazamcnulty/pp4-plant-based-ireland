@@ -1,3 +1,5 @@
+#django imports for function based views
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
@@ -13,12 +15,13 @@ from .models import Post, Comment, Gallery, News, Article
 from .forms import PostForm, GalleryForm, NewsForm, UserCreationForm 
 
 
-# Create your views here.
-
-
-
-
 def login_base(request):
+    """
+    View for url path in urls, to render login_base.html template
+    get username and password, authenticate user
+    return render user back to home page
+
+    """
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -32,10 +35,14 @@ def login_base(request):
             messages.error(request, "User credentials not recognised. Please check and try again")
     context = {}
     return render(request, 'login_base.html', context)
-#    messages.add_message(request, messages.INFO, "You have successfully logged out")
 
 
 def register(request):
+    """
+    View for url path in urls, to render register.html template
+    render UserCreationForm from forms.py, save user info, login user
+    return render user back to home page
+    """
     form = UserCreationForm()
 
     if request.method == 'POST':
@@ -54,17 +61,34 @@ def register(request):
 
 
 def logout_base(request):
+    """
+    No particular url linked to this view
+    logout / de-authenticate user
+    return render user back to home page
+    """
     logout(request)
     return redirect('home_page')
 
 
 @login_required(login_url='login_base')
 def account(request):
+    """
+    View to allow for url path to render account.html
+    show user info. decorator requires authentication first
+    render account page
+    @decorator requires login
+    """
     return render(request, 'account.html')
 
 
 @login_required(login_url='login_base')
 def change_password(request):
+    """
+    View for url path to render account.html template
+    show user info. decorator requires authentication first
+    render account page
+    @decorator requires login
+    """
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -82,9 +106,17 @@ def change_password(request):
 
 
 def home_page(request):
+    """
+    View for url path to render home page template
+    passes objects from Post and News models into context, to be rendered in template
+    passes in UserCreationForm for registration
+    paginator variables for pagination with post objects
+    render home page
+    """
     posts = Post.objects.all()
     reports = News.objects.all()
     form = UserCreationForm()
+
     paginator = Paginator(posts, 8)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -107,13 +139,12 @@ def home_page(request):
     return render(request, 'index.html', context)
 
 
-def test_template(request):
-    posts = Post.objects.all()
-    context = {'posts':posts}
-    return render(request, 'test_template.html', context)
-
-
 def search_results(request):
+    """
+    View for url path to render account.html template
+    show user info. decorator requires authentication first
+    render account page
+    """
     if request.method == "POST":
         search_response = request.POST['search_response']
         posts = Post.objects.filter(
@@ -124,24 +155,25 @@ def search_results(request):
                       {'search_response': search_response, 'posts': posts, 'reports': reports })
     else:
         return render(request, 'search_results.html',
-                      {'search_response': search_response})
-
-    #    q = request.GET.get('q') if request.GET.get('q') != None else ''
-    #    posts = Post.objects.filter(
-    #        title__icontains=q, content__icontains=q)
-    #    context = {
-    #        'posts': posts
-    #    }
+                      {'search_response': search_response}
+                      )
 
 
 def about_us(request):
+    """
+    View for url path to render about_us.html template
+    """
     return render(request, 'about_us.html')
-
-
 
 
 @login_required(login_url='login_base')
 def add_post(request):
+    """
+    View for url path to render add_post.html template
+    use PostForm from forms.py to render and save form info
+    render add_post.html page
+    @decorator requires login
+    """
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         
@@ -158,6 +190,13 @@ def add_post(request):
 
 @login_required(login_url='login_base')
 def edit_post(request, post_id):
+    """
+    View for url path to render edit_post.html template
+    use PostForm from forms.py to edit post info
+    return HttpResponse if user other than post creator
+    render edit_post.html page
+    @decorator requires login
+    """
     post = get_object_or_404(Post, id=post_id)
     form = PostForm(instance=post)
 
@@ -177,6 +216,13 @@ def edit_post(request, post_id):
 
 @login_required(login_url='login_base')
 def delete_post(request, post_id):
+    """
+    View for url path to render delete.html template with user post passed in
+    allow for post to be deleted
+    return HttpResponse if user other than post creator
+    render delete.html page
+    @decorator requires login
+    """
     post = get_object_or_404(Post, id=post_id)
 
     if request.user != post.user:
@@ -189,6 +235,11 @@ def delete_post(request, post_id):
 
 
 def post_detail(request, post_id):
+    """
+    View for url path to render post_detail.html template
+    view post content, likes, comments
+    render post_detail.html page
+    """
     post = get_object_or_404(Post, id=post_id)
     comments = post.comment_set.all()
     number_of_likes = post.number_of_likes()
@@ -213,6 +264,12 @@ def post_detail(request, post_id):
 
 @login_required(login_url='login_base')
 def delete_comment(request, comment_id):
+    """
+    View for url to render delete.html with comment passed in
+    return Http reponse if not the user who created the comment
+    allow user to delete their comment
+    render delete.html page
+    """
     comment = get_object_or_404(Comment, id=comment_id)
 
     if request.user != comment.user:
@@ -226,6 +283,11 @@ def delete_comment(request, comment_id):
 
 
 def post_like(request, post_id):
+    """
+    View for url path to allow like / dislike of posts
+    if else, either like or remove like when clicked
+    render in post_detail.html page
+    """
     post = get_object_or_404(Post, id=post_id)
     if post.likes.filter(id=request.user.id).exists():
         post.likes.remove(request.user)
@@ -235,6 +297,11 @@ def post_like(request, post_id):
 
 
 def gallery(request):
+    """
+    View for url path to render gallery.html template
+    passes objects from Gallery model, to be rendered in template
+    render gallery html pge
+    """
     gallerys = Gallery.objects.all()
     context = {'gallerys':gallerys}
     return render(request, 'gallery.html', context)
@@ -242,6 +309,12 @@ def gallery(request):
 
 @login_required(login_url='login_base')
 def add_gallery(request):
+    """
+    View for url path to render add_gallery.html template 
+    uses GalleryForm from forms.py for user to add image
+    save image and return user back to gallery
+    @decorator requires login
+    """
     if request.method == 'POST':
         form = GalleryForm(request.POST, request.FILES)
         
@@ -257,6 +330,13 @@ def add_gallery(request):
 
 
 def news(request):
+    """
+    View for url path to render news.html template 
+    create variables for objects of Article, News, Post models
+    create variables for category filters of News objects
+    paginator variables for pagination with news objects
+    render news.html page
+    """
     article = Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
@@ -282,6 +362,13 @@ def news(request):
     return render(request, 'news.html', context)
 
 def recipes(request):
+    """
+    View for url path to render recipes.html template 
+    create variables for objects of Article, News, Post models
+    create variables for category filters of News objects
+    paginator variables for pagination with News/recipe objects
+    render recipes.html page, with recipe objects filtered
+    """
     article = Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
@@ -306,6 +393,13 @@ def recipes(request):
     return render(request, 'recipes.html', context)
 
 def blogs(request):
+    """
+    View for url path to render blogs.html template 
+    create variables for objects of Article, News, Post models
+    create variables for category filters of News objects
+    paginator variables for pagination with News/blogs objects
+    render blogs.html page, with blog objects filtered
+    """
     article= Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
@@ -331,6 +425,13 @@ def blogs(request):
 
 
 def reviews(request):
+    """
+    View for url path to render reviews.html template 
+    create variables for objects of Article, News, Post models
+    create variables for category filters of News objects
+    paginator variables for pagination with News/reviews objects
+    render reviews.html page, with reviews objects filtered
+    """
     article= Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
@@ -357,6 +458,13 @@ def reviews(request):
 
 
 def breaking_news(request):
+    """
+    View for url path to render breaking_news.html template 
+    create variables for objects of Article, News, Post models
+    create variables for category filters of News objects
+    paginator variables for pagination with news/breaking_news objects
+    render breaking_news.html page, with breaking_news objects filtered
+    """
     article= Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
@@ -383,6 +491,12 @@ def breaking_news(request):
 
 @login_required(login_url='login_base')
 def add_news(request):
+    """
+    View for url path to render add_news.html template 
+    uses NewsForm from forms.py for user to add news article
+    save post and return user back to news.html
+    @decorator requires login
+    """
     if request.method == 'POST':
         form = NewsForm(request.POST)
 
@@ -399,9 +513,10 @@ def add_news(request):
 
 @login_required(login_url='login_base')
 def events(request):
-    posts = Post.objects.all()
-    context = {
-        'posts': posts,
-    }
+    """
+    View for url path to render events.html template 
+    return render events.html
+    @decorator requires login
+    """
     return render(request, 'events.html', context)
 
