@@ -524,7 +524,7 @@ footer {
 /*------------small screens*/
 @media screen and (max-width: 460px) {
     .logo {
-        font-size:large;
+        font-size:24px;
         font-weight: 500;
     }
 
@@ -607,13 +607,39 @@ footer {
 }
 
 
-@media screen and (max-width: 351px) {
+@media screen and (max-width: 380px) {
     .logo {
-        font-size:medium;
-        font-weight: 500;
+        font-size:20px;
 
     }
 
 
 }
+
+
+@media screen and (max-width: 330px) {
+    .logo {
+        font-size:16px;
+
+    }
+}
+
+@media screen and (min-height: 1000px) {
+
+    .subscreen_container {
+        margin-top: 150px !important;
+        margin-bottom: 300px !important;
+    }
+
+
+}
+
+@media screen and (min-height: 1100px) {
+
+    .subscreen_container {
+        margin-top: 250px !important;
+        margin-bottom: 400px !important;
+    }
+}
+
 
