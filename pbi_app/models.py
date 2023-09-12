@@ -1,3 +1,4 @@
+#Django imports for use in models
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -5,7 +6,14 @@ from django.urls import reverse
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-# Create your models here.
+
+
+"""
+Post model, with user entry fields for title , slug, content, likes, image.
+User is selectable but will be auto designated via views/forms
+updated_on, created_on, noted automatically
+featured_image is linked with Cloudinary storage in settings.py
+"""
 
 
 class Post(models.Model):
@@ -37,6 +45,14 @@ class Post(models.Model):
         return self.likes.count()
 
 
+"""
+Comment model, with user entry field for body.
+User is selectable but will be auto designated via views/forms
+updated_on, created_on, post, noted automatically
+featured_image is linked with Cloudinary storage in settings.py
+"""
+
+
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
@@ -49,6 +65,14 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
+
+
+"""
+Gallery model, with user entry fields for title ,likes, image.
+User is selectable but will be auto designated via views/forms
+updated_on, created_on, noted automatically
+featured_image is linked with Cloudinary storage in settings.py
+"""
 
 
 class Gallery(models.Model):
@@ -70,12 +94,28 @@ class Gallery(models.Model):
         return self.likes.count()
 
 
+"""
+Article model, with user entry fields for category.
+Backend model, to create Foreignkey with News model, for category filtering
+Not amendable by user in frontfacing site. 
+Will exist as a selectable option with News model
+"""
+
+
 class Article(models.Model):
     category = models.CharField(max_length=25, null=True)
 
     def __str__(self):
         return self.category
 
+
+
+"""
+News model, with user entry fields for tite, website, likes, external link, category.
+User is selectable but will be auto designated via views/forms
+Backend model, to create Foreignkey with News model, for category filtering
+updated_on, created_on, noted automatically
+"""
 
 
 class News(models.Model):
