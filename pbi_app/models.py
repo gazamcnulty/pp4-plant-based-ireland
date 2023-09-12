@@ -8,15 +8,13 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 
-"""
-Post model, with user entry fields for title , slug, content, likes, image.
-User is selectable but will be auto designated via views/forms
-updated_on, created_on, noted automatically
-featured_image is linked with Cloudinary storage in settings.py
-"""
-
-
 class Post(models.Model):
+    """
+    Post model, with user entry fields for title , slug, content, likes, image.
+    User is selectable but will be auto designated via views/forms
+    updated_on, created_on, noted automatically
+    featured_image is linked with Cloudinary storage in settings.py
+    """
     title = models.CharField(max_length=200, unique=True, null=True)
     slug = models.SlugField(max_length=200, unique=True, null=True)
     user = models.ForeignKey(
@@ -45,15 +43,14 @@ class Post(models.Model):
         return self.likes.count()
 
 
-"""
-Comment model, with user entry field for body.
-User is selectable but will be auto designated via views/forms
-updated_on, created_on, post, noted automatically
-featured_image is linked with Cloudinary storage in settings.py
-"""
-
 
 class Comment(models.Model):
+    """
+    Comment model, with user entry field for body.
+    User is selectable but will be auto designated via views/forms
+    updated_on, created_on, post, noted automatically
+    featured_image is linked with Cloudinary storage in settings.py
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE)
@@ -67,15 +64,14 @@ class Comment(models.Model):
         return self.body
 
 
-"""
-Gallery model, with user entry fields for title ,likes, image.
-User is selectable but will be auto designated via views/forms
-updated_on, created_on, noted automatically
-featured_image is linked with Cloudinary storage in settings.py
-"""
-
 
 class Gallery(models.Model):
+    """
+    Gallery model, with user entry fields for title ,likes, image.
+    User is selectable but will be auto designated via views/forms
+    updated_on, created_on, noted automatically
+    featured_image is linked with Cloudinary storage in settings.py
+    """
     title = models.CharField(max_length=75, unique=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -94,15 +90,14 @@ class Gallery(models.Model):
         return self.likes.count()
 
 
-"""
-Article model, with user entry fields for category.
-Backend model, to create Foreignkey with News model, for category filtering
-Not amendable by user in frontfacing site. 
-Will exist as a selectable option with News model
-"""
-
 
 class Article(models.Model):
+    """
+    Article model, with user entry fields for category.
+    Backend model, to create Foreignkey with News model, for category filtering
+    Not amendable by user in frontfacing site. 
+    Will exist as a selectable option with News model
+    """
     category = models.CharField(max_length=25, null=True)
 
     def __str__(self):
@@ -110,21 +105,17 @@ class Article(models.Model):
 
 
 
-"""
-News model, with user entry fields for tite, website, likes, external link, category.
-User is selectable but will be auto designated via views/forms
-Backend model, to create Foreignkey with News model, for category filtering
-updated_on, created_on, noted automatically
-"""
-
-
 class News(models.Model):
+    """
+    News model, with user entry fields for tite, website, external link, category.
+    User is selectable but will be auto designated via views/forms
+    Backend model, to create Foreignkey with News model, for category filtering
+    updated_on, created_on, noted automatically
+    """
     title = models.CharField(max_length=100, null=True)
     website = models.CharField(max_length=50, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(
-        User, related_name='link_like', blank=True)
     external_link = models.URLField()
     category = models.ForeignKey(Article, on_delete=models.CASCADE)
 
@@ -133,6 +124,3 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
-
-    def number_of_likes(self):
-        return self.likes.count()
