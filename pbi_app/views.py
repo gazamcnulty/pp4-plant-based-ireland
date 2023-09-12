@@ -518,5 +518,5 @@ def events(request):
     return render events.html
     @decorator requires login
     """
-    return render(request, 'events.html', context)
+    return render(request, 'events.html',)
 
