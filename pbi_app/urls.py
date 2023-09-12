@@ -1,3 +1,4 @@
+#Django imports, also function based views imported from views.py
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -5,7 +6,7 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from pbi_app import views
 
-
+#Url paths to dictate view logic linked with html template rendering
 urlpatterns = [
     path('login_base/', views.login_base, name='login_base'),
     path('logout_base/', views.logout_base, name='logout'),
