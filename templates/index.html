@@ -53,7 +53,7 @@
       <a href="{% url 'news' %}" class="text-decoration-none h4_headlines"><h4><i class="fa-regular fa-newspaper"></i>Latest articles from around the web </h4></a>
       <hr>
       <table class="table">
-        {% for report in reports|slice:":5" %}
+        {% for report in reports|slice:":4" %}
         <tr>
           <td>
             <a href="{{ report.external_link }}" class="text-decoration-none side_headlines"><p class="article_title">{{ report.title }}</p></a>

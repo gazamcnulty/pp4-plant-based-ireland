@@ -70,7 +70,7 @@
             <h3 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>Latest posts</h3>
             <table class="table mt-5">
             <!--loop through posts only first 6-->
-            {% for post in posts|slice:":6" %}
+            {% for post in posts|slice:":4" %}
             <tr>
               <td>
                 <a href="{% url 'post_detail' post.id %}" class="post_title_mini">{{post.title}}</a> 
