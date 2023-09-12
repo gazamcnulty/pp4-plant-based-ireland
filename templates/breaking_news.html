@@ -24,7 +24,7 @@
   <div class="row">
     <div class="col-12">
       <div class="p-2 text-center">
-        <h2 class="category_h2 m-2 text">User Submitted Articles</h2>
+        <h3 class="m-2 text">User Submitted Articles</h3>
         <p class="mt-2 p-2 fs-5 text d-none d-sm-block">Click below to change articles category</p>
       </div>
       <!--buttons for html templates that filter news articles by category-->
@@ -68,7 +68,7 @@
     </div>
     <!--display 1/4 ratio on large screen, remove entirely on smaller screen-->
     <div id="posts_div" class="col-3 d-none d-md-block my-4">
-        <h2 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>Latest posts</h2>
+        <h3 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>Latest posts</h3>
         <table class="table mt-5">
           <!--for loop to only show first 6 of loop-->
           {% for post in posts|slice:":6" %}
