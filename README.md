@@ -175,16 +175,15 @@ I have included a favicon to render a logo on the browser tab, for additional fl
 
 All tests performed with deployed site on Heroku.
 
-Tested:
-	- User stories
-	- Site navigation / page links validation
-	- Responsiveness
-	- Browsers
-	- Devices
-	- Performance Lighthouse
-	- W3 HTML Validation
-    - 
-	- Bugs
+- Tested:
+- User stories
+- Site navigation / page links validation
+- Responsiveness
+- Browsers
+- Devices
+- Performance Lighthouse
+- W3 HTML Validation
+- Bugs
 
 
 For PP4 Plant Based Ireland I have used manual testing to assess functionality,
@@ -322,26 +321,26 @@ Beyond these small issues which have been corrected, everything else works as ex
 The responsiveness test involves me viewing all of the web pages across multiple devices. They had been tested throughout the development so they all Pass and appear fine with the final product. The only one which could be imporved is Surface Pro 7 - 912 x 1368 as it causes the content to stretch with a large gap betweeen navbar , content and footer. This was especially apparent in smaller content screens, like 0 search results, loginpage and 404 error. It still looks ok and is functional howver. All devices pass
 
 
-4K monitor 2560 x 1897
-Laptop 1440 x 1004
-Laptop 1024 x 854
-Tablet 768 x 854
-Mobile 425 x 854
-iPhone SE - 320 x 854
-iPhone XR - 414 x 896
-iPhone 12 Pro - 390 x 844
-Pixel 5 - 393 x 851
-Samsung Galaxy S8+ - 360 x 740
-Samsung Galaxy S20 Ultra - 412 x 915
-iPad Air - 820 x 1180
-iPad Mini - 768 x 1024
-Surface Pro 7 - 912 x 1368
-Surface Duo - 540 x 720
-Galaxy Fold - 280 x 653
-Samsung Galaxy A51/71 - 412 x 914
-Nest Hub - 1024 x 600
-Nest Hub Max - 1280 x 800
-Pixel 6 - 412 x 892
+- 4K monitor 2560 x 1897
+- Laptop 1440 x 1004
+- Laptop 1024 x 854
+- Tablet 768 x 854
+- Mobile 425 x 854
+- iPhone SE - 320 x 854
+- iPhone XR - 414 x 896
+- iPhone 12 Pro - 390 x 844
+- Pixel 5 - 393 x 851
+- Samsung Galaxy S8+ - 360 x 740
+- Samsung Galaxy S20 Ultra - 412 x 915
+- iPad Air - 820 x 1180
+- iPad Mini - 768 x 1024
+- Surface Pro 7 - 912 x 1368
+- Surface Duo - 540 x 720
+- Galaxy Fold - 280 x 653
+- Samsung Galaxy A51/71 - 412 x 914
+- Nest Hub - 1024 x 600
+- Nest Hub Max - 1280 x 800
+- Pixel 6 - 412 x 892
 
 
 
@@ -351,10 +350,10 @@ Pixel 6 - 412 x 892
 
 The purpose of browser cross testing is to check the site looks and runs ok on all browsers, not just chrome in which it was developed. This was tested with chrome, edge, firefox on windows 10 laptop and safari on Mac. All pages rendered fine and worked properly as intended.
 
-CHROME - PASS
-EDGE - PASS
-FIREFOX - PASS
-SAFARI - PASS
+- CHROME - PASS
+- EDGE - PASS
+- FIREFOX - PASS
+- SAFARI - PASS
 
 
 
@@ -365,10 +364,10 @@ The purpose of device testing was to check the website is functional across diff
 The website runs absolutely fine on all devices, though there is one issue I noticed about the background image in the Samsung Chrome app. On chrome on android, there is a menu bar at the top of the screen showing the current url . Unfortunately it is not fixed, it disappears if you scroll down which increases the size of the viewport. This changes how the background image is rendered and it jumps, so that the zoomed in part is moved ever so slightly. If you scroll back up the menu pops back in , reverting the toobar and changing it again. Both versions look good, the problem is it is a little distracting between both. In future I would look at changing the background CSS to avoid this, but in terms of visuals and website functionality it is absolutely fine. Pass on all tested devices.
 
 
-Windows 10 Laptop - PASS
-Macbook Pro Laptop - PASS
-iPhone 10 - PASS
-Samsung Galaxy s8+ - PASS
+- Windows 10 Laptop - PASS
+- Macbook Pro Laptop - PASS
+- iPhone 10 - PASS
+- Samsung Galaxy s8+ - PASS
 
 
 
