@@ -1,11 +1,10 @@
-#Django imports for use in models
+# Django imports for use in models
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
 
 STATUS = ((0, "Draft"), (1, "Published"))
-
 
 
 class Post(models.Model):
@@ -43,7 +42,6 @@ class Post(models.Model):
         return self.likes.count()
 
 
-
 class Comment(models.Model):
     """
     Comment model, with user entry field for body.
@@ -64,7 +62,6 @@ class Comment(models.Model):
         return self.body
 
 
-
 class Gallery(models.Model):
     """
     Gallery model, with user entry fields for title ,likes, image.
@@ -81,7 +78,7 @@ class Gallery(models.Model):
         upload_to='images/', default='placeholder_image', blank=True)
 
     class Meta:
-        ordering = ["-created_on"]        
+        ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
@@ -90,12 +87,11 @@ class Gallery(models.Model):
         return self.likes.count()
 
 
-
 class Article(models.Model):
     """
     Article model, with user entry fields for category.
     Backend model, to create Foreignkey with News model, for category filtering
-    Not amendable by user in frontfacing site. 
+    Not amendable by user in frontfacing site.
     Will exist as a selectable option with News model
     """
     category = models.CharField(max_length=25, null=True)
@@ -104,10 +100,10 @@ class Article(models.Model):
         return self.category
 
 
-
 class News(models.Model):
     """
-    News model, with user entry fields for tite, website, external link, category.
+    News model, with user entry fields for tite,
+    website, external link, category.
     User is selectable but will be auto designated via views/forms
     Backend model, to create Foreignkey with News model, for category filtering
     updated_on, created_on, noted automatically

@@ -1,15 +1,15 @@
-#Django imports to create forms, models import from models.py
+# Django imports to create forms, models import from models.py
 from django import forms
-from django.forms import EmailField 
-from django.utils.translation import ugettext_lazy as _ 
+from django.forms import EmailField
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Post , Gallery, News, Article 
+from .models import Post, Gallery, News, Article
 
 
 class PostForm(forms.ModelForm):
     """
-    Dictate fields to be listed in post submission form 
+    Dictate fields to be listed in post submission form
     Post form saves user input data to Post model
     """
     class Meta:
@@ -20,15 +20,15 @@ class PostForm(forms.ModelForm):
 class UserCreationForm(UserCreationForm):
     """
     Dictate fields to be listed in user registration form
-    Lists email address as required 
+    Lists email address as required
     UserCreationForm  saves user input data to User model
     """
     email = EmailField(label=_("Email address"), required=True,
-        help_text=_("Required."))
+                       help_text=_("Required."))
+
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
-
 
 
 class GalleryForm(forms.ModelForm):

@@ -1,4 +1,4 @@
-#django imports for function based views
+# django imports for function based views
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
@@ -12,7 +12,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.views.generic import ListView
 from .models import Post, Comment, Gallery, News, Article
-from .forms import PostForm, GalleryForm, NewsForm, UserCreationForm 
+from .forms import PostForm, GalleryForm, NewsForm, UserCreationForm
 
 
 def login_base(request):
@@ -32,7 +32,7 @@ def login_base(request):
             login(request, user)
             return redirect('home_page')
         else:
-            messages.error(request, "User credentials not recognised. Please check and try again")
+            messages.error(request, "User credentials not recognised.Please check and try again")
     context = {}
     return render(request, 'login_base.html', context)
 
@@ -53,11 +53,11 @@ def register(request):
             login(request, user)
             return redirect('home_page')
         else:
-            messages.error(request, "Error occurred , registration not completed")
+            messages.error(request, "Error occurred,registration not completed")
     context = {
-        'form':form
+        'form': form
     }
-    return render (request, 'register.html', context)
+    return render(request, 'register.html', context)
 
 
 def logout_base(request):
@@ -94,7 +94,8 @@ def change_password(request):
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)  # Important!
-            messages.success(request, 'Your password was successfully updated!')
+            messages.success(request,
+                             'Your password was successfully updated!')
             return redirect('account')
         else:
             messages.error(request, 'Please correct the error below.')
@@ -108,7 +109,8 @@ def change_password(request):
 def home_page(request):
     """
     View for url path to render home page template
-    passes objects from Post and News models into context, to be rendered in template
+    passes objects from Post and News models into context,
+    to be rendered in template
     passes in UserCreationForm for registration
     paginator variables for pagination with post objects
     render home page
@@ -129,12 +131,12 @@ def home_page(request):
             login(request, user)
             return redirect('home_page')
         else:
-            messages.error(request, "Error occurred , registration not completed")
+            messages.error(request,
+                           "Error occurred , registration not completed")
     context = {
-        #'posts': posts,
-        'reports':reports,
-        'form':form,
-       'page_obj':page_obj,
+        'reports': reports,
+        'form': form,
+        'page_obj': page_obj,
     }
     return render(request, 'index.html', context)
 
@@ -152,7 +154,8 @@ def search_results(request):
         reports = News.objects.filter(
             title__icontains=search_response)
         return render(request, 'search_results.html',
-                      {'search_response': search_response, 'posts': posts, 'reports': reports })
+                      {'search_response': search_response,
+                       'posts': posts, 'reports': reports})
     else:
         return render(request, 'search_results.html',
                       {'search_response': search_response}
@@ -176,13 +179,12 @@ def add_post(request):
     """
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
-        
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
             return redirect('home_page')
-    
+
     form = PostForm()
     context = {'form': form}
     return render(request, 'add_post.html', context)
@@ -211,7 +213,6 @@ def edit_post(request, post_id):
         'form': form
     }
     return render(request, 'edit_post.html', context)
-
 
 
 @login_required(login_url='login_base')
@@ -254,12 +255,11 @@ def post_detail(request, post_id):
         return redirect('post_detail', post_id)
     context = {
         'post': post,
-       'comments': comments,
+        'comments': comments,
         'number_of_likes': number_of_likes,
-        'reports':reports,
+        'reports': reports,
     }
     return render(request, 'post_detail.html', context)
-
 
 
 @login_required(login_url='login_base')
@@ -273,13 +273,12 @@ def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
 
     if request.user != comment.user:
-        return HttpResponse('You cannot delete comments submitted by other users')
+        return HttpResponse('You cannot delete comments by other users')
     if request.method == 'POST':
         comment.delete()
         return redirect('home_page')
     context = {'obj': comment}
     return render(request, 'delete.html', context)
-
 
 
 def post_like(request, post_id):
@@ -303,27 +302,27 @@ def gallery(request):
     render gallery html pge
     """
     gallerys = Gallery.objects.all()
-    context = {'gallerys':gallerys}
+    context = {'gallerys': gallerys}
     return render(request, 'gallery.html', context)
 
 
 @login_required(login_url='login_base')
 def add_gallery(request):
     """
-    View for url path to render add_gallery.html template 
+    View for url path to render add_gallery.html template
     uses GalleryForm from forms.py for user to add image
     save image and return user back to gallery
     @decorator requires login
     """
     if request.method == 'POST':
         form = GalleryForm(request.POST, request.FILES)
-        
+
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
             return redirect('gallery')
-    
+
     form = GalleryForm()
     context = {'form': form}
     return render(request, 'add_gallery.html', context)
@@ -331,7 +330,7 @@ def add_gallery(request):
 
 def news(request):
     """
-    View for url path to render news.html template 
+    View for url path to render news.html template
     create variables for objects of Article, News, Post models
     create variables for category filters of News objects
     paginator variables for pagination with news objects
@@ -352,18 +351,18 @@ def news(request):
     page_obj = paginator.get_page(page_number)
 
     context = {
-        #'reports':reports,
-        'blog_news':blog_news,
-        'recipe_news':recipe_news,
-        'posts':posts,
-        'page_obj':page_obj,
-        'categorys':categorys
+        'blog_news': blog_news,
+        'recipe_news': recipe_news,
+        'posts': posts,
+        'page_obj': page_obj,
+        'categorys': categorys
         }
     return render(request, 'news.html', context)
 
+
 def recipes(request):
     """
-    View for url path to render recipes.html template 
+    View for url path to render recipes.html template
     create variables for objects of Article, News, Post models
     create variables for category filters of News objects
     paginator variables for pagination with News/recipe objects
@@ -383,24 +382,24 @@ def recipes(request):
     page_obj = paginator.get_page(page_number)
 
     context = {
-        #'reports':reports, 
-        'posts':posts, 
-        'page_obj':page_obj,
-        'blog_news':blog_news, 
-        'recipe_news':recipe_news, 
-        'categorys':categorys
+        'posts': posts,
+        'page_obj': page_obj,
+        'blog_news': blog_news,
+        'recipe_news': recipe_news,
+        'categorys': categorys
     }
     return render(request, 'recipes.html', context)
 
+
 def blogs(request):
     """
-    View for url path to render blogs.html template 
+    View for url path to render blogs.html template
     create variables for objects of Article, News, Post models
     create variables for category filters of News objects
     paginator variables for pagination with News/blogs objects
     render blogs.html page, with blog objects filtered
     """
-    article= Article.objects.all()
+    article = Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
     blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
@@ -414,25 +413,24 @@ def blogs(request):
     page_obj = paginator.get_page(page_number)
 
     context = {
-            #'reports':reports,
-            'posts':posts,
-            'page_obj':page_obj,
-            'blog_news':blog_news,
-            'recipe_news':recipe_news,
-            'categorys':categorys
+            'posts': posts,
+            'page_obj': page_obj,
+            'blog_news': blog_news,
+            'recipe_news': recipe_news,
+            'categorys': categorys
             }
     return render(request, 'blogs.html', context)
 
 
 def reviews(request):
     """
-    View for url path to render reviews.html template 
+    View for url path to render reviews.html template
     create variables for objects of Article, News, Post models
     create variables for category filters of News objects
     paginator variables for pagination with News/reviews objects
     render reviews.html page, with reviews objects filtered
     """
-    article= Article.objects.all()
+    article = Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
     blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
@@ -446,26 +444,25 @@ def reviews(request):
     page_obj = paginator.get_page(page_number)
 
     context = {
-        #'reports':reports, 
-        'posts':posts, 
-        'page_obj':page_obj, 
-        'blog_news':blog_news, 
-        'recipe_news':recipe_news, 
-        'review_news':review_news, 
-        'categorys':categorys
+        'posts': posts,
+        'page_obj': page_obj,
+        'blog_news': blog_news,
+        'recipe_news': recipe_news,
+        'review_news': review_news,
+        'categorys': categorys
         }
     return render(request, 'reviews.html', context)
 
 
 def breaking_news(request):
     """
-    View for url path to render breaking_news.html template 
+    View for url path to render breaking_news.html template
     create variables for objects of Article, News, Post models
     create variables for category filters of News objects
     paginator variables for pagination with news/breaking_news objects
     render breaking_news.html page, with breaking_news objects filtered
     """
-    article= Article.objects.all()
+    article = Article.objects.all()
     reports = News.objects.all()
     posts = Post.objects.all()
     blog_news = News.objects.filter(category__category='BLOG').filter(category__category='BLOG')
@@ -479,20 +476,20 @@ def breaking_news(request):
     page_obj = paginator.get_page(page_number)
 
     context = {
-        #'reports':reports,
-        'posts':posts,
-        'page_obj':page_obj, 
-        'blog_news':blog_news, 
-        'recipe_news':recipe_news, 
-        'breaking_news':breaking_news, 
-        'categorys':categorys
+        'posts': posts,
+        'page_obj': page_obj,
+        'blog_news': blog_news,
+        'recipe_news': recipe_news,
+        'breaking_news': breaking_news,
+        'categorys': categorys
         }
     return render(request, 'breaking_news.html', context)
+
 
 @login_required(login_url='login_base')
 def add_news(request):
     """
-    View for url path to render add_news.html template 
+    View for url path to render add_news.html template
     uses NewsForm from forms.py for user to add news article
     save post and return user back to news.html
     @decorator requires login
@@ -505,7 +502,7 @@ def add_news(request):
             instance.user = request.user
             instance.save()
             return redirect('news')
-    
+
     form = NewsForm()
     context = {'form': form}
     return render(request, 'add_news.html', context)
@@ -514,9 +511,8 @@ def add_news(request):
 @login_required(login_url='login_base')
 def events(request):
     """
-    View for url path to render events.html template 
+    View for url path to render events.html template
     return render events.html
     @decorator requires login
     """
     return render(request, 'events.html',)
-

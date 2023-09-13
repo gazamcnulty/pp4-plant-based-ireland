@@ -1,4 +1,4 @@
-#Django imports for user with admin/models
+# Django imports for user with admin/models
 from django.contrib import admin
 from .models import Post, Comment, Gallery, News, Article
 from django_summernote.admin import SummernoteModelAdmin

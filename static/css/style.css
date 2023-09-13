@@ -14,12 +14,6 @@ html,body
 }
 
 
-
-/*-------google fonts link-------*/
-
-
-
-
 /*-------regmodal----------*/
 
 .reg_close {
@@ -126,7 +120,7 @@ form > p > input {
 
 
 .logo {
-    font-family:'Nunito', Geneva, sans-serif;
+    font-family: 'Quicksand', 'NunitoSans', Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
 .navbar {
@@ -386,7 +380,7 @@ textarea {
 
 
 .gallery_col {
-    display: flexbox;
+    display: flex;
 }
 
 .gallery_img {
