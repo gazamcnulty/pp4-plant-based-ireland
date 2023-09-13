@@ -1,18 +1,22 @@
 <!--navbar code from bootstrap, fixed to top of page-->
-<nav  class="navbar navbar-expand-xl navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-xl navbar-light bg-light fixed-top">
   <div class="container-fluid">
     <!--main logo of site in navbar, acts as homepage link with fa icon-->
-    <a class="navbar-brand text-uppercase" href="{% url 'home_page' %}"><h1 class="logo"><i class="fa-solid fa-leaf"></i>Plant Based Ireland</h1></a>
+    <a class="navbar-brand text-uppercase" href="{% url 'home_page' %}">
+      <h1 class="logo">
+        <i class="fa-solid fa-leaf"></i>Plant Based Ireland
+      </h1>
+    </a>
     <!--toggler used on collapse, renders burger menu button instead of navbar list on smaller screen-->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!--main navbar content, list of links to other pages on the site-->
-    <div class="collapse navbar-collapse w-100" id="navbarNav"> 
+    <div class="collapse navbar-collapse w-100" id="navbarNav">
       <ul class="navbar-nav w-100">
         <li class="nav-item" id="home_nav">
           <!--if/else used to check if 'current' page, then uses active class to change style-->
-          <a  {% if request.resolver_match.view_name == 'home_page' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'home_page' %}">HOME</a>
+          <a {% if request.resolver_match.view_name == 'home_page' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'home_page' %}">HOME</a>
         </li>
         <li class="nav-item">
           <a {% if request.resolver_match.view_name == 'gallery' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'gallery' %}">GALLERY</a>
@@ -26,22 +30,17 @@
         <li class="nav-item">
           <a {% if request.resolver_match.view_name == 'events' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'events' %}">EVENTS</a>
         </li>
-        <!--if/else to check if user is logged in, changes between login / account-->
-        {% if request.user.is_authenticated %}
-        <li class="nav-item"><a {% if request.resolver_match.view_name == 'account' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'account' %}">ACCOUNT</a>
-        </li>
-        {% else %}
-        <li class="nav-item"><a {% if request.resolver_match.view_name == 'login_base' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login_base' %}">LOGIN</a>
-        </li>
-        {% endif %}
+        <!--if/else to check if user is logged in, changes between login / account--> {% if request.user.is_authenticated %} <li class="nav-item">
+          <a {% if request.resolver_match.view_name == 'account' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'account' %}">ACCOUNT</a>
+        </li> {% else %} <li class="nav-item">
+          <a {% if request.resolver_match.view_name == 'login_base' %} class="nav-link active" aria-current="page" {% else %} class="nav-link" {% endif %} href="{% url 'login_base' %}">LOGIN</a>
+        </li> {% endif %}
         <!--searchbar for site search with csrf for security-->
-        <li class="w-75"><form method="POST" action="{%url 'search_results'%}" class="text-end searchbar ">
-          {% csrf_token %}
-          <input type="search" placeholder="Search" name="search_response" id="searchbar"/>
-        </form>
+        <li class="w-75">
+          <form method="POST" action="{%url 'search_results'%}" class="text-end searchbar "> {% csrf_token %} <input type="search" placeholder="Search" name="search_response" id="searchbar" />
+          </form>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>

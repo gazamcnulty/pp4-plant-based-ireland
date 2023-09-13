@@ -1,7 +1,4 @@
-{% extends 'base.html' %}
-{% block content%}
-
-<section>
+{% extends 'base.html' %} {% block content%} <section>
   <div class="container parent_container rounded">
     <!--bootstrap row containing cols for responsive layout-->
     <div class="row">
@@ -10,78 +7,73 @@
         <div class="m-2 p-2 text-center">
           <p class="fs-5 m-4 text d-none d-sm-block">Share articles from other websites that relate to the plantbased food. Scientific articles, tantilising recipes, personal blogs or hard hitting news - we've got em all!</p>
           <!--link / button to add_news page, for article submission-->
-          <a href="{% url 'add_news' %}" class=""><button type="button" class="btn btn-success m-4 fs-5 text">Submit an article</button></a>
+          <a href="{% url 'add_news' %}" class="">
+            <button type="button" class="btn btn-success m-4 fs-5 text">Submit an article</button>
+          </a>
         </div>
       </div>
+    </div>
   </div>
-</div>
 </section>
-
 <section>
-<div class="container lower_container rounded mt-5">
-  <!--bootstrap row containing cols for responsive layout-->
-  <div class="row">
-    <div class="col-12">
-      <div class="p-2 text-center">
-        <h3 class="m-2 text">User Submitted Articles</h3>
-        <p class="mt-2 p-2 fs-5 text d-none d-sm-block">Click below to change articles category</p>
+  <div class="container lower_container rounded mt-5">
+    <!--bootstrap row containing cols for responsive layout-->
+    <div class="row">
+      <div class="col-12">
+        <div class="p-2 text-center">
+          <h3 class="m-2 text">User Submitted Articles</h3>
+          <p class="mt-2 p-2 fs-5 text d-none d-sm-block">Click below to change articles category</p>
+        </div>
+        <!--buttons for html templates that filter news articles by category-->
+        <div class="col-12 text-center mb-4">
+          <a href="{% url 'news' %}" class="">
+            <button type="button" class="category_button btn btn-outline-success fs-5 text">All</button>
+          </a>
+          <a href="{% url 'breaking_news' %}" class="">
+            <button type="button" class="category_button btn btn-outline-success fs-5 text">News</button>
+          </a>
+          <!--current page reviews, button is disabled as user is already here-->
+          <button type="button" class="category_button btn btn-secondary btn  fs-5 text" disabled>Review</button>
+          <a href="{% url 'blogs' %}" class="">
+            <button type="button" class="category_button btn btn-outline-success fs-5 text">Blog</button>
+          </a>
+          <a href="{% url 'recipes' %}" class="">
+            <button type="button" class="category_button btn btn-outline-success  fs-5 text">Recipe</button>
+          </a>
+        </div>
       </div>
-      <!--buttons for html templates that filter news articles by category-->
-      <div class="col-12 text-center mb-4">
-        <a href="{% url 'news' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">All</button></a>
-        <a href="{% url 'breaking_news' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">News</button></a>
-        <!--current page reviews, button is disabled as user is already here-->
-        <button type="button" class="category_button btn btn-secondary btn  fs-5 text" disabled>Review</button>
-        <a href="{% url 'blogs' %}" class=""><button type="button" class="category_button btn btn-outline-success fs-5 text">Blog</button></a>
-        <a href="{% url 'recipes' %}" class=""><button type="button" class="category_button btn btn-outline-success  fs-5 text">Recipe</button></a>
+      <!--display 2 columns horizontally 3/4 ratio on larger screens-->
+      <div class="col-12 col-md-9">
+        <!--loop through user submitted content, based on model data / view logic. specific to reviews category--> {% for review_news in page_obj %} <p class="site">
+          <span class="report_category">{{ review_news.category }}</span> from <span class="report_website">{{ review_news.website }} </span>
+        </p>
+        <a href="{{ recipe_news.external_link }}" target="_blank" class="article_link ">
+          <p class="article_p">{{ review_news.title }}</p>
+        </a>
+        <p class="shared">Shared {{ review_news.created_on|timesince }} ago by <span class="bold_span">{{ review_news }}</span>
+        </p>
+        <hr> {% endfor %}
+        <!--pagination boilerplate from django documentation-->
+        <div class="pagination">
+          <span class="step-links text-center m-4"> {% if page_obj.has_previous %} <a href="?page=1" class="page_link">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a> {% endif %} <span class="current"> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. </span> {% if page_obj.has_next %} <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a> {% endif %} </span>
+        </div>
       </div>
-    </div>
-    <!--display 2 columns horizontally 3/4 ratio on larger screens-->
-    <div class="col-12 col-md-9">
-      <!--loop through user submitted content, based on model data / view logic. specific to reviews category-->
-      {% for review_news in page_obj %}
-      <p class="site"><span class="report_category">{{ review_news.category }}</span> from <span class="report_website">{{ review_news.website }}		</span></p>
-      <a href="{{ recipe_news.external_link }}" target="_blank" class="article_link "><p class="article_p">{{ review_news.title }}</p></a>
-      <p class="shared">Shared {{ review_news.created_on|timesince }} ago by <span class="bold_span">{{ review_news }}</span></p>
-      <hr>
-    {% endfor %}
-    <!--pagination boilerplate from django documentation-->
-    <div class="pagination">
-      <span class="step-links text-center m-4">
-          {% if page_obj.has_previous %}
-              <a href="?page=1" class="page_link">&laquo; First</a>
-              <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a>
-          {% endif %}
-  
-          <span class="current">
-              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-          </span>
-  
-          {% if page_obj.has_next %}
-              <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
-              <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a>
-          {% endif %}
-      </span>
-    </div>
-</div>
-<!--display 1/4 ratio on large screen, remove entirely on smaller screen-->
-<div id="posts_div" class="col-3 d-none d-md-block my-4"> 
-        <h3 class="user_posts text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>Latest posts</h3>
-        
-        <table class="table mt-5">
-          {% for post in posts|slice:":6" %}
-          <tr>
+      <!--display 1/4 ratio on large screen, remove entirely on smaller screen-->
+      <div id="posts_div" class="col-3 d-none d-md-block my-4">
+        <h3 class="user_posts text-center my-4">
+          <i class="fa-solid fa-receipt posts_icon"></i>Latest posts
+        </h3>
+        <table class="table mt-5"> {% for post in posts|slice:":6" %} <tr>
             <td>
-              <a href="{% url 'post_detail' post.id %}" class="post_title_mini">{{post.title}}</a> 
-              <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
+              <a href="{% url 'post_detail' post.id %}" class="post_title_mini">{{post.title}}</a>
+              <p class="p-2 posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span>
+              </p>
             </td>
-          </tr>
-          {% endfor %}
-      </table>
+          </tr> {% endfor %} </table>
       </div>
-
+    </div>
   </div>
-</div>
 </section>
-<!--end of content that will be rendered between header/navbar and footer-->
-{% endblock %}
+<!--end of content that will be rendered between header/navbar and footer--> {% endblock %}

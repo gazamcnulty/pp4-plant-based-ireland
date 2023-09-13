@@ -605,12 +605,12 @@ remove below , replace with your own secret key
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 remove below section
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+ }
 
 replace with
 DATABASES = {
@@ -650,16 +650,12 @@ Link file to the templates directory in Heroku
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 Change the templates directory to TEMPLATES_DIR
-TEMPLATES = 
-[
-    {
-        …,
-        'DIRS': [TEMPLATES_DIR],
-       …,
-            ],
-        },
-    },
-]
+
+
+     'DIRS': [TEMPLATES_DIR],
+       
+    
+
 
 Add heroku hostname to allowed hosts in settings, create procfile + folders for media, static, templates in root directory for
 
@@ -694,6 +690,7 @@ External technologies used in development:
  - W3 CSS Validator 
  - Code Institute Python Linter
  - Multi site mockup generator for read me images https://techsini.com/multi-mockup/index.php
+ - beautify tools for html formatting and https://beautifytools.com/html-beautifier.php
 
 
 

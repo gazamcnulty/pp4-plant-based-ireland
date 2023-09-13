@@ -1,67 +1,62 @@
-<!--pulling head, header/navbar from base.html-->
-{% extends "base.html" %}
-<!--main content rendered between header navbar and footer-->
-{% block content %}
-<section>
+<!--pulling head, header/navbar from base.html--> {% extends "base.html" %}
+<!--main content rendered between header navbar and footer--> {% block content %} <section>
     <div class="container subscreen_container rounded">
-    <h2 class="mt-5 pt-5 events_h1 text-center">Plant Based Ireland Events</h2>
-    <p class="text-center">For registered members only!</p>
-    <!--bootstrap row containing cols for responsive layout-->
-    <div class="row mt-5 g-5 p-2">
-        <div class="col-12 mt-2 text-center">
+        <h2 class="mt-5 pt-5 events_h1 text-center">Plant Based Ireland Events</h2>
+        <p class="text-center">For registered members only!</p>
+        <!--bootstrap row containing cols for responsive layout-->
+        <div class="row mt-5 g-5 p-2">
+          <div class="col-12 mt-2 text-center">
             <h3 class="events_h3">What are events?</h3>
             <p class="p-3">Plant Based Ireland is more than just a website - its a community. Everyone who reads the site, logs in, posts a link or comment, we are all interacting under the umbrella topic of plant based foods in Ireland. We want this community to grow , strengthen and diversify. To this end Plant Based Ireland will be hosting a number of events in the near future. These include online zoom calls with group meetings, competitions, social meetups, trade shows and parties. See below a list of our upcoming events hosted and organised by Plant Based Ireland. If you are interested in contributing to these events, if you want to help in any way, or if you want to host an event of you own, please contact us at plantbased@gmail.com</p>
-        </div>
-        <div class="row mt-5">
+          </div>
+          <div class="row mt-5">
             <!--display 2 equal columns horizontally on larger screens, change each to full on small screens-->
             <div id="events_div" class="col-sm-12 col-md-6 mt-2">
-                <h4 class="text-center fw-bold">Online events</h4>
-                <div id="online_events">
-                    <ul class="events_list">
-                        <li class="li_event p-2  mb-4">
-                            <h5>Weekly hangout - Saturday 16th of September, 12pm</h5>
-                            <p>
-                            Weekly hangouts are chill get togethers just to say hi, hello and of course, how are ya? Feel free to jump on and take part in a casual chat with friends of the Plant Based Ireland community. Tell us a story or get something off your chest. Its right around lunch time so its the perfect time to compare cooking plans for plant based lunches!</p><p class="events_span">Meet up via zoom link, link to the zoom meeting will be emailed to registered members the morning of the event</p>
-                        </li>
-                        <li class="li_event p-2  mb-4">
-                            <h5>Green in the face - Thursday 21st of September, 6.30pm</h5>
-                            <p>
-                                Green in the face is a podcast held by members of the Plant Based Ireland team Jane and Mairead. This week we will be inerviewing Tomás McShallowcast, the newest and hottest vegan chef from Roscommon. There's nothing common about the interesting plant based dishes he has been cooking up though, join us for what should be fascinating discussion on the trials and tribulations of carving out a place for yourself in culinary Ireland.</p><p class="events_span">Podcast is not yet available on audio platforms as of yet, a link to the recording will be shared via email to registered members the morning of the event</p>
-                        </li>
-                        <li class="li_event p-2  mb-4">
-                            <h5>Show us your dish - Sunday 24th of September , 5pm</h5>
-                            <p>
-                                Show us your dish is hosted by Plant Based Ireland team member Frank. Its Frank's time to show off the latest vegan dishes he has been experimenting with in his mad scientist kitchen. Join us on zoom so you can contribute and show off your recent dishes too, with recipes!</p><p class="events_span">Meet up via zoom link, link to the zoom meeting will be emailed to registered members the morning of the event</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-6 mt-2">
-                <h4 class="text-center fw-bold">In person events</h4>
-                <div id="meetups">
+              <h4 class="text-center fw-bold">Online events</h4>
+              <div id="online_events">
                 <ul class="events_list">
-                    <li class="li_event p-2 mb-4">
-                        <h5>Veggie Market - Sunday 17th of September, 10am - 4pm</h5>
-                        <p> Plant Based Ireland will have a market stall in Pender's Market, the weekly farmers market space in Stoneybatter. We'll be selling exquisitley  made vegan cakes, cookies and other treats, as well as freshly roasted coffee. Pop along to grab a treat, have some coffee or just say hi.</p> <p class="events_span">Location : 31A Stoneybatter Dublin 7. In the event of cancellation, emails will be sent the morning of the event to notify registered members</p>
-                    </li>
-                    <li class="li_event p-2 mb-4">
-                        <h5>Fun run - Saturday 23rd of September, 10am</h5>
-                        <p> Plant Based Ireland will host a casual fun run in Phoenix park, open to all members to join in and get running! Nothing too strict or structured, we will aim for a 5k jog but take it at your own pace! We can all then have a coffee at the nearby Phoenix Café</p>
-                            <p class="events_span">Location : South entrance of Phoenix Park . In the event of cancellation, emails will be sent the morning of the event to notify registered members </p>
-                    </li>
-                    <li class="li_event p-2 mb-4">
-                        <h5>Lecture on ethics of farming - Tuesday 19th of September, 7pm</h5>
-                        <p>  Plant Based Ireland are hosting a lecture from guest speaker Dr. Michael O'Shea on the ethics of farming. Dr. O'Shea is a phd in agricultural science and has been researching the effects of farming on the the environment and the economy in Ireland. It should serve to be fascinating discussion. All registered members welcome to attend.</p>
-                            <p class="events_span">Location : Room 101, Janesborough building , UCD campus . In the event of cancellation, emails will be sent the morning of the event to notify registered members</p> 
-                    </li>
+                  <li class="li_event p-2  mb-4">
+                    <h5>Weekly hangout - Saturday 16th of September, 12pm</h5>
+                    <p> Weekly hangouts are chill get togethers just to say hi, hello and of course, how are ya? Feel free to jump on and take part in a casual chat with friends of the Plant Based Ireland community. Tell us a story or get something off your chest. Its right around lunch time so its the perfect time to compare cooking plans for plant based lunches!</p>
+                    <p class="events_span">Meet up via zoom link, link to the zoom meeting will be emailed to registered members the morning of the event</p>
+                  </li>
+                  <li class="li_event p-2  mb-4">
+                    <h5>Green in the face - Thursday 21st of September, 6.30pm</h5>
+                    <p> Green in the face is a podcast held by members of the Plant Based Ireland team Jane and Mairead. This week we will be inerviewing Tomás McShallowcast, the newest and hottest vegan chef from Roscommon. There's nothing common about the interesting plant based dishes he has been cooking up though, join us for what should be fascinating discussion on the trials and tribulations of carving out a place for yourself in culinary Ireland.</p>
+                    <p class="events_span">Podcast is not yet available on audio platforms as of yet, a link to the recording will be shared via email to registered members the morning of the event</p>
+                  </li>
+                  <li class="li_event p-2  mb-4">
+                    <h5>Show us your dish - Sunday 24th of September , 5pm</h5>
+                    <p> Show us your dish is hosted by Plant Based Ireland team member Frank. Its Frank's time to show off the latest vegan dishes he has been experimenting with in his mad scientist kitchen. Join us on zoom so you can contribute and show off your recent dishes too, with recipes!</p>
+                    <p class="events_span">Meet up via zoom link, link to the zoom meeting will be emailed to registered members the morning of the event</p>
+                  </li>
                 </ul>
-                </div>
+              </div>
             </div>
+            <div class="col-sm-12 col-md-6 mt-2">
+              <h4 class="text-center fw-bold">In person events</h4>
+              <div id="meetups">
+                <ul class="events_list">
+                  <li class="li_event p-2 mb-4">
+                    <h5>Veggie Market - Sunday 17th of September, 10am - 4pm</h5>
+                    <p> Plant Based Ireland will have a market stall in Pender's Market, the weekly farmers market space in Stoneybatter. We'll be selling exquisitley made vegan cakes, cookies and other treats, as well as freshly roasted coffee. Pop along to grab a treat, have some coffee or just say hi.</p>
+                    <p class="events_span">Location : 31A Stoneybatter Dublin 7. In the event of cancellation, emails will be sent the morning of the event to notify registered members</p>
+                  </li>
+                  <li class="li_event p-2 mb-4">
+                    <h5>Fun run - Saturday 23rd of September, 10am</h5>
+                    <p> Plant Based Ireland will host a casual fun run in Phoenix park, open to all members to join in and get running! Nothing too strict or structured, we will aim for a 5k jog but take it at your own pace! We can all then have a coffee at the nearby Phoenix Café</p>
+                    <p class="events_span">Location : South entrance of Phoenix Park . In the event of cancellation, emails will be sent the morning of the event to notify registered members </p>
+                  </li>
+                  <li class="li_event p-2 mb-4">
+                    <h5>Lecture on ethics of farming - Tuesday 19th of September, 7pm</h5>
+                    <p> Plant Based Ireland are hosting a lecture from guest speaker Dr. Michael O'Shea on the ethics of farming. Dr. O'Shea is a phd in agricultural science and has been researching the effects of farming on the the environment and the economy in Ireland. It should serve to be fascinating discussion. All registered members welcome to attend.</p>
+                    <p class="events_span">Location : Room 101, Janesborough building , UCD campus . In the event of cancellation, emails will be sent the morning of the event to notify registered members</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    </div>
-</section>
-
-<!--end of content that will be rendered between header/navbar and footer-->
-{% endblock %}
+      </div>
+    </section>
+    <!--end of content that will be rendered between header/navbar and footer--> {% endblock %}

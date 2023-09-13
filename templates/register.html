@@ -1,40 +1,26 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-<section>
+{% extends 'base.html' %} {% block content %} <section>
   <div class="container subscreen_container">
     <!--bootstrap row containing cols for responsive layout-->
     <div class="row mt-5 g-5">
-        <!--display 2 equal columns horizontally on larger screens, change each to full on small screens-->
-        <div class="col-sm-12 col-md-6 mt-2 p-4 text-center">
-          <h3>Please sign up, so you can login and post content</h3>
-          <div>
-              <!--django form , from forms.py, csrf security, user creation form-->
-              <form method="POST" action="" class="p-4 text-center">
-                  {% csrf_token %}
-                  {{form.as_p}}
-                  <button type="submit" class="btn btn-primary btn-success btn-lg">Complete registration</button>
-              </form>
-          </div>
-        
-
+      <!--display 2 equal columns horizontally on larger screens, change each to full on small screens-->
+      <div class="col-sm-12 col-md-6 mt-2 p-4 text-center">
+        <h3>Please sign up, so you can login and post content</h3>
+        <div>
+          <!--django form , from forms.py, csrf security, user creation form-->
+          <form method="POST" action="" class="p-4 text-center"> {% csrf_token %} {{form.as_p}}
+            <button type="submit" class="btn btn-primary btn-success btn-lg">Complete registration</button>
+          </form>
         </div>
-        <div class="col-sm-12 col-md-6 mt-2 p-4 text-center">
-          <!--display messages if user registration fails-->
-          {% if messages %}
-          <ul class="messages">
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-          <!--button for user, if they are already registered they can go to login-->
-          <h3>Already registered? Click here to login!</h3>
-          <a href="{% url 'login_base' %}" class="text-center" ><button type="button" class="btn btn-primary btn-success btn-lg m-5">Login</button></a>
-        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 mt-2 p-4 text-center">
+        <!--display messages if user registration fails--> {% if messages %} <ul class="messages"> {% for message in messages %} <li>{{ message }}</li> {% endfor %} </ul> {% endif %}
+        <!--button for user, if they are already registered they can go to login-->
+        <h3>Already registered? Click here to login!</h3>
+        <a href="{% url 'login_base' %}" class="text-center">
+          <button type="button" class="btn btn-primary btn-success btn-lg m-5">Login</button>
+        </a>
+      </div>
     </div>
   </div>
 </section>
-<!--end of content that will be rendered between header/navbar and footer-->
-{% endblock %}
+<!--end of content that will be rendered between header/navbar and footer--> {% endblock %}

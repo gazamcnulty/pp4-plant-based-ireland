@@ -1,37 +1,43 @@
-<!--pulling head, header/navbar from base.html-->
+<!--pulling head, header/navbar from base.html--> 
 {% extends "base.html" %}
-<!--main content rendered between header navbar and footer-->
-{% block content %}
-
+<!--main content rendered between header navbar and footer--> 
+{% block content %} 
 <section>
   <div class="container subscreen_container rounded">
     <h2 class="mt-5 pt-5 text-center">Acccount info</h2>
     <!--bootstrap row containing cols for responsive layout-->
     <div class="row mt-5 g-5">
-        <div class="col-sm-12 col-md-6 mt-2 p-3 text-center">
-          <!--renders messages from views.py for password change confirmation-->
-          {% if messages %}
-            {% for message in messages %}
-              <p class="confirmation_message">{{ message }}</p>
-            {% endfor %}
-          {% endif %}
-          <!--renders basic user info, username, email, datjoined, from class User-->
-          <ul class="user_list fs-4 text text-start">
-              <li><span class="bold_span">Username</span>  {{user.username}} </li>
-              <li><span class="bold_span">Email</span>  {{user.email}}</li>
-              <li><span class="bold_span">Joined</span> {{user.date_joined}}</li>
-          </ul>
-
-        </div>
-        <div class="col-sm-12 col-md-6 mt-2 p-3 text-center">
-          <!--links to change password template or logout button-->
-          <a href="{% url 'change_password' %}"><button type="button" class="btn btn-success m-2 fs-5 text">Change password</button></a>
-          <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-success m-2 fs-5 text">Logout</button></a>
-
-        </div>
+      <div class="col-sm-12 col-md-6 mt-2 p-3 text-center">
+        <!--renders messages from views.py for password change confirmation--> 
+        {% if messages %} 
+        {% for message in messages %} 
+        <p class="confirmation_message">{{ message }}</p> 
+        {% endfor %} 
+        {% endif %}
+        <!--renders basic user info, username, email, datjoined, from class User-->
+        <ul class="user_list fs-4 text text-start">
+          <li>
+            <span class="bold_span">Username</span> {{user.username}}
+          </li>
+          <li>
+            <span class="bold_span">Email</span> {{user.email}}
+          </li>
+          <li>
+            <span class="bold_span">Joined</span> {{user.date_joined}}
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-12 col-md-6 mt-2 p-3 text-center">
+        <!--links to change password template or logout button-->
+        <a href="{% url 'change_password' %}">
+          <button type="button" class="btn btn-success m-2 fs-5 text">Change password</button>
+        </a>
+        <a href="{% url 'logout' %}">
+          <button type="button" class="btn btn-outline-success m-2 fs-5 text">Logout</button>
+        </a>
+      </div>
     </div>
   </div>
 </section>
-
-<!--end of content that will be rendered between header/navbar and footer-->
+<!--end of content that will be rendered between header/navbar and footer--> 
 {% endblock %}

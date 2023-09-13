@@ -1,81 +1,63 @@
-{% extends 'base.html' %}
-{% block content %}
-
-<section>
+{% extends 'base.html' %} {% block content %} <section>
     <div class="container subscreen_container mt-5 rounded">
-        <!--bootstrap row containing cols for responsive layout-->
-        <div class="row my-5">
-            <!--display columns horizontally in 2/3 ratio, change each to full on small screens-->
-            <div class="col-sm-12 col-md-8 mt-5 p-0">
-                <div class="p-1 ms-1 border border-success">
-                    <h2 class="p-1 fw-bold">{{post.title}}</h2>
-                    <p class="p-2 posted_by">Shared {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
-                    {% if post.user == request.user %}
-                    <!--edit and delete buttons, only available to user who created the post-->
-                    <a href="{% url 'edit_post' post.id %}" class=""><button type="button" class="text-center p-1 btn btn-outline-success fs-6 text">Edit</button></a>
-                    <a href="{% url 'delete_post' post.id %}" class=""><button type="button" class="text-center p-1 btn btn-outline-success  fs-6 text">Delete</button></a>
-                    {% endif %}
-                    <p class="p-2 fs-5">{{post.content}}</p>
-                </div>
-                <div>
-                    <!--empty div, placeholder image can be inserted here if needed-->
-                    {% if "placeholder" in post.featured_image.url %}
-                        <div></div>
-                    {% else %}
-                    <div class="gallery_col">
-                        <img src="{{ post.featured_image.url }}" class="gallery_img ms-2">
-                    </div>
-                    {% endif %}
-                </div>
-                <div class="mt-2 text-center">
-                    <!--using number_of_likes() from post model, count user likes-->
-                    <p class="fs-5 text">{{ number_of_likes }} user(s) like this post!</p>
-                    <!--check if user logged in, render like/dislike button if yes-->
-                    {% if request.user.is_authenticated %}
-                    <!--django form, csrf security, to enable like/dislike button-->
-                    <form action="{% url 'post_like' post.id %}" method="POST">
-                        {% csrf_token %}
-                        <button class="btn btn-success m-4" type="submit" name="post_id" value="{{ post.id }}">Like / Dislike</button>
-                    </form>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 mt-5">
-                <div>
-                    <h3>Comments</h3>
-                    <!--loop through user submitted content, based on comment model / view logic-->
-                    {% for comment in comments %}
-                        <p><span class="comment_user fs-4">{{comment.user}}</span> commented :</p>
-                        <p class="fs-4"> "{{comment.body}}"</p>
-                        <p>{{ comment.created_on|timesince }} ago</p>
-                        <!--check if the current user , is the commenter. enable them to delete-->
-                        {% if comment.user == request.user %}
-                            <a href="{% url 'delete_comment' comment.id %}" class=""><button type="button" class="text-center p-1 btn btn-outline-danger  fs-6 text">Delete</button></a>
-                        {% endif %}
-                        <hr>
-                    {% endfor %}
-                </div>
-                <!--check if user logged in, enable them to post comment if so-->
-                {% if request.user.is_authenticated %}
-                <div>
-                <h4 class="my-5">Submit a comment</h4>
-                <form method="POST" action="" class="my-5">
-                    {% csrf_token %}
-                    <input type="text" name="body" placeholder="post a comment"/>
-                </form>
-                </div>
-                <!--if user not logged in, display message asking them to log in-->
-                {% else %}
-                <div>
-                    <p class="fs-4">Login if you want to like this post or submit a comment!</p>
-                </div>
-                <div class="text-center">
-                    <a href="{% url 'login_base' %}" class="text-center" ><button type="button" class="btn btn-primary btn-success btn-lg m-5">Login</button></a>
-                </div>
-                {% endif %}
-            </div>
+      <!--bootstrap row containing cols for responsive layout-->
+      <div class="row my-5">
+        <!--display columns horizontally in 2/3 ratio, change each to full on small screens-->
+        <div class="col-sm-12 col-md-8 mt-5 p-0">
+          <div class="p-1 ms-1 border border-success">
+            <h2 class="p-1 fw-bold">{{post.title}}</h2>
+            <p class="p-2 posted_by">Shared {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span>
+            </p> {% if post.user == request.user %}
+            <!--edit and delete buttons, only available to user who created the post-->
+            <a href="{% url 'edit_post' post.id %}" class="">
+              <button type="button" class="text-center p-1 btn btn-outline-success fs-6 text">Edit</button>
+            </a>
+            <a href="{% url 'delete_post' post.id %}" class="">
+              <button type="button" class="text-center p-1 btn btn-outline-success  fs-6 text">Delete</button>
+            </a> {% endif %} <p class="p-2 fs-5">{{post.content}}</p>
+          </div>
+          <div>
+            <!--empty div, placeholder image can be inserted here if needed--> {% if "placeholder" in post.featured_image.url %} <div></div> {% else %} <div class="gallery_col">
+              <img src="{{ post.featured_image.url }}" class="gallery_img ms-2">
+            </div> {% endif %}
+          </div>
+          <div class="mt-2 text-center">
+            <!--using number_of_likes() from post model, count user likes-->
+            <p class="fs-5 text">{{ number_of_likes }} user(s) like this post!</p>
+            <!--check if user logged in, render like/dislike button if yes--> {% if request.user.is_authenticated %}
+            <!--django form, csrf security, to enable like/dislike button-->
+            <form action="{% url 'post_like' post.id %}" method="POST"> {% csrf_token %} <button class="btn btn-success m-4" type="submit" name="post_id" value="{{ post.id }}">Like / Dislike</button>
+            </form> {% endif %}
+          </div>
         </div>
+        <div class="col-sm-12 col-md-4 mt-5">
+          <div>
+            <h3>Comments</h3>
+            <!--loop through user submitted content, based on comment model / view logic--> {% for comment in comments %} <p>
+              <span class="comment_user fs-4">{{comment.user}}</span> commented :
+            </p>
+            <p class="fs-4"> "{{comment.body}}"</p>
+            <p>{{ comment.created_on|timesince }} ago</p>
+            <!--check if the current user , is the commenter. enable them to delete--> {% if comment.user == request.user %} <a href="{% url 'delete_comment' comment.id %}" class="">
+              <button type="button" class="text-center p-1 btn btn-outline-danger  fs-6 text">Delete</button>
+            </a> {% endif %}
+            <hr> {% endfor %}
+          </div>
+          <!--check if user logged in, enable them to post comment if so--> {% if request.user.is_authenticated %} <div>
+            <h4 class="my-5">Submit a comment</h4>
+            <form method="POST" action="" class="my-5"> {% csrf_token %} <input type="text" name="body" placeholder="post a comment" />
+            </form>
+          </div>
+          <!--if user not logged in, display message asking them to log in--> {% else %} <div>
+            <p class="fs-4">Login if you want to like this post or submit a comment!</p>
+          </div>
+          <div class="text-center">
+            <a href="{% url 'login_base' %}" class="text-center">
+              <button type="button" class="btn btn-primary btn-success btn-lg m-5">Login</button>
+            </a>
+          </div> {% endif %}
+        </div>
+      </div>
     </div>
-</section>
-<!--end of content that will be rendered between header/navbar and footer-->
-{% endblock %}
+  </section>
+  <!--end of content that will be rendered between header/navbar and footer--> {% endblock %}

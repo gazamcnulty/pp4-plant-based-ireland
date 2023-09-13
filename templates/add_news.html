@@ -1,29 +1,25 @@
-<!--pulling head, header/navbar from base.html-->
+<!--pulling head, header/navbar from base.html--> 
 {% extends "base.html" %}
-<!--main content rendered between header navbar and footer-->
-{% block content %}
-<section>
+<!--main content rendered between header navbar and footer--> 
+{% block content %} <section>
   <div class="container add_news_container p-3 rounded">
-  <h2 class="text-center my-4">Submit a link to an external website article</h2>
-  <!--bootstrap row containing cols for responsive layout-->
+    <h2 class="text-center my-4">Submit a link to an external website article</h2>
+    <!--bootstrap row containing cols for responsive layout-->
     <div class="row mt-2">
       <div class="col-sm-12 col-md-6 mt-2 p-2 text-center">
         <p class="m-3 text-center">Submit a link to another site on the web. Please only post articles or news relating to plant based nutrition, vegetarianism/veganism, animal rights, restaurant reviews, food recipes, scientific information, blogs / thoughtpieces</p>
       </div>
-        <div class="col-sm-12 col-md-6 p-2 my-4 add_news_div text-center">
-          <!--django form , from forms.py with csrf for security. submit news / article -->
-              <form method="POST" action="{% url 'add_news' %}" enctype="multipart/form-data" class="add_news_form m-1" >
-                  {% csrf_token %}
-                  <div class="news_form_subclass">
-                      {{ form.as_p }}
-                  <div class="text-center">
-                      <button type="submit" class="btn btn-success btn-lg">Submit article</button>
-                  </div>
-              </form>
-          </div>
+      <div class="col-sm-12 col-md-6 p-2 my-4 add_news_div text-center">
+        <!--django form , from forms.py with csrf for security. submit news / article -->
+        <form method="POST" action="{% url 'add_news' %}" enctype="multipart/form-data" class="add_news_form m-1"> {% csrf_token %} <div class="news_form_subclass">
+            {{ form.as_p }}
+            <div class="text-center">
+              <button type="submit" class="btn btn-success btn-lg">Submit article</button>
+            </div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 <!--end of content that will be rendered between header/navbar and footer-->
 {% endblock %}
-

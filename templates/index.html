@@ -1,92 +1,86 @@
-<!--pulling head, header/navbar from base.html-->
-{% extends "base.html" %}
-<!--main content rendered between header navbar and footer-->
-{% block content %}
-<section class="container rounded parent_container text-center">
+<!--pulling head, header/navbar from base.html--> {% extends "base.html" %}
+<!--main content rendered between header navbar and footer--> {% block content %} <section class="container rounded parent_container text-center">
   <div class="row rounded">
     <div id="welcome" class="col-12 rounded p-0">
       <h1 class="h1_home mt-5">Welcome to Plant Based Ireland</h1>
       <br>
-      <p class="fs-4 mt-4"><span class="d-none d-sm-block">Start your plant based adventure now! </span><span class="action_call">Click below to sign up!</span></p>
+      <p class="fs-4 mt-4">
+        <span class="d-none d-sm-block">Start your plant based adventure now! </span>
+        <span class="action_call">Click below to sign up!</span>
+      </p>
       <br>
-      <button type="button" class="btn btn-primary btn-success btn-lg signup_button mb-5" data-bs-toggle="modal" data-bs-target="#signupModal">
-        Create an account
-      </button>
-        <div class="d-none d-md-block">
-          <h4 id="allows">Logging in as an account holder allows you to :</h4>
-            <div class="row ul_welcome">
-              <div class="col-4 list_subclass">
-              <ul>
-                <li class="li_welcome">Submit posts, articles to the website</li>
-                <li class="li_welcome">Gain access to our exclusive members-only events page</li>
-              </ul>
-              </div>
-              <div class="col-4 list_subclass">
-                <ul>
-                <li class="li_welcome">Give 'likes' to your favourite posts</li>
-                <li class="li_welcome">Post comments and join the conversation</li>
-              </ul>
-              </div>
-              <div class="col-4 list_subclass">
-                <ul>
-                <li class="li_welcome">Recevie emails with our monthly newsletter</li>
-                <li class="li_welcome">And more features to come soon!</li>
-              </ul>
-              </div>
-            </div>
+      <button type="button" class="btn btn-primary btn-success btn-lg signup_button mb-5" data-bs-toggle="modal" data-bs-target="#signupModal"> Create an account </button>
+      <div class="d-none d-md-block">
+        <h4 id="allows">Logging in as an account holder allows you to :</h4>
+        <div class="row ul_welcome">
+          <div class="col-4 list_subclass">
+            <ul>
+              <li class="li_welcome">Submit posts, articles to the website</li>
+              <li class="li_welcome">Gain access to our exclusive members-only events page</li>
+            </ul>
+          </div>
+          <div class="col-4 list_subclass">
+            <ul>
+              <li class="li_welcome">Give 'likes' to your favourite posts</li>
+              <li class="li_welcome">Post comments and join the conversation</li>
+            </ul>
+          </div>
+          <div class="col-4 list_subclass">
+            <ul>
+              <li class="li_welcome">Recevie emails with our monthly newsletter</li>
+              <li class="li_welcome">And more features to come soon!</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </section>
 <section id="home_div" class="container lower_container rounded">
   <div class="row mt-5 rounded">
     <div id="posts_div" class="col-12 col-md-9 ">
-      <h2 class="text-center my-4"><i class="fa-solid fa-receipt posts_icon"></i>User submitted posts</h2>
+      <h2 class="text-center my-4">
+        <i class="fa-solid fa-receipt posts_icon"></i>User submitted posts
+      </h2>
       <div class="text-center">
-        <a href="{% url 'add_post' %}"><button type="button" class="btn btn-success m-2 fs-5 text">Submit a post</button></a>
-      </div>
-        {% for post in page_obj %}
-            <hr>
-            <a href="{% url 'post_detail' post.id %}" class="post_title"><p class="post_p">{{post.title}}</p></a> 
-            <p class="posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span></p>
-        {% endfor %}
-    </div>
-
-
-    <div id="headlines_div" class="col d-none d-md-block my-5">
-      <a href="{% url 'news' %}" class="text-decoration-none h4_headlines"><h4><i class="fa-regular fa-newspaper"></i>Latest articles from around the web </h4></a>
+        <a href="{% url 'add_post' %}">
+          <button type="button" class="btn btn-success m-2 fs-5 text">Submit a post</button>
+        </a>
+      </div> {% for post in page_obj %}
       <hr>
-      <table class="table">
-        {% for report in reports|slice:":4" %}
-        <tr>
+      <a href="{% url 'post_detail' post.id %}" class="post_title">
+        <p class="post_p">{{post.title}}</p>
+      </a>
+      <p class="posted_by">Posted {{ post.created_on|timesince }} ago by <span class="bold_span">{{ post.user }}</span>
+      </p> {% endfor %}
+    </div>
+    <div id="headlines_div" class="col d-none d-md-block my-5">
+      <a href="{% url 'news' %}" class="text-decoration-none h4_headlines">
+        <h4>
+          <i class="fa-regular fa-newspaper"></i>Latest articles from around the web
+        </h4>
+      </a>
+      <hr>
+      <table class="table"> {% for report in reports|slice:":4" %} <tr>
           <td>
-            <a href="{{ report.external_link }}" class="text-decoration-none side_headlines"><p class="article_title">{{ report.title }}</p></a>
-            <p class="shared"><span class="report_category">{{ report.category }}</span> shared {{ report.created_on|timesince }} ago by <span class="bold_span">{{ report.user }}</span> from <span class="report_website">{{ report.website }}</span></p>
+            <a href="{{ report.external_link }}" class="text-decoration-none side_headlines">
+              <p class="article_title">{{ report.title }}</p>
+            </a>
+            <p class="shared">
+              <span class="report_category">{{ report.category }}</span> shared {{ report.created_on|timesince }} ago by <span class="bold_span">{{ report.user }}</span> from <span class="report_website">{{ report.website }}</span>
+            </p>
           </td>
-        </tr>
-        {% endfor %}
-      </table>
-      <a href="{% url 'news' %}"> <button type="button" class="btn btn-success more_news m-2 fs-5 text"> More articles </button></a>
+        </tr> {% endfor %} </table>
+      <a href="{% url 'news' %}">
+        <button type="button" class="btn btn-success more_news m-2 fs-5 text"> More articles </button>
+      </a>
     </div>
     <!--pagination boilerplate from django documentation-->
     <div class="pagination">
-      <span class="step-links text-center m-4">
-          {% if page_obj.has_previous %}
-              <a href="?page=1" class="page_link">&laquo; First</a>
-              <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a>
-          {% endif %}
-  
-          <span class="current">
-              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-          </span>
-  
-          {% if page_obj.has_next %}
-              <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
-              <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a>
-          {% endif %}
-      </span>
+      <span class="step-links text-center m-4"> {% if page_obj.has_previous %} <a href="?page=1" class="page_link">&laquo; First</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="page_link">Previous</a> {% endif %} <span class="current"> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. </span> {% if page_obj.has_next %} <a href="?page={{ page_obj.next_page_number }}" class="page_link">Next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="page_link">Last &raquo;</a> {% endif %} </span>
     </div>
-
   </div>
 </section>
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -98,24 +92,15 @@
       </div>
       <div class="modal-body">
         <div>
-          <form method="POST" action="">
-              {% csrf_token %}
-              {{form.as_p}}
-              <div class="text-center">
+          <form method="POST" action=""> {% csrf_token %} {{form.as_p}}
+            <div class="text-center">
               <button type="submit" class="btn btn-primary btn-success">Confirm sign up</button>
-              </div>
+            </div>
           </form>
+        </div>
       </div>
-      </div>
-      <div class="modal-footer">
-      </div>
+      <div class="modal-footer"></div>
     </div>
   </div>
-
-
-
 </div>
-
-
-<!--end of content that will be rendered between header/navbar and footer-->
-{% endblock %}
+<!--end of content that will be rendered between header/navbar and footer--> {% endblock %}

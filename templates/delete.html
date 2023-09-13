@@ -1,32 +1,25 @@
-<!--pulling head, header/navbar from base.html-->
-{% extends "base.html" %}
-<!--main content rendered between header navbar and footer-->
-{% block content %}
-<section>
-<div class="container subscreen_container rounded">
-  <!--bootstrap row containing cols for responsive layout-->
-  <div class="row">
-    <h2 class="my-5 text-center">Delete post</h2>
+<!--pulling head, header/navbar from base.html--> {% extends "base.html" %}
+<!--main content rendered between header navbar and footer--> {% block content %} <section>
+  <div class="container subscreen_container rounded">
+    <!--bootstrap row containing cols for responsive layout-->
+    <div class="row">
+      <h2 class="my-5 text-center">Delete post</h2>
       <!--display 2 equal columns horizontally on larger screens, change each to full on small screens-->
       <div class="col-sm-12 col-md-6 text-center">
-        <p class="fs-6">Are you sure you want to delete <span class="fw-bold">"{{obj}}"</span>? It will be gone forever!</p>
+        <p class="fs-6">Are you sure you want to delete <span class="fw-bold">"{{obj}}"</span>? It will be gone forever! </p>
       </div>
-      
       <div class="col-sm-12 col-md-6">
-          <!--django form , from forms.py, csrf security. confirm deletion of object-->
-          <form method="POST" action="" class="text-center">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-lg btn-danger m-3">Confirm delete</button>
-          </form>
-          <div class="text-center">
-            <!--link to return user back to previous page-->
-            <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-2"><button type="button" class="p-1 m-3 btn btn-outline-success fs-6 text">Go back</button></a>
-          </div>
+        <!--django form , from forms.py, csrf security. confirm deletion of object-->
+        <form method="POST" action="" class="text-center"> {% csrf_token %} <button type="submit" class="btn btn-lg btn-danger m-3">Confirm delete</button>
+        </form>
+        <div class="text-center">
+          <!--link to return user back to previous page-->
+          <a href="{{request.META.HTTP_REFERER}}" class="p-3 m-2">
+            <button type="button" class="p-1 m-3 btn btn-outline-success fs-6 text">Go back</button>
+          </a>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 </section>
-<!--end of content that will be rendered between header/navbar and footer-->
-{% endblock %}
-
-
+<!--end of content that will be rendered between header/navbar and footer--> {% endblock %}

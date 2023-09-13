@@ -1,39 +1,26 @@
-<!--pulling head, header/navbar from base.html-->
-{% extends "base.html" %}
-<!--main content rendered between header navbar and footer-->
-{% block content %}
-
+<!--pulling head, header/navbar from base.html--> {% extends "base.html" %}
+<!--main content rendered between header navbar and footer--> {% block content %}
 <hr>
 <div class="container rounded subscreen_container">
-    <!--bootstrap row containing cols for responsive layout-->
-    <div class="row text-center">
-        <h2 class="mt-5">Image Gallery</h2>
-        <p class="my-2">Want to share a quick pic, without a detailed diatribe of text and info? Pop an image here to share !</p>
-        <div class="text-center">
-            <!--check if user logged in, refer to login page if not-->
-            {% if request.user.is_authenticated %}
-            <div class="m-5">
-                <a href="{% url 'add_gallery' %}"><button type="button" class="btn btn-success fs-5 text">Submit image</button></a>
-              </div>
-            {% else %}
-                <p class="m-4">Login if you want to submit photos!</p>
-                <a href="{% url 'login_base' %}" class="text-center" ><button type="button" class="btn btn-primary btn-success mb-4">Login</button></a>
-            {% endif %}
-        </div>
-        <!--loop through user submitted photos, based on model gallery  / view logic-->
-        {% for gallery in gallerys %}
-            <div class="col gallery_col" >
-                <!--submit placeholder image if user image is missing/not found-->
-                {% if "placeholder" in gallery.featured_image.url %}
-                    <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" class="gallery_img">
-                    <p class="gallery_p">placeholder image</p>
-                {% else %}
-                    <img src="{{ gallery.featured_image.url }}" class="gallery_img" />
-                    <p class="gallery_p">{{ gallery.title}} submitted by  <span class="fw-bold">{{ gallery.user }}</span>, {{ gallery.created_on|timesince}} ago</p>
-                {% endif %}
-            </div>
-        {% endfor %}
+  <!--bootstrap row containing cols for responsive layout-->
+  <div class="row text-center">
+    <h2 class="mt-5">Image Gallery</h2>
+    <p class="my-2">Want to share a quick pic, without a detailed diatribe of text and info? Pop an image here to share !</p>
+    <div class="text-center">
+      <!--check if user logged in, refer to login page if not--> {% if request.user.is_authenticated %} <div class="m-5">
+        <a href="{% url 'add_gallery' %}">
+          <button type="button" class="btn btn-success fs-5 text">Submit image</button>
+        </a>
+      </div> {% else %} <p class="m-4">Login if you want to submit photos!</p>
+      <a href="{% url 'login_base' %}" class="text-center">
+        <button type="button" class="btn btn-primary btn-success mb-4">Login</button>
+      </a> {% endif %}
     </div>
+    <!--loop through user submitted photos, based on model gallery  / view logic--> {% for gallery in gallerys %} <div class="col gallery_col">
+      <!--submit placeholder image if user image is missing/not found--> {% if "placeholder" in gallery.featured_image.url %} <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" class="gallery_img">
+      <p class="gallery_p">placeholder image</p> {% else %} <img src="{{ gallery.featured_image.url }}" class="gallery_img" />
+      <p class="gallery_p">{{ gallery.title}} submitted by <span class="fw-bold">{{ gallery.user }}</span>, {{ gallery.created_on|timesince}} ago </p> {% endif %}
+    </div> {% endfor %}
+  </div>
 </div>
-<!--end of content that will be rendered between header/navbar and footer-->
-{% endblock %}
+<!--end of content that will be rendered between header/navbar and footer--> {% endblock %}

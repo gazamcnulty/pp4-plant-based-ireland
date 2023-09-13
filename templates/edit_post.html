@@ -1,34 +1,28 @@
-<!--pulling head, header/navbar from base.html-->
-{% extends "base.html" %}
-<!--main content rendered between header navbar and footer-->
-{% block content %}
-
-<section>
+<!--pulling head, header/navbar from base.html--> {% extends "base.html" %}
+<!--main content rendered between header navbar and footer--> {% block content %} <section>
   <div class="container subscreen_container rounded my-5">
     <h2 class=" text-center">Edit post</h2>
     <!--bootstrap row containing cols for responsive layout-->
     <div class="row">
-        <div class="col-sm-12 col-md-5 text-center">
-            <div class="text-center">
-              <!--django form , csrf security, edit post-->
-              <form method="POST" class="text-center">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="my-5 btn btn-success text-center">Confirm changes</button>
-                <!--link to return user back to previous page-->    
-                <a href="{{request.META.HTTP_REFERER}}" ><button type="button" class="my-5 btn btn-outline-success text-center">Go back</button></a>
-              </form>
-            </div>
-            <br>
+      <div class="col-sm-12 col-md-5 text-center">
+        <div class="text-center">
+          <!--django form , csrf security, edit post-->
+          <form method="POST" class="text-center"> {% csrf_token %} {{ form.as_p }}
+            <button type="submit" class="my-5 btn btn-success text-center">Confirm changes</button>
+            <!--link to return user back to previous page-->
+            <a href="{{request.META.HTTP_REFERER}}">
+              <button type="button" class="my-5 btn btn-outline-success text-center">Go back</button>
+            </a>
+          </form>
         </div>
-        <div class="col-sm-12 col-md-7 text-center">
-          <div class="text-center">
-            <p class="m-5 p-4">Edit content of post . Select confirm changes to save new edits, or go back to cancel</p>
-          </div>
-
+        <br>
+      </div>
+      <div class="col-sm-12 col-md-7 text-center">
+        <div class="text-center">
+          <p class="m-5 p-4">Edit content of post . Select confirm changes to save new edits, or go back to cancel</p>
         </div>
+      </div>
     </div>
   </div>
 </section>
-<!--end of content that will be rendered between header/navbar and footer-->
-{% endblock %}
+<!--end of content that will be rendered between header/navbar and footer--> {% endblock %}

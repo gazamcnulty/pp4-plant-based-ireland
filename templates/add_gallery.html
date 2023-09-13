@@ -1,33 +1,29 @@
-<!--pulling head, header/navbar from base.html-->
+<!--pulling head, header/navbar from base.html--> 
 {% extends "base.html" %}
-<!--main content rendered between header navbar and footer-->
-{% block content %}
-
+<!--main content rendered between header navbar and footer--> 
+{% block content %} 
 <section>
-<div class="container subscreen_container">
-  <!--bootstrap row containing cols for responsive layout-->
-  <div class="row my-5 text-center">
-    <h2 class="my-4 p-2">Submit image</h2>
+  <div class="container subscreen_container">
+    <!--bootstrap row containing cols for responsive layout-->
+    <div class="row my-5 text-center">
+      <h2 class="my-4 p-2">Submit image</h2>
       <!--display 2 equal columns on larger screens, change each to full on small screens-->
       <div class="col-12-sm-12 col-md-6 my-2 p-1 text-center">
         <!--django rendered form , from forms.py with csrf for security-->
-        <form method="POST" action="{% url 'add_gallery' %}" id="add_gallery_form" enctype="multipart/form-data" class="text-start">
-            {% csrf_token %}
-            <div class="m-3 p-2">
-              {{ form.as_p }}
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-success fs-5 text m-3">Submit</button>
-            </div>
-          </form>
+        <form method="POST" action="{% url 'add_gallery' %}" id="add_gallery_form" enctype="multipart/form-data" class="text-start"> {% csrf_token %} <div class="m-3 p-2">
+            {{ form.as_p }}
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-success fs-5 text m-3">Submit</button>
+          </div>
+        </form>
       </div>
       <div class="col-sm-12 col-md-6 my-2 py-5">
         <p class="my-4 p-1">Submit any photos you want , that speak to you and your relationship with plantbased foods. It can be a photo of your latest vegan dinner, a pile of freshly grown vegetables, a delicious smoothie or a cheeky selfie. Memes accepted and encouraged</p>
         <p class="m-4 p-1">No nudity please, this is Plant Based Ireland not tinder.</p>
       </div>
+    </div>
   </div>
-</div>
 </section>
-
-<!--end of content that will be rendered between header/navbar and footer-->
+<!--end of content that will be rendered between header/navbar and footer--> 
 {% endblock %}
