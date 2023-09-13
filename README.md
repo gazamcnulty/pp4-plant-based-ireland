@@ -721,6 +721,9 @@ In the site it is advertised that registered users will receive monthly email ne
 
 ## Sources
 
+* I have tried to be as thorough and comprehensive as possible when listing below sources, in which I either followed along to learn the process or took source code and amended for my own needs. These are all the sources I noted during the project development that I learned to either solve an error or understand the basic django functionality. In all cases I tried to incorporate or implement with my own code where appropriate.
+
+
 * I followed along quite closely with the CI django tutorials and multiple youtube tutorials on django. Primarily I used example code in the initial set up of the main post model, its related view and url path, also for post_detail access.
 The bulk of my knowledge comes from these guides and I have tried to follow similar methods when creating my own code
 https://github.com/Code-Institute-Solutions/Django3blog/tree/master/11_messages
@@ -751,12 +754,93 @@ https://github.com/gazamcnulty/pp1-parklife/blob/main/assets/css/style.css
     /*ensure space is filled by image*/
 }
 
+
+* I originally had 'cloudinary field in my post model , per the tutorial guidance. This was changed to image field by CI tutor Sean when asssisting me in troubleshooting an issue with image submission
+
+
+* I learned and replicated code structure used here in the django YT video, in understanding my own post_detail view and how to use the post_id to link it to the template when the link is clicked form home page
+https://github.com/divanov11/StudyBud/
+
+def room(request, pk):
+    room = Room.objects.get(id=pk)
+    room_messages = room.message_set.all()
+    participants = room.participants.all()
+
+    if request.method == 'POST':
+        message = Message.objects.create(
+            user=request.user,
+            room=room,
+            body=request.POST.get('body')
+        )
+        room.participants.add(request.user)
+        return redirect('room', pk=room.id)
+
+    context = {'room': room, 'room_messages': room_messages,
+               'participants': participants}
+    return render(request, 'base/room.html', context)
+
+in my case it is :
+
+def post_detail(request, post_id):
+    """
+    View for url path to render post_detail.html template
+    view post content, likes, comments
+    render post_detail.html page
+    """
+    post = get_object_or_404(Post, id=post_id)
+    comments = post.comment_set.all()
+    number_of_likes = post.number_of_likes()
+    reports = News.objects.all()
+
+    if request.method == 'POST':
+        comment = Comment.objects.create(
+            user=request.user,
+            post=post,
+            body=request.POST.get('body')
+        )
+        return redirect('post_detail', post_id)
+    context = {
+        'post': post,
+        'comments': comments,
+        'number_of_likes': number_of_likes,
+        'reports': reports,
+    }
+    return render(request, 'post_detail.html', context)def post_detail(request, post_id):
+    """
+    View for url path to render post_detail.html template
+    view post content, likes, comments
+    render post_detail.html page
+    """
+    post = get_object_or_404(Post, id=post_id)
+    comments = post.comment_set.all()
+    number_of_likes = post.number_of_likes()
+    reports = News.objects.all()
+
+    if request.method == 'POST':
+        comment = Comment.objects.create(
+            user=request.user,
+            post=post,
+            body=request.POST.get('body')
+        )
+        return redirect('post_detail', post_id)
+    context = {
+        'post': post,
+        'comments': comments,
+        'number_of_likes': number_of_likes,
+        'reports': reports,
+    }
+    return render(request, 'post_detail.html', context)
+    
+
 * I followed along for the first few lessons of the Hello Django blog tutorial from code institute while creating my project. So the code and installation steps as far as having a the site online , hosted externally are the exact same from Code Institute
+
 
 * I created my first model while following along with the models lesson in the Code Institute hello django blog tutorial, modifying slightly for my own needs so that it is different and considered 'an original model' per the pp4 assessment criteria
 
+
 * I created a 'hearts' set up, (similar to likes) by using a many to many field and following instructions on below video. This involved a function based view to enable the hearts to be counted
  http://www.learningaboutelectronics.com/Articles/How-to-count-the-number-of-objects-in-a-ManyToManyField-in-Django.php
+
 
 * I followed along with the hello django blog tutorial explaining how to use a WYSIWYG editor by installing summernote. This involved installation in terminal, url paths for summernote and import Summernote into admin.py
 
@@ -770,8 +854,30 @@ https://www.youtube.com/watch?v=PtQiiknWUcI&list=PLi9Mnuz2f6jG9dH-No_utZO72gAOrJ
 
 * I followed along with the todolist code Institute tutorial when creating the forms, models, views, urls to enable create, read, update, delete functionality
 
+
 * I finally got post_detail link from index.html working by following this guide
 https://stackoverflow.com/questions/70140385/how-do-i-create-link-for-details-in-each-post
+
+* structure of registration page can was followed along based off lesson here , amended for my own code 
+https://www.pythontutorial.net/django-tutorial/django-registration/
+
+
+
+form = UserCreationForm()
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            login(request, user)
+            return redirect('home_page')
+        else:
+            messages.error(request, "Error occurred,registration not completed")
+    context = {
+        'form': form
+    }
+    return render(request, 'register.html', context)
 
 
 * i learned how to implement messages from django docs 
@@ -793,7 +899,7 @@ https://stackoverflow.com/questions/39639264/django-highlight-current-page-in-na
 
 
 
-* I learned about use from CI tutorial , code copied from bootstrap example page
+* I learned about modal use from CI tutorial , code copied from bootstrap example page
 https://getbootstrap.com/docs/5.3/components/modal/#how-it-works
 	
 
@@ -818,7 +924,6 @@ https://docs.djangoproject.com/en/4.2/topics/pagination/
         {% endif %}
     </span>
 </div>
-
 
 
 
