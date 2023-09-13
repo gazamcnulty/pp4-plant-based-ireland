@@ -312,13 +312,10 @@ form > ul {
 }
 
 .gallery_col {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+
 }
+
+
 
 /*-------edit--------*/
 
@@ -385,10 +382,21 @@ textarea {
 
 .gallery_col {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .gallery_img {
-    width: 300px;
+    width: 350px;
+    /*uniform width and height to make square*/
+     height: 350px;
+     border-radius: 5%;
+    /*give a slight rounded edge to pictures*/
+     object-fit: cover;
+    /*ensure space is filled by image*/
 }
 
 .bold_span {
