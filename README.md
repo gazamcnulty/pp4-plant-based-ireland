@@ -1,7 +1,7 @@
 # Plant Based Ireland
 
 
-![Alt text](<mockup 2.JPG>)
+![Alt text](readme_images/)
 
 
 
@@ -229,16 +229,16 @@ I have included a favicon to render a logo on the browser tab, for additional fl
 ### Visual - Wireframes
 
 * Homepage
-![Alt text](<Wireframe home.JPG>)
+![Image](readme_images/image-3.png)
 
 * News
-![Alt text](<News wireframe.JPG>)
+![Image](readme_images/image-3.png)
 
 * Gallery 
-![Alt text](<Wireframe gallery.JPG>)
+![Image](readme_images/image-3.png)
 
 * Post Detail 
-![Alt text](<Wireframe post detail.JPG>)
+![Image](readme_images/image-3.png)
 
 
 ## Testing 
@@ -265,97 +265,93 @@ usability, responsiveness and data management within the entire web application.
 
 For testing I will review the user stories / milestones linked with PP4 Plant Based Ireland and assess whether they have been completed or not. If it passes the description and if the Acceptance Criteria has been met it will be given a pass. If it has not been completed it will be given a fail.
 
-![Alt text](image-4.png)
+![Image](readme_images/image-3.png)
 
 
-![Alt text](image-5.png)
+![Image](readme_images/image-5.png)
 
 
-![Alt text](image-6.png)
+![Image](readme_images/image-6.png)
+
+![Image](readme_images/image-7.png)
+
+![Image](readme_images/image-8.png)
+
+![Image](readme_images/image-9.png)
+
+![Image](readme_images/image-10.png)
 
 
-![Alt text](image-7.png)
+![Image](readme_images/image-11.png)
 
 
-![Alt text](image-8.png)
+![Image](readme_images/image-12.png)
 
 
-![Alt text](image-9.png)
+![Image](readme_images/image-13.png)
 
 
-![Alt text](image-10.png)
+![Image](readme_images/image-14.png)
 
 
-![Alt text](image-11.png)
+![Image](readme_images/image-15.png)
 
 
-![Alt text](image-12.png)
+![Image](readme_images/image-16.png)
 
 
-![Alt text](image-13.png)
+![Image](readme_images/image-17.png)
 
 
-![Alt text](image-14.png)
+![Image](readme_images/image-18.png)
 
 
-![Alt text](image-15.png)
+![Image](readme_images/image-19.png)
 
 
-![Alt text](image-16.png)
+![Image](readme_images/image-20.png)
 
 
-![Alt text](image-17.png)
+![Image](readme_images/image-21.png)
 
 
-![Alt text](image-18.png)
+![Image](readme_images/image-22.png)
 
 
-![Alt text](image-19.png)
+![Image](readme_images/image-23.png)
 
 
-![Alt text](image-20.png)
+![Image](readme_images/image-24.png)
 
 
-![Alt text](image-21.png)
+![Image](readme_images/image-25.png)
 
 
-![Alt text](image-22.png)
+![Image](readme_images/image-26.png)
 
 
-![Alt text](image-23.png)
+![Image](readme_images/image-27.png)
 
 
-![Alt text](image-24.png)
+![Image](readme_images/image-28.png)
 
 
-![Alt text](image-25.png)
+![Image](readme_images/image-29.png)
 
 
-![Alt text](image-26.png)
+![Image](readme_images/image-30.png)
 
 
-![Alt text](image-27.png)
+![Image](readme_images/image-31.png)
 
 
-![Alt text](image-28.png)
+![Image](readme_images/image-32.png)
 
 
-![Alt text](image-29.png)
+![Image](readme_images/image-33.png)
 
 
-![Alt text](image-30.png)
-
-
-![Alt text](image-31.png)
-
-
-![Alt text](image-32.png)
-
-
-![Alt text](image-33.png)
-
-
-![Alt text](image-34.png)
+![Image](readme_images/image-34.png)
 
 
 Conclusion : I completed almost all of the goals and tasks set out in the user stories, with some being removed either due to time constraints or change in intention, upon agile reassessment.  Other features I ended up implementing while working on the main user stories, could have been user stories themselves like delete comment, pagination. Most of all , it has served to show me how different features should be split up into smaller issues or collected as epics. I am satisfied that most of the user stories have been completed and allowed the website to be completed as intended.
@@ -379,7 +375,7 @@ Beyond these small issues which have been corrected, everything else works as ex
 
 
 
-![Alt text](image-47.png)
+![Image](<Wireframe home.JPG>)
 
 
 
@@ -417,7 +413,7 @@ The responsiveness test involves me viewing all of the web pages across multiple
 - Pixel 6 - 412 x 892
 
 
-![Alt text](image-51.png)
+![Image](<Wireframe home.JPG>)
 
 
 
@@ -455,46 +451,46 @@ Chrome devtools Lighthouse was used to test for performance, accessibility , bes
 The most significant loss was a low performance score on the gallery section, this is due to various image sizes and large images being submittable by users. This could be changed by making the image size uniform , but I am happy leaving it as it is for now , for user experience.
 
 registration page
-![Alt text](<Lighthouse register-1.JPG>)
+![Image](<Wireframe home.JPG>)
 
 post_detail page
-![Alt text](<Lighthouse post detail.JPG>)
+![Image](<Wireframe home.JPG>)
 
 news page
-![Alt text](image-35.png)
+![Image](<Wireframe home.JPG>)
 
 login page
-![Alt text](image-36.png)
+![Image](<Wireframe home.JPG>)
 
 index.html
-![Alt text](image-37.png)
+![Image](<Wireframe home.JPG>)
 
 gallery
-![Alt text](image-38.png)
+![Image](<Wireframe home.JPG>)
 
 events page
-![Alt text](image-39.png)
+![Image](<Wireframe home.JPG>)
 
 delete 
-![Alt text](image-40.png)
+![Image](<Wireframe home.JPG>)
 
 change password page
-![Alt text](image-41.png)
+![Image](<Wireframe home.JPG>)
 
 add_post page
-![Alt text](image-42.png)
+![Image](<Wireframe home.JPG>)
 
 add_news
-![Alt text](image-43.png)
+![Image](<Wireframe home.JPG>)
 
 account page
-![Alt text](image-44.png)
+![Image](<Wireframe home.JPG>)
 
 about page
-![Alt text](image-45.png)
+![Image](<Wireframe home.JPG>)
 
 edit
-![Alt text](image-46.png)
+![Image](<Wireframe home.JPG>)
 
 
 
@@ -504,7 +500,7 @@ edit
 
 W3 Markup Validator checks the markup validity of Web documents in HTML. As these html pages containing django pythonic / jinja template language, the validator returned MANY errors , which were all related to the django template language {{}} {%%} . See below example of html error referring to django template python code
 
-![Alt text](image-49.png)
+![Image](<Wireframe home.JPG>)
 
  In some instances it would return a seemingly legitimate html error, which could only be considered incorrect becuase its not considering the logic of a django python command within the same element. I ignored all of the errors relating to the template language and focused on strict html errors.
 
@@ -515,7 +511,7 @@ All pages passed , with minor corrections of closing tags on void elements and s
 
 W3C CSS Validator was used to check validity of stlye code laid out in style.css , per correct practices and check for errors. For my stylesheet it found one error for display:flexbox; which should have been display:flex; . This has now been corrected.
 
-![Alt text](<W3C CSS Validator ss.JPG>)
+![Image](<Wireframe home.JPG>)
 
 
 ### Tests - Code Institute Python Linter
@@ -525,7 +521,7 @@ The code institute Python Linter was used to test Python validation with Pep8 st
 Most only had a few errors to correct but views.py had many errors - lines too long, white spaces, no space after : or before = , blank lines with white space, # with no space for comment. most all were corrected, except for a few line too long errors , specifically in the news filters sections , to filter by category. Unfortunately these were discovered close to the project submission so I have opted to leave them in as attempting to amend them is causing errors. In future I will come back to these to correct the syntax without line being too long
 
 
-![Alt text](image-52.png)
+![Image](<Wireframe home.JPG>)
 
 
 ## Creation and deployment 
