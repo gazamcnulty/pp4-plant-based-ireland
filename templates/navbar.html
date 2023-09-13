@@ -2,13 +2,13 @@
 <nav  class="navbar navbar-expand-xl navbar-light bg-light fixed-top">
   <div class="container-fluid">
     <!--main logo of site in navbar, acts as homepage link with fa icon-->
-    <a class="navbar-brand text-uppercase" href="{% url 'home_page' %}"></i><h1 class="logo"><i class="fa-solid fa-leaf"></i>Plant Based Ireland</h1></a>
+    <a class="navbar-brand text-uppercase" href="{% url 'home_page' %}"><h1 class="logo"><i class="fa-solid fa-leaf"></i>Plant Based Ireland</h1></a>
     <!--toggler used on collapse, renders burger menu button instead of navbar list on smaller screen-->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!--main navbar content, list of links to other pages on the site-->
-    <div class="collapse navbar-collapse w-100"id="navbarNav"> 
+    <div class="collapse navbar-collapse w-100" id="navbarNav"> 
       <ul class="navbar-nav w-100">
         <li class="nav-item" id="home_nav">
           <!--if/else used to check if 'current' page, then uses active class to change style-->

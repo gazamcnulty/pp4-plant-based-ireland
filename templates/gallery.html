@@ -25,7 +25,7 @@
             <div class="col gallery_col" >
                 <!--submit placeholder image if user image is missing/not found-->
                 {% if "placeholder" in gallery.featured_image.url %}
-                    <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" class="gallery_img"/>
+                    <img src="https://res.cloudinary.com/dqdx7ttp7/image/upload/v1689618533/cld-sample-2.jpg" class="gallery_img">
                     <p class="gallery_p">placeholder image</p>
                 {% else %}
                     <img src="{{ gallery.featured_image.url }}" class="gallery_img" />
