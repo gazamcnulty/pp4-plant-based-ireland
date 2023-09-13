@@ -93,6 +93,10 @@ I looked at the user stories from the MOSCOW perspective, assigning them labels 
 
 
 
+![Alt text](image.png)
+
+
+
 ## Stucture / Features
 
 
@@ -135,8 +139,8 @@ The gallery section is similarly straight forward in terms of design, it is just
 
 The login page is accessible from the navbar, you can also be referred there from other pages if you are not logged in. The page is a simple form asking the user to provide username and password to log in , it also has a separate button allowing non-registered users to sign up now.
 The login link only shows in the navbar, if the user is currently not logged in. If the user is logged in , it instead shows Account. This is simple static page that shows the user's username, email address and date they joined the site. It has a button for change password which brings the user to the change password page. They can change password here , or go back.
-
 As well as the navigation links in the navbar, there is a search bar on the top right. If the user searches here, it brings them to the search results page and shows and counts how many results have been found, based on the terms searched.
+The navbar was implemented using Bootstrap boilerplate code for navbar design, it includes an expand / toggle button feature. This means that on larger screens, the navbar renders as normal with all of the navigation items listed, but when the screen gets smaller, the nav items are replaced by a simple toggle button. Clicking the toggle button shows a list of the nav items, which can then be toggled closed again. This is better for responsive design as a navbar with lots of words across the top does not look good on mobile, for the most part.
 
 In the footer , there are navigation links again in a vertical arrangement. This is just additional optimisation for user experience, so even if they are at the bottom of any page, they can quickly see what page they are currently on and see what other sites are available to click. It also shows static text describing contact details. Finally there are social media links , styled with font awesome icons. These open on the social media sites in a new tab if clicked. The footer uses bootstrap grid responsiveness, so that on a smaller screen it will only list the social media links
 
@@ -161,3 +165,61 @@ For font colour I chose simple black colour, so it is easily distinguishable aga
 With some of the section headers , I also put in a small font awesome icon for some visual flourish. This serves as an unwritten means of communicating with the user and adds a little bit of fun and personality to the website too.
 
 I have included a favicon to render a logo on the browser tab, for additional flavour and site design. So even if a user has multiple tabs open , they can quickly see the tab related to Plant Based Ireland
+
+
+
+
+## Testing 
+
+### Test - Intro 
+
+All tests performed with deployed site on Heroku.
+
+Tested:
+	- User stories
+	- Site navigation / page links validation
+	- Responsiveness
+	- Browsers
+	- Devices
+	- Performance Lighthouse
+	- Code 
+	- Bugs
+
+
+For PP4 Plant Based Ireland I have used manual testing to assess functionality,
+usability, responsiveness and data management within the entire web application. 
+
+### Test - User stories
+
+For testing I will review the user stories / milestones linked with PP4 Plant Based Ireland and assess whether they have been completed or not. If it passes the description and if the Acceptance Criteria has been met it will be given a pass. If it has not been completed it will be given a fail.
+
+![Alt text](image-3.png)
+
+
+
+
+
+
+
+
+## Bugs
+
+There aren't any significant bugs that I am aware of with the site. There is nothing that can cause an error through ordinary navigation and user inputs. I am aware of some issues with the site which I would like to improve but they don't significantly impact user experience.
+
+1. Glitchy image on chrome in android on Samsung Galaxy. As I mentioned in the testing section,  On chrome on android, there is a menu bar at the top of the screen showing the current url . Unfortunately it is not fixed, it disappears if you scroll down which increases the size of the viewport. This changes how the background image is rendered and it jumps, so that the zoomed in part is moved ever so slightly. If you scroll back up the menu pops back in , reverting the toobar and changing it again. Both versions look good, the problem is it is a little distracting between both. In future I would look at changing the background CSS to avoid this, but in terms of visuals and website functionality it is absolutely fine.  
+
+2. Python code in views.py could be improved to correct for better syntactical and stylistic code. Currently there are a couple of lines that give the 'line too long' error when run through a Python Linter. As I am about to submit the project , I am hesitant to change it too much in case it causes errors . But I will look at improving this in the future.
+
+
+## Future improvements
+
+There are a lot of ways my site could be improved. At the moment, it serves as a basic way for users to submit , read, edit and delete content but only very specific aspects. It would be better if the full CRUD framework applied equally to all user generated content, it shouldn't vary per item.
+
+For example, users can create a user post on homepage. They can edit their own post and delete their own post, edit and delete is restricted to only the user who created the post. Other users can read this post they can 'like' it , 'dislike' it and they can comment on it. These features are good and users should have this level of control. However , this does not extend to other user created content like news articles, gallery images. For these , there isn't an option to delete or edit , it would need to be done in the admin page by admin / superuser. I don't mind this too much as for a lot of sites, once you submit content to the public, it is not always immediately available to delete the content. For example, an image submitted anonymously on an image board can't be deleted a normal way. For some sites you would need to message the admins to request it . This doesn't mean its ok either, it is a significant issue I would want to improve in the future. As far as the project is concerned I am satisfied that there is full CRUD functionality available to users for posts but I will endeavour to extend this to the other content at some point going forward.
+
+Similarly the search function currently returns items from the Post model and News model where the searched term is listed in the title of the item. But it can only find user submitted posts or user submitted news/articles. It can't find gallery images , comments or post content via the search. The search function could be extended to include these parameters as well  in future , for better user experience
+
+I would like have some kind of dynamic features on the home page, where some content is changed or cycled in / out. For example maybe instead of the separate section of news / articles on the home page, it could be a more general section showing recent user content ; comments, gallery images, user posts etc. Maybe it could loop through these visually.
+
+In the site it is advertised that registered users will receive monthly email newsletters. This is accomplished by the email address being required on user registration, so the emails are listed and available to admin team / super users. They can take the listed emails from the admin page and use them when sending the monthly email news letter. It would be great if the email input could be expanded on, either for user to receive an automatic email on registration confirming the sign up. Or it could be used for more secure password resets. As it is now, the site can allow for users to change their account password, but there isn't a way if the user cannot remember their password. An email password reset link would be a way to use the existing framework to add additional features for the user.
+
