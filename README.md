@@ -19,11 +19,11 @@ Plant Based Ireland is a website built to provide a community space for people i
 - Features , describe each page + function available to users
 - Visual Design - colours / aesthetic
 - Visual Design - structure / wireframes
-- Future updates / places to improve 
-- Technologies used
-- Creation and deployment
 - Validation and testing 
+- Creation and deployment
+- Technologies used
 - Known bugs and issues
+- Future updates / places to improve 
 - Sources 
 - acknowledgements
 
@@ -182,7 +182,8 @@ Tested:
 	- Browsers
 	- Devices
 	- Performance Lighthouse
-	- Code 
+	- W3 HTML Validation
+    - 
 	- Bugs
 
 
@@ -193,11 +194,270 @@ usability, responsiveness and data management within the entire web application.
 
 For testing I will review the user stories / milestones linked with PP4 Plant Based Ireland and assess whether they have been completed or not. If it passes the description and if the Acceptance Criteria has been met it will be given a pass. If it has not been completed it will be given a fail.
 
-![Alt text](image-3.png)
+![Alt text](image-4.png)
+
+
+![Alt text](image-5.png)
+
+
+![Alt text](image-6.png)
+
+
+![Alt text](image-7.png)
+
+
+![Alt text](image-8.png)
+
+
+![Alt text](image-9.png)
+
+
+![Alt text](image-10.png)
+
+
+![Alt text](image-11.png)
+
+
+![Alt text](image-12.png)
+
+
+![Alt text](image-13.png)
+
+
+![Alt text](image-14.png)
+
+
+![Alt text](image-15.png)
+
+
+![Alt text](image-16.png)
+
+
+![Alt text](image-17.png)
+
+
+![Alt text](image-18.png)
+
+
+![Alt text](image-19.png)
+
+
+![Alt text](image-20.png)
+
+
+![Alt text](image-21.png)
+
+
+![Alt text](image-22.png)
+
+
+![Alt text](image-23.png)
+
+
+![Alt text](image-24.png)
+
+
+![Alt text](image-25.png)
+
+
+![Alt text](image-26.png)
+
+
+![Alt text](image-27.png)
+
+
+![Alt text](image-28.png)
+
+
+![Alt text](image-29.png)
+
+
+![Alt text](image-30.png)
+
+
+![Alt text](image-31.png)
+
+
+![Alt text](image-32.png)
+
+
+![Alt text](image-33.png)
+
+
+![Alt text](image-34.png)
+
+
+Conclusion : I completed almost all of the goals and tasks set out in the user stories, with some being removed either due to time constraints or change in intention, upon agile reassessment.  Other features I ended up implementing while working on the main user stories, could have been user stories themselves like delete comment, pagination. Most of all , it has served to show me how different features should be split up into smaller issues or collected as epics. I am satisfied that most of the user stories have been completed and allowed the website to be completed as intended.
+
+
+
+### Tests - Links, website validation
+
+This is to test that all the links/pages in the site are working properly. I performed the test on chrome and changed screensize with dev tools to observe any responsiveness issues. There was no major bugs found, the issues presented were expected from urls which are not supposed to run on their own, like base.html / navbar.html. There were a couple of failures discovered regarding layout / css . 
+
+Layout in 404 page is not correct, the main div is overlapped by navbar and the footer is too high up, it is not fixed at the bottom of the page
+- Added subscreen_container class to 404 page so it inherits the margin pushing the footer down
+
+the url add/ is different from name of template add_post, I found this was because I had named it add/ in url pathway instead of add_post/. Nothing wrong but for ease of use I would rather the nomenclature match
+- Changed name in url path to add_post/
+
+Beyond these small issues which have been corrected, everything else works as expected and I am satisfied with the testing of the page validation
 
 
 
 
+
+
+![Alt text](image-47.png)
+
+
+
+
+
+
+
+
+### Tests - Responsiveness 
+
+The responsiveness test involves me viewing all of the web pages across multiple devices. They had been tested throughout the development so they all Pass and appear fine with the final product. The only one which could be imporved is Surface Pro 7 - 912 x 1368 as it causes the content to stretch with a large gap betweeen navbar , content and footer. This was especially apparent in smaller content screens, like 0 search results, loginpage and 404 error. It still looks ok and is functional howver. All devices pass
+
+
+4K monitor 2560 x 1897
+Laptop 1440 x 1004
+Laptop 1024 x 854
+Tablet 768 x 854
+Mobile 425 x 854
+iPhone SE - 320 x 854
+iPhone XR - 414 x 896
+iPhone 12 Pro - 390 x 844
+Pixel 5 - 393 x 851
+Samsung Galaxy S8+ - 360 x 740
+Samsung Galaxy S20 Ultra - 412 x 915
+iPad Air - 820 x 1180
+iPad Mini - 768 x 1024
+Surface Pro 7 - 912 x 1368
+Surface Duo - 540 x 720
+Galaxy Fold - 280 x 653
+Samsung Galaxy A51/71 - 412 x 914
+Nest Hub - 1024 x 600
+Nest Hub Max - 1280 x 800
+Pixel 6 - 412 x 892
+
+
+
+
+
+### Tests - Browser 
+
+The purpose of browser cross testing is to check the site looks and runs ok on all browsers, not just chrome in which it was developed. This was tested with chrome, edge, firefox on windows 10 laptop and safari on Mac. All pages rendered fine and worked properly as intended.
+
+CHROME - PASS
+EDGE - PASS
+FIREFOX - PASS
+SAFARI - PASS
+
+
+
+### Tests - Devices 
+
+
+The purpose of device testing was to check the website is functional across different devices, this is seperate from window / viewport responsiveness alone, which can be tested in devtools. I tested the website on windows 10 laptop, Mac, iphone 10 and Samsung Galaxy s8+. 
+The website runs absolutely fine on all devices, though there is one issue I noticed about the background image in the Samsung Chrome app. On chrome on android, there is a menu bar at the top of the screen showing the current url . Unfortunately it is not fixed, it disappears if you scroll down which increases the size of the viewport. This changes how the background image is rendered and it jumps, so that the zoomed in part is moved ever so slightly. If you scroll back up the menu pops back in , reverting the toobar and changing it again. Both versions look good, the problem is it is a little distracting between both. In future I would look at changing the background CSS to avoid this, but in terms of visuals and website functionality it is absolutely fine. Pass on all tested devices.
+
+
+Windows 10 Laptop - PASS
+Macbook Pro Laptop - PASS
+iPhone 10 - PASS
+Samsung Galaxy s8+ - PASS
+
+
+
+
+### Tests - Lighthouse Performance
+
+Chrome devtools Lighthouse was used to test for performance, accessibility , best practices and search engine optimisation.  It was tested across all pages, screenshots with scores listed below.
+ The loss in performance score refer to delay in the cache, related to the cloudinary storage and font aweseome, bootstrap, google fonts and heroku content. Accessiblity fell down because the given aria label does not match the attribute role. I am unsure what has causd this . It also states heading elements are not in sequential order , but I can't find a specific ecample.
+
+The most significant loss was a low performance score on the gallery section, this is due to various image sizes and large images being submittable by users. This could be changed by making the image size uniform , but I am happy leaving it as it is for now , for user experience.
+
+registration page
+![Alt text](<Lighthouse register-1.JPG>)
+
+post_detail page
+![Alt text](<Lighthouse post detail.JPG>)
+
+news page
+![Alt text](image-35.png)
+
+login page
+![Alt text](image-36.png)
+
+index.html
+![Alt text](image-37.png)
+
+gallery
+![Alt text](image-38.png)
+
+events page
+![Alt text](image-39.png)
+
+delete 
+![Alt text](image-40.png)
+
+change password page
+![Alt text](image-41.png)
+
+add_post page
+![Alt text](image-42.png)
+
+add_news
+![Alt text](image-43.png)
+
+account page
+![Alt text](image-44.png)
+
+about page
+![Alt text](image-45.png)
+
+edit
+![Alt text](image-46.png)
+
+
+
+
+### Tests - W3 HTML Validator
+
+
+W3 Markup Validator checks the markup validity of Web documents in HTML. As these html pages containing django pythonic / jinja template language, the validator returned MANY errors , which were all related to the django template language {{}} {%%} . See below example of html error referring to django template python code
+
+![Alt text](image-49.png)
+
+ In some instances it would return a seemingly legitimate html error, which could only be considered incorrect becuase its not considering the logic of a django python command within the same element. I ignored all of the errors relating to the template language and focused on strict html errors.
+
+All pages passed , with minor corrections of closing tags on void elements and stray closing tags. These have all been corrected. 
+
+
+### Tests - W3 Validator 
+
+W3C CSS Validator was used to check validity of stlye code laid out in style.css , per correct practices and check for errors. For my stylesheet it found one error for display:flexbox; which should have been display:flex; . This has now been corrected.
+
+![Alt text](<W3C CSS Validator ss.JPG>)
+
+
+### Tests - Code Institute Python Linter
+
+The code institute Python Linter was used to test Python validation with Pep8 style guide . It returned a good few errors which were almost all corrected, trailing spaces, #comment without space, no new line at end of file, line too long etc. I only tested the .py files I amended as part of the project, I didn't test the python files installed in the django set up as I did not change or add to these. 
+
+Most only had a few errors to correct but views.py had many errors - lines too long, white spaces, no space after : or before = , blank lines with white space, # with no space for comment. most all were corrected, except for a few line too long errors , specifically in the news filters sections , to filter by category. Unfortunately these were discovered close to the project submission so I have opted to leave them in as attempting to amend them is causing errors. In future I will come back to these to correct the syntax without line being too long
+
+
+## Creation and deployment 
+
+
+
+
+
+## Technologies used 
 
 
 
@@ -223,3 +483,11 @@ I would like have some kind of dynamic features on the home page, where some con
 
 In the site it is advertised that registered users will receive monthly email newsletters. This is accomplished by the email address being required on user registration, so the emails are listed and available to admin team / super users. They can take the listed emails from the admin page and use them when sending the monthly email news letter. It would be great if the email input could be expanded on, either for user to receive an automatic email on registration confirming the sign up. Or it could be used for more secure password resets. As it is now, the site can allow for users to change their account password, but there isn't a way if the user cannot remember their password. An email password reset link would be a way to use the existing framework to add additional features for the user.
 
+
+## Sources
+
+
+
+
+
+## Acknowledgements
