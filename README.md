@@ -563,7 +563,9 @@ Once that's done you can click in the top left menu in GitPod and select 'GitPod
 
 ### Local Deployment :
 
-Deployment : On the GitHub page https://github.com/gazamcnulty?tab=repositories , I can access my repositories. The repository for the pp4 plant based ireland is located here. Now you can click on 'Settings' , then on the left side click on 'Pages' Click on 'Sources' , click 'Master Branch' From the source section drop-down menu, select the Master Branch This causes the page to refresh and show a confirmation that indicates successful deployment. However as the project does not have a live html / css page for external view , it can only be viewed externally by using the Heroku app see here for further info on deployment/ publishing https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+Deployment : On the GitHub page https://github.com/gazamcnulty?tab=repositories , I can access my repositories. The repository for the pp4 plant based ireland is located here. Now you can click on 'Settings' , then on the left side click on 'Pages' Click on 'Sources' , click 'Master Branch' This is where you would normally deploy locally from GitHub, but in our case it is deployed via Heroku. Per the below steps, once all requirements are set up with django, cloudinary, elephantSQL and heroku, you can go to settings in Heroku, ensure it is linked to our github repository and then click 'deploy'. this will produce a page to view the site, the link can be accessed externally
+
+It can only be viewed externally by using the Heroku app see here for further info on deployment/ publishing https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
 ### cloning the repository :
 
@@ -719,6 +721,103 @@ In the site it is advertised that registered users will receive monthly email ne
 
 ## Sources
 
+* I followed along quite closely with the CI django tutorials and multiple youtube tutorials on django. Primarily I used example code in the initial set up of the main post model, its related view and url path, also for post_detail access.
+The bulk of my knowledge comes from these guides and I have tried to follow similar methods when creating my own code
+https://github.com/Code-Institute-Solutions/Django3blog/tree/master/11_messages
+
+https://www.youtube.com/watch?v=PtQiiknWUcI&list=PLi9Mnuz2f6jG9dH-No_utZO72gAOrJZbm&index=5&t=8094s&ab_channel=TraversyMedia
+
+https://github.com/divanov11/StudyBud/
+
+* sourced from my own pp1-parklife project - to enable flex layout in gallery
+https://github.com/gazamcnulty/pp1-parklife/blob/main/assets/css/style.css
+
+.gallery_col {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.gallery_img {
+    width: 350px;
+    /*uniform width and height to make square*/
+     height: 350px;
+     border-radius: 5%;
+    /*give a slight rounded edge to pictures*/
+     object-fit: cover;
+    /*ensure space is filled by image*/
+}
+
+* I followed along for the first few lessons of the Hello Django blog tutorial from code institute while creating my project. So the code and installation steps as far as having a the site online , hosted externally are the exact same from Code Institute
+
+* I created my first model while following along with the models lesson in the Code Institute hello django blog tutorial, modifying slightly for my own needs so that it is different and considered 'an original model' per the pp4 assessment criteria
+
+* I created a 'hearts' set up, (similar to likes) by using a many to many field and following instructions on below video. This involved a function based view to enable the hearts to be counted
+ http://www.learningaboutelectronics.com/Articles/How-to-count-the-number-of-objects-in-a-ManyToManyField-in-Django.php
+
+* I followed along with the hello django blog tutorial explaining how to use a WYSIWYG editor by installing summernote. This involved installation in terminal, url paths for summernote and import Summernote into admin.py
+
+
+* After I could not get the summernote extension working, I just copied the entire Post model line for line from the Code Institute tutorial,
+
+	
+* I followed along with the django youtube video to understand importing user from django.auth and passing it into my models
+https://www.youtube.com/watch?v=PtQiiknWUcI&list=PLi9Mnuz2f6jG9dH-No_utZO72gAOrJZbm&index=5&t=8094s&ab_channel=TraversyMedia
+
+
+* I followed along with the todolist code Institute tutorial when creating the forms, models, views, urls to enable create, read, update, delete functionality
+
+* I finally got post_detail link from index.html working by following this guide
+https://stackoverflow.com/questions/70140385/how-do-i-create-link-for-details-in-each-post
+
+
+* i learned how to implement messages from django docs 
+https://docs.djangoproject.com/en/4.2/ref/contrib/messages/#top
+
+* I learned about login / logout structure , restricted pages , from  yt video
+https://www.youtube.com/watch?v=PtQiiknWUcI&list=PLi9Mnuz2f6jG9dH-No_utZO72gAOrJZbm&index=5&t=8094s&ab_channel=TraversyMedia
+
+
+* I learned how to mark navbar item / page as 'active' , while also only having 1 navbarhtml extended for all pages across django - solution from stackoverflow
+https://stackoverflow.com/questions/39639264/django-highlight-current-page-in-navbar
+   <aclass="{% if request.resolver_match.view_name == 'foo' %}active{% endif %}"href="{% url 'foo' %}">Foo</a>
+
+* I learned how to how current page as active in navbar from 
+https://stackoverflow.com/questions/39639264/django-highlight-current-page-in-navbar
+
+* I tried Filter method for blog_news suggested by user here, I ended up changing it slightly to get it working
+ https://stackoverflow.com/questions/77029243/why-is-django-query-set-filter-only-accepting-an-id-interger-when-i-want-t
+
+
+
+* I learned about use from CI tutorial , code copied from bootstrap example page
+https://getbootstrap.com/docs/5.3/components/modal/#how-it-works
+	
+
+* Pagination from django documentation
+https://docs.djangoproject.com/en/4.2/topics/pagination/
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 
 
 
