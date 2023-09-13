@@ -95,10 +95,12 @@ I looked at the user stories from the MOSCOW perspective, assigning them labels 
 
 
 * Example of user story
+
 ![Image](readme_images/user-story.png)
 
 
 * Iterations 
+
 ![Image](readme_images/image-53.png)
 
 * Projects
@@ -107,9 +109,11 @@ I looked at the user stories from the MOSCOW perspective, assigning them labels 
 
 
 * pp4 Plant Based Ireland issues
+
 https://github.com/gazamcnulty/pp4-plant-based-ireland/issues
 
 * pp4 Plant Based Ireland projects
+
 https://github.com/gazamcnulty/pp4-plant-based-ireland/projects?query=is%3Aclosed
 
 * 
@@ -117,9 +121,11 @@ https://github.com/gazamcnulty/pp4-plant-based-ireland/projects?query=is%3Aclose
 ## Stucture / Features
 
 * Home page large monitor
+
 ![Image](readme_images/image-58.png)
 
 * Home page mobile
+
 ![Image](readme_images/image-59.png)
 
 
@@ -228,15 +234,19 @@ I have included a favicon to render a logo on the browser tab, for additional fl
 ### Visual - Wireframes
 
 * Homepage
+
 ![Image](readme_images/Wireframe_home.JPG)
 
 * News
+
 ![Image](readme_images/News_wireframe.JPG)
 
 * Gallery 
+
 ![Image](readme_images/Wireframe_gallery.JPG)
 
 * Post Detail 
+
 ![Image](readme_images/Wireframe_post_detail.JPG)
 
 
@@ -273,11 +283,15 @@ For testing I will review the user stories / milestones linked with PP4 Plant Ba
 
 ![Image](readme_images/image-6.png)
 
+
 ![Image](readme_images/image-7.png)
+
 
 ![Image](readme_images/image-8.png)
 
+
 ![Image](readme_images/image-9.png)
+
 
 ![Image](readme_images/image-10.png)
 
@@ -371,17 +385,7 @@ the url add/ is different from name of template add_post, I found this was becau
 Beyond these small issues which have been corrected, everything else works as expected and I am satisfied with the testing of the page validation
 
 
-
-
-
-
 ![Image](readme_images/image-47.png)
-
-
-
-
-
-
 
 
 ### Tests - Responsiveness 
@@ -451,54 +455,68 @@ Chrome devtools Lighthouse was used to test for performance, accessibility , bes
 The most significant loss was a low performance score on the gallery section, this is due to various image sizes and large images being submittable by users. This could be changed by making the image size uniform , but I am happy leaving it as it is for now , for user experience.
 
 registration page
+
 ![Image](readme_images/Lighthouse_register-1.JPG.png)
 
 post_detail page
+
 ![Image](readme_images/Lighthouse_post_detail.JPG)
 
 news page
+
 ![Image](readme_images/image-35.png)
 
 login page
+
 ![Image](readme_images/image-36.png)
 
 index.html
+
 ![Image](readme_images/image-37.png)
 
 gallery
+
 ![Image](readme_images/image-38.png)
 
 events page
+
 ![Image](readme_images/image-39.png)
 
 delete 
+
 ![Image](readme_images/image-40.png)
 
 change password page
+
 ![Image](readme_images/image-41.png)
 
 add_post page
+
 ![Image](readme_images/image-42.png)
 
 add_news
+
 ![Image](readme_images/image-43.png)
 
 account page
+
 ![Image](readme_images/image-44.png)
 
 about page
+
 ![Image](readme_images/image-45.png)
 
 edit
+
 ![Image](readme_images/image-46.png)
 
 
 
 
-### Tests - W3 HTML Validator
+### Tests - The W3C Markup Validation Service
 
 
-W3 Markup Validator checks the markup validity of Web documents in HTML. As these html pages containing django pythonic / jinja template language, the validator returned MANY errors , which were all related to the django template language {{}} {%%} . See below example of html error referring to django template python code
+The W3C Markup Validation Service  checks the markup validity of Web documents in HTML. As these html pages containing django pythonic / jinja template language, the validator returned MANY errors , which were all related to the django template language {{}} {%%} . See below example of html error referring to django template python code
 
 ![Image](readme_images/image-49.png)
 
@@ -507,7 +525,7 @@ W3 Markup Validator checks the markup validity of Web documents in HTML. As thes
 All pages passed , with minor corrections of closing tags on void elements and stray closing tags. These have all been corrected. 
 
 
-### Tests - W3 Validator 
+### Tests - W3 CSS Validator 
 
 W3C CSS Validator was used to check validity of stlye code laid out in style.css , per correct practices and check for errors. For my stylesheet it found one error for display:flexbox; which should have been display:flex; . This has now been corrected.
 
@@ -527,10 +545,155 @@ Most only had a few errors to correct but views.py had many errors - lines too l
 ## Creation and deployment 
 
 
+### creation / template :
 
+ The code was originally created from the CI-full-template for Code Anywhere   https://github.com/Code-Institute-Org/ci-full-templateon GitHub.  This was accessed by clicking on 'use this template' , choosing a name , description. After this I clicked create repository. once the repo has been created you can copy the link, bring it to Code Anywhere and pass in the url, then Code Anywhere will create the workspace 
+
+HOWEVER - partway through the project development, I switched to Git Pod. 
+
+for new projects on gitpod you can use this template:
+https://github.com/Code-Institute-Org/gitpod-full-template/blob/main/.gitpod.dockerfile
+
+For existing projects, you can run these commands in the terminal to download the GitPod template files
+
+$ wget https://raw.githubusercontent.com/Code-Institute-Org/gitpod-full-template/main/.gitpod.yml
+$ wget https://raw.githubusercontent.com/Code-Institute-Org/gitpod-full-template/main/.gitpod.dockerfile
+
+Once that's done you can click in the top left menu in GitPod and select 'GitPod: stop workspace'
+
+### Local Deployment :
+
+Deployment : On the GitHub page https://github.com/gazamcnulty?tab=repositories , I can access my repositories. The repository for the pp4 plant based ireland is located here. Now you can click on 'Settings' , then on the left side click on 'Pages' Click on 'Sources' , click 'Master Branch' From the source section drop-down menu, select the Master Branch This causes the page to refresh and show a confirmation that indicates successful deployment. However as the project does not have a live html / css page for external view , it can only be viewed externally by using the Heroku app see here for further info on deployment/ publishing https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+
+### cloning the repository :
+
+ On the main repository page on GitHub, click code, then copy the url. If on windows, you have to use Command Line with git bash to move it to the local directory. This can be done with the Terminal on Mac. In whichever tool, type "git clone" into the command line then paste in the copied url and press the Enter key to clone the repository see here for further info on cloning a repository https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+
+### fork the repository :
+
+ From the main repository page on GitHub, got to the top and click on 'fork' . Choose an owner for the new fork (this would be your own github username if its yourself). select the name for the new fork per github "forks are named the same as their upstream repositories. You can change the name of the fork to distinguish it further”. Include a description . choose to copy default or all branches. as standard, just the default is needed. click 'create fork' to complete the fork process see here for further info on forking https://docs.github.com/en/get-started/quickstart/fork-a-repo
+
+
+### Django set up, Elephant SQL , Cloudinary, Heroku :
+
+I followed the steps listed here for setting up Django , Elephant SQL , Cloudinary Storage and Heroku APP . 
+
+ *  https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit#heading=h.5s9novsydyp1
+
+Install gunicorn, django database libraries, cloudinary libraries. Create requirements.txt, run django_admin startproject(projectname). python3 manage.py startapp (appname), add it to installed apps in settings
+Migrate, run server, if disallowed host, copy url into allowed hosts in settings.py
+
+On ElephantSQL.com create a new instance, set free plan with nearby datacenter, copy the database URL
+
+On Heroku.com create a new app APP_NAME, Location = Europe, reveal config vars in settings add DATABASE_URL with the copied url from Elephant SQL
+
+In workspace, create env.py for secret files, import os and set
+ os.environ["DATABASE_URL"] = "Paste in ElephantSQL database URL"
+ os.environ["SECRET_KEY"] = "Make up your own randomSecretKey"
+
+ Add this secret key to Heroku config vars
+
+ * In settings.py :
+from pathlib import Path
+
+import os
+import dj_database_url
+
+if os.path.isfile("env.py"):
+   import env
+remove below , replace with your own secret key
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
+remove below section
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+replace with
+DATABASES = {
+   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+
+migrate changes to database
+copy cloudinary url from cloudinary, put in env.py os.environ["CLOUDINARY_URL"] = "cloudinary://************************"
+put cloudinary url + DISABLE_COLLECTSTATIC, 1 in Heroku Config VARS
+
+Add Cloudinary Libraries to installed apps
+
+INSTALLED_APPS = [
+    …,
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
+    …,
+]
+
+
+
+Tell Django to use Cloudinary to store media and static files
+
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+
+Link file to the templates directory in Heroku
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+Change the templates directory to TEMPLATES_DIR
+TEMPLATES = 
+[
+    {
+        …,
+        'DIRS': [TEMPLATES_DIR],
+       …,
+            ],
+        },
+    },
+]
+
+Add heroku hostname to allowed hosts in settings, create procfile + folders for media, static, templates in root directory for
+
+pass web: gunicorn PROJ_NAME.wsgi into procfile
+
+add, commit , push with github, then on heroku deploy content to check its working. should see a django confirmation message 
+!
+![Image](readme_images/django-deploy.JPG)
+
+
+### final checks :
+    the initial set up and deployment is to confirm everything is working ok with the datbases / deployment . However when it comes to finalising the project you need to set DEBUG = False in settings. You also need to remove the Disable collect static from Heroku config vars. When this is done, run $ python3 manage.py collectstatic. This collects all your static images / css and passes them into cloudinary, so that they can be rendered from there on Heroku. It is suggested that you test and refine your css / styling locally, until it is complete and ready for deployment as repeated collectstatic commands can cause errors.
 
 
 ## Technologies used 
+
+In code :
+ - HTML 
+ - CSS
+ - PYTHON
+ - Django
+ - Bootstrap
+ - Summernote
+ - Cloudinary
+
+External technologies used in development:
+ - GitPod
+ - GitHub
+ - Chrome Dev Tools
+ - Heroku to host the website
+ - The W3C Markup Validation Service
+ - W3 CSS Validator 
+ - Code Institute Python Linter
+ - Multi site mockup generator for read me images https://techsini.com/multi-mockup/index.php
 
 
 
@@ -564,3 +727,5 @@ In the site it is advertised that registered users will receive monthly email ne
 
 
 ## Acknowledgements
+
+Special thanks to my mentor Brian Mcharia for advice and examples provided. I utilised W3 web pages and youtube tutorials form channels Traversy Media + Very Academy from while working on this project. Code Institute tutors Rebecca , Oisin, Sean all helped me get the image issue with Cloudinary and Heroku CSS sorted as well.
