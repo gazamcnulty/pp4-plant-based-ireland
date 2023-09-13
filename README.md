@@ -5,17 +5,16 @@ Link to website on Heroku
 
 Link to project GitHub Repository
 
-# About 
+## About 
 Plant Based Ireland is a website built to provide a community space for people in Ireland who are interested in exploring vegetarian and vegan foods. It provides a place where members can make blog posts, share articles from around the web, arrange meetups and post photos. It is intended to be a chill space welcoming to all comers, from hardcore vegans to omnivores who are curious about plant based subjects. It uses a simple design aesthetic to appear non-overwhelming and welcoming. It has a few simple data structures to enable users to create, read , update and delete data of their choosing. There are some aspects that are only available to admin / superusers, but the main content of the site should be provided by user upload so it can be self sustaining to a degree.
 
 
-# Content
+## Content
 - Introduction
 - About 
 - Contents 
 - Preparation : Research
 - Preparation : Intent
-- User experience / user stories
 - Preparation: User Stories / Agile methodologies
 - Features , describe each page + function available to users
 - Visual Design - colours / aesthetic
@@ -29,9 +28,9 @@ Plant Based Ireland is a website built to provide a community space for people i
 - acknowledgements
 
 
-# Preparation : Research, Intent , Agile / User Stories
+## Preparation : Research, Intent , Agile / User Stories
 
-## - Research 
+### - Prep : Research 
 
 In preparation for this project, I wanted to consider what would be a site that can utilise CRUD functionality for users but also caters to a gap in the web space / market. I wanted a website that meets the assessment criteria for the Full Stack project but I also didn't want it to be a repeat of a typical website that already exists in the real world.
 
@@ -40,28 +39,28 @@ In preparation for this project, I wanted to consider what would be a site that 
 
 I decided to research existing irish vegan websites, to see how the more established sites in this category are designed. I looked at 
 
-	- https://irishvegan.ie/
-	- https://thehappypear.ie/
-	- https://dicedandspiced.com/
-	- https://holly.ie
-	- https://veganeire.com/
+https://irishvegan.ie/
+https://thehappypear.ie/
+https://dicedandspiced.com/
+https://holly.ie
+https://veganeire.com/
 
 I found that while they have a varied design aesthetic and goals, they offer a lot of content / pages, more than what would be in the scope of my project. However, I did notice that most do not feature much in the way of social media / community interaction, so it would appear there is some merit to my goal of a more user-curated site about irish plantbased topics.  I also found that some of these websites were surprisingly vast, with loads of pages, sub sections and options for some level of user interactivity. This differs from what I had in mind for my site as I want to offer something that is relatively simple that anyone could feel comfortable navigating and contributing to. The difference here is another reason my site can hopefully stand out from the more mainstream irish plant based sites.
 
 
 I also looked at more popular global websites, not just based on or in Ireland.
 
-	- https://www.vegansociety.com/
-	- https://plantbasednews.org/
-	- https://tryveg.com/
-	- https://simple-veganista.com/
-	- https://www.nomeatathlete.com/
+(https://www.vegansociety.com/)
+(https://plantbasednews.org/)
+(https://tryveg.com/)
+(https://simple-veganista.com/)
+(https://www.nomeatathlete.com/)
 
 I was surprised again, to find that most of the larger websites based around plant based nutrition, don't really focus on user provided content, user interaction or similar social media elements. Primarily they are hosted, contributed to and curated by the owners and operators of the site. At most , users can typically sign up to receive newsletters, comment on posts shared by the site itself, but they rarely have full CRUD functionality when it comes to content on the site.
 You would find examples of the type of community I'm referring to in smaller subsections of existing larger websites. For example vegan subreddits, vegan facebook pages, vegan instagram groups etc. These are all larger websites with a broad user base, including smaller sub communities with a more narrow focus. They are essentially similar to the intent of my website , but I believe I can offer something more original or unique by providing a website that is purely dedicated to the irish plant based community. It can't compete with the broader social media sites, it can't compete with the larger vegan information websites, but by carving out a unique space somewhere in between, there is a real opportunity to stand out and serve the irish plant based community.
 
 
-## - Intent
+### - Prep : Intent
 
 Based on the above research of existing websites with a focus on plant based nutrition, I decided to focus on providing a welcoming , simple to grasp website that allows users to post their own content and interact with one another. Although there will be some admin curation , moderation and contribution of special content, I want to allow the majority of site content to be user generated. 
 
@@ -79,7 +78,7 @@ In terms of my intent regarding what functionality is available on the site, I w
 
 
 
-## - User Stories / Agile 
+### - Prep : User Stories / Agile 
 
 As I said in the prior sections on research and intent, it is the ultimate goal to provide a welcoming / uncomplicated website for members of the Irish plant based community, where the content is mostly provided by users. With this broad goal in mind, I conducted preparation with an agile mindset. I looked at the potential of the website in terms of user stories : what would a user want to do on the site, why would they want to do it, what do they gain from doing it.
 I looked at the user stories from the MOSCOW perspective, assigning them labels of must-have, should-have, could-have and omitting any ideas which I concluded it won't have. In terms of the actual work on the project, I would create a milestone called the 'product backlog' to track the userstories. I would them a few at a time, into a new milestone called Iteration (n). Each iteration would typically contain around 3 user stories, which I would hope could be completed in a couple of days (depending on how much free time I have to work on the project). Within each of these iterations I would create a project with a 'board' view. This would allow me to track the stories from 'todo' , 'in progress' and finally 'done'. On completion I would close the project, close the related user stories and iteration. I would then return the product backlog milestone to reassess the remaining user stories. Continuing with agile methodologies, I would try to predict the required timeframe of future iterations by thinking of them in terms of timeboxing . This is based on previous iterations , where if it took me X amount of time to complete an iteration with Y amount of userstories, it would logically take me a similar amount of time to complete a similarly structured iteration ( provided that the userstories are also related in terms of scope) And again, upon completion of every iteration, I would re-asses the remaining user stories , to decide if any of the requirements had changed, if some should be prioritized or if I have to conclude that I don't have the time or ability to implement everything. This will keep me focused on the big picture and not get distracted by smaller parts of the site. With agile thinking, I am not beheld to an unflinching list of tasks. I can re-asses and decide if I would be better off changing the approach and goals of the site, based on new developments.
