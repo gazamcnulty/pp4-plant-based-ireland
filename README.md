@@ -1,6 +1,10 @@
 # Plant Based Ireland
 
 
+![Alt text](<mockup 2.JPG>)
+
+
+
 Link to website on Heroku
 
 Link to project GitHub Repository
@@ -16,9 +20,8 @@ Plant Based Ireland is a website built to provide a community space for people i
 - Preparation : Research
 - Preparation : Intent
 - Preparation: User Stories / Agile methodologies
-- Features , describe each page + function available to users
-- Visual Design - colours / aesthetic
-- Visual Design - structure / wireframes
+- Features
+- Visual Design - colour aesthetic & wireframes
 - Validation and testing 
 - Creation and deployment
 - Technologies used
@@ -92,12 +95,34 @@ As I said in the prior sections on research and intent, it is the ultimate goal 
 I looked at the user stories from the MOSCOW perspective, assigning them labels of must-have, should-have, could-have and omitting any ideas which I concluded it won't have. In terms of the actual work on the project, I would create a milestone called the 'product backlog' to track the userstories. I would them a few at a time, into a new milestone called Iteration (n). Each iteration would typically contain around 3 user stories, which I would hope could be completed in a couple of days (depending on how much free time I have to work on the project). Within each of these iterations I would create a project with a 'board' view. This would allow me to track the stories from 'todo' , 'in progress' and finally 'done'. On completion I would close the project, close the related user stories and iteration. I would then return the product backlog milestone to reassess the remaining user stories. Continuing with agile methodologies, I would try to predict the required timeframe of future iterations by thinking of them in terms of timeboxing . This is based on previous iterations , where if it took me X amount of time to complete an iteration with Y amount of userstories, it would logically take me a similar amount of time to complete a similarly structured iteration ( provided that the userstories are also related in terms of scope) And again, upon completion of every iteration, I would re-asses the remaining user stories , to decide if any of the requirements had changed, if some should be prioritized or if I have to conclude that I don't have the time or ability to implement everything. This will keep me focused on the big picture and not get distracted by smaller parts of the site. With agile thinking, I am not beheld to an unflinching list of tasks. I can re-asses and decide if I would be better off changing the approach and goals of the site, based on new developments.
 
 
-
+* Example of user story
 ![Alt text](image.png)
 
 
+* Iterations 
+![Alt text](image-53.png)
+
+* Projects
+
+![Alt text](image-54.png)
+
+
+* pp4 Plant Based Ireland issues
+https://github.com/gazamcnulty/pp4-plant-based-ireland/issues
+
+* pp4 Plant Based Ireland projects
+https://github.com/gazamcnulty/pp4-plant-based-ireland/projects?query=is%3Aclosed
+
+* 
 
 ## Stucture / Features
+
+* Home page large monitor
+![Alt text](image-58.png)
+
+* Home page mobile
+![Alt text](image-59.png)
+
 
 
 For overall structure, the website features a fairly standard build. As I have integrated bootstrap features into the styling, the focus was on mobile first and larger screens second. This makes it easier for responsiveness and makes it more likely that more users of any device will be able to view the site properly.
@@ -110,12 +135,21 @@ The sign up button in the welcome call to action banner activates a modal sub wi
 
 Below the call to action / welcome banner, is the main content of the site, the front page of Plant Based Ireland. It features an fractional bootstrap grid / column view structure, with the user posts being the main focus on the left with a small section on the right showing latest articles from around the web. The first focus is on user generated content, which is why user posts take up the most real estate on the frontpage. We want to encourage users to engage in conversations, we want user posts to generate threads, comments, likes. Not quite as versatile as a true forum but an effective framework to foster users socialising with one another, interacting with the site.
 
-( below stuff about websites might be better in a different section )
 The articles sub section on the left is also user generated, in that the links are submitted by users. But the content itself is external, linking to other websites separate to Plant Based Ireland. I was initially hesitant to include this feature as I would want users to stay on the site, instead of going elsewhere. But I thought we can better serve a niche of providing a hub of user interaction with a host of links to other plant based content, rather than trying to have everything on our site alone. Even if another site has more content , the purpose Plant Based Ireland serves is to act as a nexus for these other sites and the users who would browse them. For this reason, a user may be more likely to go to Plant Based Ireland for a summary of the latest most interesting links from other sites, rather than going direct to the site first. 
 
 As I said above , the user posts and external articles are presented horizontally on a 2/3 ratio of the page. Using bootstrap grid / cols layout, this changes on smaller screens for better visuals. On smaller screen like mobiles, the user posts take up the full width of the small screen. The additional news/articles are removed entirely on smaller screens. I had initially had them render below the user posts on small screen, but I think it is better on mobile to have a cleaner more focused design. And the news/articles are still readily available on the News section, they just don't render on the home page anymore. On a larger monitor screen its ok to render both sets of posts, as there is much more room for content.
 
 If the user clicks into one of the posts submitted, they are brought to the post_detail page. This renders the same post title that served as the link on the home page, it also renders the post content, user submitted image with the post, comments from users and the number of likes the post has received. All of these features are related to the Post database, rendered with django template language in the post_detail template. On this page, the rendered info changes based on whether or not the user is currently logged in. If they are logged in, it shows the input field to post a comment and a like button , which likes or dislikes the current post when clicked . This is one of the listed features from the home page call to action : users who log in gain access to post comments and like content.
+
+* Post detail - logged out
+
+![Alt text](image-60.png)
+
+
+* Post detail - logged in
+
+![Alt text](image-61.png)
+
 
 If the user is not logged in, they can still see the amount of likes and user comments, however they cannot see the like button or an input field for comments . Instead there is a text field telling user to login if they want to post comments or likes. This feeds back in to the loop of the site, where all content either suggests logged in users should contribute content, or non-logged in users should log in so they don't miss out on more content.
 As well as these features, the user can see an edit button and delete button only if they are the one who created this post. If you go into the post detail of a post created by another user , you cannot edit or delete it. 
@@ -126,27 +160,51 @@ Even in the post detail page, the navbar and footer still shows, so navigation i
 The news section has a similar visual structure to the home page, except the welcome banner is replaced by a summary of types of news articles that should be submitted and button for clients to submit. Below this the same bootstrap grid / column structure is in place but now the focus is on the articles / news , with posts being on the side. In addition there are a few buttons that allow the user to filter these articles,  from all , news, blogs, reviews and recipes. This is another layer of optimisation for the user , so they can get straight to the articles they are interested in. As was the case with the home page, if the screen size changes to a small screen the listed news/articles take up the full width of the screen but the user posts small section is removed entirely. The user can still access it from the homepage if they want
 The listed news articles differ slightly from the user posts in that they also list the 'category' of the news article. It will either show Blog, News, Recipe, Review. This is shown just above the title for quick info at a glance. The title serves as a link to the external website, it opens in a new tab and brings the user to the other site. It is important to do this , as we don't want the user to lose their place on our site, this would not be good user experience. For the purposes of site engagement, we also want the users to be on our site as much as possible.
 
+![Alt text](image-57.png)
+
 The blog, news, recipe and review sections are functionally identical to the main news/articles sections . The only distinguishing features are the buttons which lead to each respective section , as well as the currently filtered articles on the page. If the use is on the 'blog' page, the button for the blog section is greyed out so it cant be selected. This also communicates to the user what page they are currently on , which also improves the user experience and reduces likelihood of them being lost on site.
 
 
 The about section is a straight forward page with text info. It is static paragraphs of text without any dynamic elements. The sections are laid out via bootstrap grid / col layout, this allows for a 1/2 layout horizontally on a larger screen but changes to full width layout on smaller screens. These bootstrap layouts ensures the content is clear and has a pleasant appearance on any device. The about section has font awesome icons flanking the sub headers of each section , this is for additional flavour and communicates the vibes of the site to prospective users. This is especially important in the about section, since this is where the site introduces itself and its beliefs / goals to users learning about the site. If the site effectively communicates its ethos with a user here , and if it resonates with the user , it may be enough to convince them to register on the site and log in to interact with the content.
 
+* About section
+
+![Alt text](image-62.png)
 
 The events section is similar to the about section in that it is static without dynamic features or user interaction. It features paragraphs of content, informing the user of upcoming events being organised by the website . The events section is different in that it requires the user to be logged in to access. If you are not logged in you cant see the events and are instead referred back to the login page. This is one of the advertised features in the call to action on the home page, the exclusivity of the events can encourage a user to sign up to the website. This is easily achieved by locking the content off for non-authenticated users.
 
+* Events section
+
+![Alt text](image-63.png)
+
 
 The gallery section is similarly straight forward in terms of design, it is just a place for users to upload images without lots of text if they wish. It could be optimised in future to act as a true 'feed' like one might see in a social media page, or it could be combined with the  news articles and posts into one dense feed of content. For now it operates with a basic bootstrap grid column structure, allowing users to upload photos / pictures of their choosing. While it may not be as involved as a user post or link to external site, it is an attractive feature to have a quick user submission option that contrasts more dense user posts. In theory,  a user may want to contribute to the site but not on the level of complexity as a full user post. The quick context - free image gallery allows a user to throw up a quick pic or meme, if they want to contribute content quickly.
+
+* Gallery
+
+![Alt text](image-64.png)
 
 The login page is accessible from the navbar, you can also be referred there from other pages if you are not logged in. The page is a simple form asking the user to provide username and password to log in , it also has a separate button allowing non-registered users to sign up now.
 The login link only shows in the navbar, if the user is currently not logged in. If the user is logged in , it instead shows Account. This is simple static page that shows the user's username, email address and date they joined the site. It has a button for change password which brings the user to the change password page. They can change password here , or go back.
 As well as the navigation links in the navbar, there is a search bar on the top right. If the user searches here, it brings them to the search results page and shows and counts how many results have been found, based on the terms searched.
 The navbar was implemented using Bootstrap boilerplate code for navbar design, it includes an expand / toggle button feature. This means that on larger screens, the navbar renders as normal with all of the navigation items listed, but when the screen gets smaller, the nav items are replaced by a simple toggle button. Clicking the toggle button shows a list of the nav items, which can then be toggled closed again. This is better for responsive design as a navbar with lots of words across the top does not look good on mobile, for the most part.
 
+* Account info with navbar
+
+![Alt text](image-66.png)
+
 In the footer , there are navigation links again in a vertical arrangement. This is just additional optimisation for user experience, so even if they are at the bottom of any page, they can quickly see what page they are currently on and see what other sites are available to click. It also shows static text describing contact details. Finally there are social media links , styled with font awesome icons. These open on the social media sites in a new tab if clicked. The footer uses bootstrap grid responsiveness, so that on a smaller screen it will only list the social media links
 
+* Footer 
+
+![Alt text](image-65.png)
 
 
-## Visual Design - colours / aesthetic
+## Visual Design
+
+
+
+### Visuals - colours / aesthetic
 
 Per the research sections above, I decided to opt for a simple visual design to the site. I wanted it to look welcoming and uncomplicated, the simpler and quicker it is for a prospective user to navigate the site, the more likely they are to stick around and contribute.
 
@@ -167,6 +225,20 @@ With some of the section headers , I also put in a small font awesome icon for s
 I have included a favicon to render a logo on the browser tab, for additional flavour and site design. So even if a user has multiple tabs open , they can quickly see the tab related to Plant Based Ireland
 
 
+
+### Visual - Wireframes
+
+* Homepage
+![Alt text](<Wireframe home.JPG>)
+
+* News
+![Alt text](<News wireframe.JPG>)
+
+* Gallery 
+![Alt text](<Wireframe gallery.JPG>)
+
+* Post Detail 
+![Alt text](<Wireframe post detail.JPG>)
 
 
 ## Testing 
@@ -318,10 +390,12 @@ Beyond these small issues which have been corrected, everything else works as ex
 
 ### Tests - Responsiveness 
 
-The responsiveness test involves me viewing all of the web pages across multiple devices. They had been tested throughout the development so they all Pass and appear fine with the final product. The only one which could be imporved is Surface Pro 7 - 912 x 1368 as it causes the content to stretch with a large gap betweeen navbar , content and footer. This was especially apparent in smaller content screens, like 0 search results, loginpage and 404 error. It still looks ok and is functional howver. All devices pass
+The responsiveness test involves me viewing all of the web pages across multiple devices. They had been tested throughout the development so they all Pass and appear fine with the final product. The only one which could be imporved is Surface Pro 7 - 912 x 1368 as it causes the content to stretch with a large gap betweeen navbar , content and footer. This was especially apparent in smaller content screens, like 0 search results, loginpage and 404 error. It still looks ok and is functional howver.
+
+ All devices pass
 
 
-- 4K monitor 2560 x 1897
+- 4K monitor 2560 x 1897 
 - Laptop 1440 x 1004
 - Laptop 1024 x 854
 - Tablet 768 x 854
@@ -343,6 +417,7 @@ The responsiveness test involves me viewing all of the web pages across multiple
 - Pixel 6 - 412 x 892
 
 
+![Alt text](image-51.png)
 
 
 
@@ -448,6 +523,9 @@ W3C CSS Validator was used to check validity of stlye code laid out in style.css
 The code institute Python Linter was used to test Python validation with Pep8 style guide . It returned a good few errors which were almost all corrected, trailing spaces, #comment without space, no new line at end of file, line too long etc. I only tested the .py files I amended as part of the project, I didn't test the python files installed in the django set up as I did not change or add to these. 
 
 Most only had a few errors to correct but views.py had many errors - lines too long, white spaces, no space after : or before = , blank lines with white space, # with no space for comment. most all were corrected, except for a few line too long errors , specifically in the news filters sections , to filter by category. Unfortunately these were discovered close to the project submission so I have opted to leave them in as attempting to amend them is causing errors. In future I will come back to these to correct the syntax without line being too long
+
+
+![Alt text](image-52.png)
 
 
 ## Creation and deployment 
