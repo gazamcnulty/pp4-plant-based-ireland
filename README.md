@@ -1,8 +1,7 @@
 # Plant Based Ireland
 
 
-![Alt text](readme_images/)
-
+![Image](readme_images/mockup_2.JPG)
 
 
 Link to website on Heroku
@@ -96,15 +95,15 @@ I looked at the user stories from the MOSCOW perspective, assigning them labels 
 
 
 * Example of user story
-![Alt text](image.png)
+![Image](readme_images/user-story.png)
 
 
 * Iterations 
-![Alt text](image-53.png)
+![Image](readme_images/image-53.png)
 
 * Projects
 
-![Alt text](image-54.png)
+![Image](readme_images/image-54.png)
 
 
 * pp4 Plant Based Ireland issues
@@ -118,10 +117,10 @@ https://github.com/gazamcnulty/pp4-plant-based-ireland/projects?query=is%3Aclose
 ## Stucture / Features
 
 * Home page large monitor
-![Alt text](image-58.png)
+![Image](readme_images/image-58.png)
 
 * Home page mobile
-![Alt text](image-59.png)
+![Image](readme_images/image-59.png)
 
 
 
@@ -143,12 +142,12 @@ If the user clicks into one of the posts submitted, they are brought to the post
 
 * Post detail - logged out
 
-![Alt text](image-60.png)
+![Image](readme_images/image-60.png)
 
 
 * Post detail - logged in
 
-![Alt text](image-61.png)
+![Image](readme_images/image-61.png)
 
 
 If the user is not logged in, they can still see the amount of likes and user comments, however they cannot see the like button or an input field for comments . Instead there is a text field telling user to login if they want to post comments or likes. This feeds back in to the loop of the site, where all content either suggests logged in users should contribute content, or non-logged in users should log in so they don't miss out on more content.
@@ -160,7 +159,7 @@ Even in the post detail page, the navbar and footer still shows, so navigation i
 The news section has a similar visual structure to the home page, except the welcome banner is replaced by a summary of types of news articles that should be submitted and button for clients to submit. Below this the same bootstrap grid / column structure is in place but now the focus is on the articles / news , with posts being on the side. In addition there are a few buttons that allow the user to filter these articles,  from all , news, blogs, reviews and recipes. This is another layer of optimisation for the user , so they can get straight to the articles they are interested in. As was the case with the home page, if the screen size changes to a small screen the listed news/articles take up the full width of the screen but the user posts small section is removed entirely. The user can still access it from the homepage if they want
 The listed news articles differ slightly from the user posts in that they also list the 'category' of the news article. It will either show Blog, News, Recipe, Review. This is shown just above the title for quick info at a glance. The title serves as a link to the external website, it opens in a new tab and brings the user to the other site. It is important to do this , as we don't want the user to lose their place on our site, this would not be good user experience. For the purposes of site engagement, we also want the users to be on our site as much as possible.
 
-![Alt text](image-57.png)
+![Image](readme_images/image-57.png)
 
 The blog, news, recipe and review sections are functionally identical to the main news/articles sections . The only distinguishing features are the buttons which lead to each respective section , as well as the currently filtered articles on the page. If the use is on the 'blog' page, the button for the blog section is greyed out so it cant be selected. This also communicates to the user what page they are currently on , which also improves the user experience and reduces likelihood of them being lost on site.
 
@@ -169,20 +168,20 @@ The about section is a straight forward page with text info. It is static paragr
 
 * About section
 
-![Alt text](image-62.png)
+![Image](readme_images/image-62.png)
 
 The events section is similar to the about section in that it is static without dynamic features or user interaction. It features paragraphs of content, informing the user of upcoming events being organised by the website . The events section is different in that it requires the user to be logged in to access. If you are not logged in you cant see the events and are instead referred back to the login page. This is one of the advertised features in the call to action on the home page, the exclusivity of the events can encourage a user to sign up to the website. This is easily achieved by locking the content off for non-authenticated users.
 
 * Events section
 
-![Alt text](image-63.png)
+![Image](readme_images/image-63.png)
 
 
 The gallery section is similarly straight forward in terms of design, it is just a place for users to upload images without lots of text if they wish. It could be optimised in future to act as a true 'feed' like one might see in a social media page, or it could be combined with the  news articles and posts into one dense feed of content. For now it operates with a basic bootstrap grid column structure, allowing users to upload photos / pictures of their choosing. While it may not be as involved as a user post or link to external site, it is an attractive feature to have a quick user submission option that contrasts more dense user posts. In theory,  a user may want to contribute to the site but not on the level of complexity as a full user post. The quick context - free image gallery allows a user to throw up a quick pic or meme, if they want to contribute content quickly.
 
 * Gallery
 
-![Alt text](image-64.png)
+![Image](readme_images/image-64.png)
 
 The login page is accessible from the navbar, you can also be referred there from other pages if you are not logged in. The page is a simple form asking the user to provide username and password to log in , it also has a separate button allowing non-registered users to sign up now.
 The login link only shows in the navbar, if the user is currently not logged in. If the user is logged in , it instead shows Account. This is simple static page that shows the user's username, email address and date they joined the site. It has a button for change password which brings the user to the change password page. They can change password here , or go back.
@@ -191,13 +190,13 @@ The navbar was implemented using Bootstrap boilerplate code for navbar design, i
 
 * Account info with navbar
 
-![Alt text](image-66.png)
+![Image](readme_images/image-66.png)
 
 In the footer , there are navigation links again in a vertical arrangement. This is just additional optimisation for user experience, so even if they are at the bottom of any page, they can quickly see what page they are currently on and see what other sites are available to click. It also shows static text describing contact details. Finally there are social media links , styled with font awesome icons. These open on the social media sites in a new tab if clicked. The footer uses bootstrap grid responsiveness, so that on a smaller screen it will only list the social media links
 
 * Footer 
 
-![Alt text](image-65.png)
+![Image](readme_images/image-65.png)
 
 
 ## Visual Design
@@ -229,16 +228,16 @@ I have included a favicon to render a logo on the browser tab, for additional fl
 ### Visual - Wireframes
 
 * Homepage
-![Image](readme_images/image-3.png)
+![Image](readme_images/Wireframe_home.JPG)
 
 * News
-![Image](readme_images/image-3.png)
+![Image](readme_images/News_wireframe.JPG)
 
 * Gallery 
-![Image](readme_images/image-3.png)
+![Image](readme_images/Wireframe_gallery.JPG)
 
 * Post Detail 
-![Image](readme_images/image-3.png)
+![Image](readme_images/Wireframe_post_detail.JPG)
 
 
 ## Testing 
@@ -264,6 +263,7 @@ usability, responsiveness and data management within the entire web application.
 ### Test - User stories
 
 For testing I will review the user stories / milestones linked with PP4 Plant Based Ireland and assess whether they have been completed or not. If it passes the description and if the Acceptance Criteria has been met it will be given a pass. If it has not been completed it will be given a fail.
+
 
 ![Image](readme_images/image-3.png)
 
@@ -375,7 +375,7 @@ Beyond these small issues which have been corrected, everything else works as ex
 
 
 
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-47.png)
 
 
 
@@ -413,7 +413,7 @@ The responsiveness test involves me viewing all of the web pages across multiple
 - Pixel 6 - 412 x 892
 
 
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-51.png)
 
 
 
@@ -451,46 +451,46 @@ Chrome devtools Lighthouse was used to test for performance, accessibility , bes
 The most significant loss was a low performance score on the gallery section, this is due to various image sizes and large images being submittable by users. This could be changed by making the image size uniform , but I am happy leaving it as it is for now , for user experience.
 
 registration page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/Lighthouse_register-1.JPG.png)
 
 post_detail page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/Lighthouse_post_detail.JPG)
 
 news page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-35.png)
 
 login page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-36.png)
 
 index.html
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-37.png)
 
 gallery
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-38.png)
 
 events page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-39.png)
 
 delete 
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-40.png)
 
 change password page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-41.png)
 
 add_post page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-42.png)
 
 add_news
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-43.png)
 
 account page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-44.png)
 
 about page
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-45.png)
 
 edit
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-46.png)
 
 
 
@@ -500,7 +500,7 @@ edit
 
 W3 Markup Validator checks the markup validity of Web documents in HTML. As these html pages containing django pythonic / jinja template language, the validator returned MANY errors , which were all related to the django template language {{}} {%%} . See below example of html error referring to django template python code
 
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-49.png)
 
  In some instances it would return a seemingly legitimate html error, which could only be considered incorrect becuase its not considering the logic of a django python command within the same element. I ignored all of the errors relating to the template language and focused on strict html errors.
 
@@ -511,7 +511,7 @@ All pages passed , with minor corrections of closing tags on void elements and s
 
 W3C CSS Validator was used to check validity of stlye code laid out in style.css , per correct practices and check for errors. For my stylesheet it found one error for display:flexbox; which should have been display:flex; . This has now been corrected.
 
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/W3C_CSS_Validator_ss.JPG)
 
 
 ### Tests - Code Institute Python Linter
@@ -521,7 +521,7 @@ The code institute Python Linter was used to test Python validation with Pep8 st
 Most only had a few errors to correct but views.py had many errors - lines too long, white spaces, no space after : or before = , blank lines with white space, # with no space for comment. most all were corrected, except for a few line too long errors , specifically in the news filters sections , to filter by category. Unfortunately these were discovered close to the project submission so I have opted to leave them in as attempting to amend them is causing errors. In future I will come back to these to correct the syntax without line being too long
 
 
-![Image](<Wireframe home.JPG>)
+![Image](readme_images/image-52.png)
 
 
 ## Creation and deployment 
